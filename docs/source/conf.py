@@ -21,6 +21,7 @@ project = 'bits4docs'
 copyright = '2021, GlobalTech Translations'
 author = 'GlobalTech Translations'
 
+
 # The full version, including alpha/beta/rc tags
 release = '1.0'
 
@@ -36,7 +37,7 @@ import sys, os, sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('../..'))
 
 extensions = [
-	'myst_parser',
+    'myst_parser',
 	'sphinx_rtd_theme',
     'sphinx.ext.autosectionlabel',
 ]

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta content="Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks" name="description" />
+  <meta charset="utf-8" /><meta content="Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks" name="description" />
 <meta content="Git, commands, repository, versioning, documentation" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,7 +42,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Git in 30 minutes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#git-states">Git states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-git">Installing Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-git-on-linux">Installing Git on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initial-configuration">Initial configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git Basic commands</a></li>
 </ul>
@@ -73,14 +72,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="git-in-30-minutes">
+  <div class="section" id="git-in-30-minutes">
 <h1>Git in 30 minutes<a class="headerlink" href="#git-in-30-minutes" title="Permalink to this headline"></a></h1>
-<section id="short-introduction">
+<a class="reference internal image-reference" href="_images/git-tutorial.png"><img alt="Git logo" class="align-center" src="_images/git-tutorial.png" style="width: 105.0px; height: 44.0px;" /></a>
+<div class="section" id="short-introduction">
 <h2>Short introduction<a class="headerlink" href="#short-introduction" title="Permalink to this headline"></a></h2>
 <p>Git is a <abbr title="Version Control System">VCS</abbr>. Basically, a version control system allows you to trace back all the changes that you have made to your project. Git was initially introduced in the Linux community as a revision control system for kernel development.</p>
 <p>Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.</p>
-</section>
-<section id="git-states">
+</div>
+<div class="section" id="git-states">
 <h2>Git states<a class="headerlink" href="#git-states" title="Permalink to this headline"></a></h2>
 <p>In a Git workflow, your files will basically go through 3 different states:</p>
 <ul class="simple">
@@ -89,9 +89,9 @@
 <li><p>Committed: once you commit your changes, Git will save the staged files in the Git directory.</p></li>
 </ul>
 <p>The Git directory is a hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code> at the top level of your working tree.</p>
-</section>
-<section id="installing-git">
-<h2>Installing Git<a class="headerlink" href="#installing-git" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="installing-git-on-linux">
+<h2>Installing Git on Linux<a class="headerlink" href="#installing-git-on-linux" title="Permalink to this headline"></a></h2>
 <p>To install Git on Debian based distros, run the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt install git-all
@@ -102,8 +102,8 @@
 <span class="gp">$ </span>sudo dnf install git-all
 </pre></div>
 </div>
-</section>
-<section id="initial-configuration">
+</div>
+<div class="section" id="initial-configuration">
 <h2>Initial configuration<a class="headerlink" href="#initial-configuration" title="Permalink to this headline"></a></h2>
 <p>Git ships with a tool called <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> that allows you to set multiple configuration variables. These variables control how Git looks and behaves.</p>
 <p>Depending on your system, the configuration variables will be stored at different locations. For further details about the topic, check Git’s official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>.</p>
@@ -116,15 +116,15 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>git config --list
 </pre></div>
 </div>
-</section>
-<section id="git-basic-commands">
+</div>
+<div class="section" id="git-basic-commands">
 <h2>Git Basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h2>
 <p>Here are the most essential commands that will get you up and running within minutes.</p>
 <p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git init
 </pre></div>
 </div>
-<p>To add all the available files in your directory to Git, type the command:</p>
+<p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add -A
 </pre></div>
 </div>
@@ -133,8 +133,111 @@
 </pre></div>
 </div>
 <p>Either way, the files existing in your project’s folder will be added recursively to Git’s index.</p>
-</section>
-</section>
+<p>To add a single file called ‘foo’, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add foo
+</pre></div>
+</div>
+<p>To commit your changes with a message, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git commit -m <span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not insert a commit message at the time of committing your files, i.e. if you only type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, Git will launch the defaut text editor that is set in your environment variables.</p>
+</div>
+<p>If you want to check the status of the project’s files, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status
+</pre></div>
+</div>
+<p>You will then get something like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> On branch maindoc</span>
+<span class="go"> Changes not staged for commit:</span>
+<span class="gp gp-VirtualEnv">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="gp gp-VirtualEnv">(use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go"> modified:   build/doctrees/environment.pickle</span>
+<span class="go"> modified:   build/doctrees/gitcommands.doctree</span>
+<span class="go"> modified:   build/doctrees/index.doctree</span>
+<span class="go"> modified:   build/html/_sources/gitcommands.rst.txt</span>
+<span class="go"> modified:   build/html/_static/pygments.css</span>
+<span class="go"> modified:   build/html/gitcommands.html</span>
+<span class="go"> modified:   build/html/index.html</span>
+<span class="go"> modified:   build/html/objects.inv</span>
+<span class="go"> modified:   build/html/searchindex.js</span>
+<span class="go"> modified:   source/conf.py</span>
+<span class="go"> modified:   source/gitcommands.rst</span>
+</pre></div>
+</div>
+<p>The previous command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> provides a verbose description. If you prefer a shorter version, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status -s
+</pre></div>
+</div>
+<p>This will you give you the following result:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">M build/doctrees/environment.pickle</span>
+<span class="go">M build/doctrees/gitcommands.doctree</span>
+<span class="go">M build/doctrees/index.doctree</span>
+<span class="go">M build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">M build/html/_static/pygments.css</span>
+<span class="go">M build/html/gitcommands.html</span>
+<span class="go">M build/html/index.html</span>
+<span class="go">M build/html/objects.inv</span>
+<span class="go">M build/html/searchindex.js</span>
+<span class="go">M source/conf.py</span>
+<span class="go">M source/gitcommands.rst</span>
+</pre></div>
+</div>
+<p>The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code> in this case.</p>
+<p>To compare your local index with the repository, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git diff
+</pre></div>
+</div>
+<p>You will then get a result similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">diff --git a/docs/build/doctrees/environment.pickle b/docs/build/doctrees/environment.pickle</span>
+<span class="go">index 76e71d8..ca8948d 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/environment.pickle and b/docs/build/doctrees/environment.pickle differ</span>
+<span class="go">diff --git a/docs/build/doctrees/gitcommands.doctree b/docs/build/doctrees/gitcommands.doctree</span>
+<span class="go">index b4e2fe0..5821717 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/gitcommands.doctree and b/docs/build/doctrees/gitcommands.doctree differ</span>
+<span class="go">diff --git a/docs/build/doctrees/index.doctree b/docs/build/doctrees/index.doctree</span>
+<span class="go">index dc2937d..d476ecb 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/index.doctree and b/docs/build/doctrees/index.doctree differ</span>
+<span class="go">diff --git a/docs/build/html/_sources/gitcommands.rst.txt b/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">index 9a17fde..962687d 100644</span>
+<span class="go">--- a/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">+++ b/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">@@ -24,8 +24,8 @@ In a Git workflow, your files will basically go through 3 diff</span>
+</pre></div>
+</div>
+<p>If you want the same result in a table format, add the option <code class="docutils literal notranslate"><span class="pre">--stat</span></code> to the initial command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git diff --stat
+</pre></div>
+</div>
+<p>The command above will display something similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docs/build/doctrees/environment.pickle        | Bin 15477 -&gt; 15570 bytes</span>
+<span class="go">docs/build/doctrees/gitcommands.doctree      | Bin 14576 -&gt; 20749 bytes</span>
+<span class="go">docs/build/doctrees/index.doctree             | Bin 9193 -&gt; 8977 bytes</span>
+<span class="go">docs/build/html/_sources/gitcommands.rst.txt |  78 ++++++++++++++++++++++-</span>
+<span class="go">docs/build/html/_static/pygments.css          |   6 +-</span>
+<span class="go">docs/build/html/gitcommands.html             |  86 +++++++++++++++++++++-----</span>
+<span class="go">docs/build/html/index.html                    |   9 ++-</span>
+<span class="go">docs/build/html/objects.inv                   | Bin 402 -&gt; 414 bytes</span>
+<span class="go">docs/build/html/searchindex.js                |   2 +-</span>
+<span class="go">docs/source/conf.py                           |   2 +-</span>
+<span class="go">docs/source/gitcommands.rst                  |  78 ++++++++++++++++++++++-</span>
+<span class="go">11 files changed, 228 insertions(+), 33 deletions(-)</span>
+</pre></div>
+</div>
+<p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, or <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology. <code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a new branch from the main branch. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
+<p>To view all current branches, type the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+</pre></div>
+</div>
+<p>If you want to create a new branch and switch to it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;new-branch&gt;
+</pre></div>
+</div>
+<p>The Git command <code class="docutils literal notranslate"><span class="pre">checkout</span></code> allows you to switch to a different branch, which then becomes the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> branch. <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a special pointer that points to the branch you are currently on.</p>
+</div>
+</div>
 
 
            </div>

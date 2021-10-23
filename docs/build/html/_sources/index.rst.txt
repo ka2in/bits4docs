@@ -14,7 +14,7 @@ You will find here articles, tutorials and other resources about the following t
 
 **About the author:**
 
-Fayçal Alami-Hassani - `@gnufcl@fosstodon.org <https://fosstodon.org/@gnufcl>`_
+`Fayçal Alami-Hassani <https://globaltech-translations.com>`_ - `@gnufcl@fosstodon.org <https://fosstodon.org/@gnufcl>`_ 
 
 - Technical communicator, translator and interpreter
 - Markup: reStructuredText, Markdown, DocBook, XML
