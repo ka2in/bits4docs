@@ -5,7 +5,7 @@
 <meta content="Git, commands, repository, versioning, documentation" name="keywords" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Git in 30 minutes &mdash; bits4docs 1.0 documentation</title>
+  <title>Git Primer for the Impatient &mdash; bits4docs 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -39,12 +39,23 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Git in 30 minutes</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Git Primer for the Impatient</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#git-states">Git states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-git-on-linux">Installing Git on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initial-configuration">Initial configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git Basic commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-files">Add files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-the-status">Check the status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -63,7 +74,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Git in 30 minutes</li>
+      <li>Git Primer for the Impatient</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -72,8 +83,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="git-in-30-minutes">
-<h1>Git in 30 minutes<a class="headerlink" href="#git-in-30-minutes" title="Permalink to this headline"></a></h1>
+  <div class="section" id="git-primer-for-the-impatient">
+<h1>Git Primer for the Impatient<a class="headerlink" href="#git-primer-for-the-impatient" title="Permalink to this headline"></a></h1>
 <a class="reference internal image-reference" href="_images/git-tutorial.png"><img alt="Git logo" class="align-center" src="_images/git-tutorial.png" style="width: 105.0px; height: 44.0px;" /></a>
 <div class="section" id="short-introduction">
 <h2>Short introduction<a class="headerlink" href="#short-introduction" title="Permalink to this headline"></a></h2>
@@ -90,8 +101,8 @@
 </ul>
 <p>The Git directory is a hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code> at the top level of your working tree.</p>
 </div>
-<div class="section" id="installing-git-on-linux">
-<h2>Installing Git on Linux<a class="headerlink" href="#installing-git-on-linux" title="Permalink to this headline"></a></h2>
+<div class="section" id="installation-on-linux">
+<h2>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permalink to this headline"></a></h2>
 <p>To install Git on Debian based distros, run the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt install git-all
@@ -120,10 +131,26 @@
 <div class="section" id="git-basic-commands">
 <h2>Git Basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h2>
 <p>Here are the most essential commands that will get you up and running within minutes.</p>
+<div class="section" id="initialize-a-new-repository">
+<h3>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h3>
 <p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git init
 </pre></div>
 </div>
+</div>
+<div class="section" id="clone-an-existing-repository">
+<h3>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h3>
+<p>To clone an existing repository, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone &lt;URL&gt;
+</pre></div>
+</div>
+<p>For instance, if we want to clone the documentation repository from the collaboration platform <em>Codeberg</em>, then we will type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://codeberg.org/Codeberg/Documentation.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-files">
+<h3>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h3>
 <p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add -A
 </pre></div>
@@ -137,6 +164,9 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add foo
 </pre></div>
 </div>
+</div>
+<div class="section" id="commit-changes">
+<h3>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h3>
 <p>To commit your changes with a message, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git commit -m <span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
 </pre></div>
@@ -145,6 +175,9 @@
 <p class="admonition-title">Note</p>
 <p>If you do not insert a commit message at the time of committing your files, i.e. if you only type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, Git will launch the defaut text editor that is set in your environment variables.</p>
 </div>
+</div>
+<div class="section" id="check-the-status">
+<h3>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h3>
 <p>If you want to check the status of the project’s files, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status
 </pre></div>
@@ -167,7 +200,11 @@
 <span class="go"> modified:   source/gitcommands.rst</span>
 </pre></div>
 </div>
-<p>The previous command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> provides a verbose description. If you prefer a shorter version, type the following command:</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> provides the default description. To get a verbose description, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status -v
+</pre></div>
+</div>
+<p>If you prefer a shorter description, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status -s
 </pre></div>
 </div>
@@ -185,7 +222,10 @@
 <span class="go">M source/gitcommands.rst</span>
 </pre></div>
 </div>
-<p>The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code> in this case.</p>
+<p>In the example above, The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code>.</p>
+</div>
+<div class="section" id="compare-with-diff">
+<h3>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h3>
 <p>To compare your local index with the repository, type the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git diff
 </pre></div>
@@ -226,16 +266,56 @@
 <span class="go">11 files changed, 228 insertions(+), 33 deletions(-)</span>
 </pre></div>
 </div>
-<p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, or <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology. <code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a new branch from the main branch. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
+</div>
+<div class="section" id="manage-branches">
+<h3>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h3>
+<p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, also called <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology.</p>
 <p>To view all current branches, type the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
 </pre></div>
 </div>
-<p>If you want to create a new branch and switch to it:</p>
+<p>If you want to create a new branch and switch to it, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;new-branch&gt;
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The Git command <code class="docutils literal notranslate"><span class="pre">checkout</span></code> allows you to switch to a different branch, which then becomes the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> branch. <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a special pointer that points to the branch you are currently on.</p>
+</div>
+</div>
+<div class="section" id="fork-from-a-repository">
+<h3>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
+</div>
+<div class="section" id="manage-remotes">
+<h3>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h3>
+<p>Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.</p>
+<p>To set a remote repository, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;URL&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the context of Git hosting platforms, <code class="docutils literal notranslate"><span class="pre">origin</span></code> designates your own fork, while <code class="docutils literal notranslate"><span class="pre">upstream</span></code> refers to the original repository that you have forked.</p>
+</div>
+<p>To verify the remote repository, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+<p>You will then get a result similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span>   <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codeberg</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Codeberg</span><span class="o">/</span><span class="n">Documentation</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">origin</span>   <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codeberg</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Codeberg</span><span class="o">/</span><span class="n">Documentation</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To set a different repo, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote set-url origin &lt;URL&gt;
+</pre></div>
+</div>
+<p>To delete references to remote branches that no longer exist, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">prune</span> <span class="n">origin</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
