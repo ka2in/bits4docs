@@ -2,9 +2,9 @@
    :description: Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks
    :keywords: Git, commands, repository, versioning, documentation
 
-#################
-Git in 30 minutes
-#################
+
+Git Primer for the Impatient
+============================
 
 .. image:: git-tutorial.png
    :alt: Git logo
@@ -14,23 +14,30 @@ Git in 30 minutes
 Short introduction
 ==================
 
-Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to trace back all the changes that you have made to your project. Git was initially introduced in the Linux community as a revision control system for kernel development. 
+Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
-Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
+* creating a copy of the original project 
+* tracking all the changes that you have made to the project
+* keeping track of previous versions of the project
+* marking milestones during the development cycle 
+
+Git was initially introduced in the Linux community as a revision control system for kernel development. Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. 
+
+With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
 ==========
 
 In a Git workflow, your files will basically go through 3 different states:
 
-* Modified: this is when you make changes to the files in your working directory; 
-* Staged: in this intermediate state, Git saves snapshots of the modified files in the staging area;
-* Committed: once you commit your changes, Git will save the staged files in the Git directory. 
+* Modified: This is when you make changes to the files in your working directory. 
+* Staged: In this intermediate state, Git saves snapshots of the modified files in the staging area.
+* Committed: Once you commit your changes, Git will save the staged files in the Git directory. 
 
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
-Installing Git on Linux
-=======================
+Installation on Linux
+=====================
 
 To install Git on Debian based distros, run the following commands:
 
@@ -66,16 +73,38 @@ To check all your personal settings, type the following command:
 
    $  git config --list
 
-Git Basic commands
+Git basic commands
 ==================
 
 Here are the most essential commands that will get you up and running within minutes.
+
+Initialize a new repository
+---------------------------
 
 If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:
 
 .. code-block:: console
 
    $ git init
+
+Clone an existing repository
+----------------------------
+
+To clone an existing repository, type the command:
+
+.. code-block:: console
+
+   $ git clone <URL>
+
+For instance, if we want to clone the documentation repository from the collaboration platform *Codeberg*, then we will type the following command:
+
+.. code-block:: console
+
+   $ git clone https://codeberg.org/Codeberg/Documentation.git
+
+
+Add files
+---------
 
 Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:
 
@@ -97,6 +126,9 @@ To add a single file called 'foo', type the command:
 
    $ git add foo
 
+Commit changes
+--------------
+
 To commit your changes with a message, type the command:
 
 .. code-block:: console
@@ -105,7 +137,10 @@ To commit your changes with a message, type the command:
 
 .. note::
 
-   If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the defaut text editor that is set in your environment variables. 
+   If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the defaut text editor that is set in your environment variables.
+
+Check the status
+---------------- 
 
 If you want to check the status of the project's files, type the command:
 
@@ -133,7 +168,14 @@ You will then get something like this:
    modified:   source/conf.py
    modified:   source/gitcommands.rst
 
-The previous command ``git status`` provides a verbose description. If you prefer a shorter version, type the following command:
+The command ``git status`` provides the default description. To get a verbose description, type the following command:
+
+.. code-block:: console
+
+   $ git status -v
+
+
+If you prefer a shorter description, type the command:
 
 .. code-block:: console
 
@@ -155,7 +197,10 @@ This will you give you the following result:
    M source/conf.py
    M source/gitcommands.rst
 
-The letter **M** at the beginning of each line means ``Modified`` in this case.
+In the example above, The letter **M** at the beginning of each line means ``Modified``.
+
+Compare with 'diff'
+-------------------
 
 To compare your local index with the repository, type the following command:
 
@@ -206,7 +251,10 @@ The command above will display something similar to this:
    docs/source/gitcommands.rst                  |  78 ++++++++++++++++++++++-
    11 files changed, 228 insertions(+), 33 deletions(-)
 
-At the beginning of each project, you will have a ``master branch``, or ``main branch`` in newer terminology. ``Forking`` is the process of creating a new branch from the main branch. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a ``pull request``.
+Manage branches
+---------------
+
+At the beginning of each project, you will have a ``master branch``, also called ``main branch`` in newer terminology.
 
 To view all current branches, type the following command:
 
@@ -214,18 +262,60 @@ To view all current branches, type the following command:
 
    $ git branch -a 
 
-If you want to create a new branch and switch to it:
+If you want to create a new branch and switch to it, type the command:
 
 .. code-block::
 
    $ git checkout -b <new-branch>
 
-The Git command ``checkout`` allows you to switch to a different branch, which then becomes the ``HEAD`` branch. ``HEAD`` is a special pointer that points to the branch you are currently on.  
+.. note:: 
+   
+   The Git command ``checkout`` allows you to switch to a different branch, which then becomes the ``HEAD`` branch. ``HEAD`` is a special pointer that points to the branch you are currently on.
+
+Fork from a repository
+----------------------
+
+``Forking`` is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a ``pull request``.     
+
+Manage remotes
+--------------
+
+Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.
+
+To set a remote repository, type the command:
+
+.. code-block::
+
+   $ git remote add origin <URL>
 
 
+.. note:: 
+   
+   In the context of Git hosting platforms, ``origin`` designates your own fork, while ``upstream`` refers to the original repository that you have forked.
 
+To verify the remote repository, type the command:
 
+.. code-block::
 
+   $ git remote -v
 
+You will then get a result similar to this:
 
+.. code-block::
+   
+   origin   https://codeberg.org/Codeberg/Documentation.git (fetch)
+   origin   https://codeberg.org/Codeberg/Documentation.git (push)
 
+Note that the output contains 2 different terms at the end of each line, which are ``fetch`` and ``push``: ``fetch`` is the action of getting data from the remote repository, while ``push`` means sending data to the remote. 
+
+If you want to set a different repo, type the command:
+
+.. code-block::
+
+   $ git remote set-url origin <URL>
+
+To delete references to remote branches that no longer exist, use the command:
+
+.. code-block::
+
+   git remote prune origin

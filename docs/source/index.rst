@@ -14,7 +14,7 @@ You will find here articles, tutorials and other resources about the following t
 
 **About the author:**
 
-`Fayçal Alami-Hassani <https://globaltech-translations.com>`_ - `@gnufcl@fosstodon.org <https://fosstodon.org/@gnufcl>`_ 
+Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translations.com>`_ - `@gnufcl@fosstodon.org <https://fosstodon.org/@gnufcl>`_ 
 
 - Technical communicator, translator and interpreter
 - Markup: reStructuredText, Markdown, DocBook, XML
@@ -32,7 +32,14 @@ You will find here articles, tutorials and other resources about the following t
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Table of Contents
+   :caption: Git
+   :hidden:
 
    gitinminutes
+   
+.. toctree::
+   :caption: Compression and Metadata
+   :hidden:
+
+   metadata-compression
+   
