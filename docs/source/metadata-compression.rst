@@ -99,7 +99,7 @@ PDF forensics and safety measures
 
 As a general rule of thumb, you should never, ever open PDF files in a productive environment, even if you receive such files from people you trust. The reason for this is pretty obvious, since the people you trust may themselves not be aware of the presence of a payload that is embedded in the PDF file. 
 
-For PDF files that do not contain any sensitive information, you can analyze the suspicious files on `VirusTotal <htttps://www.virustotal.com/>`_. Beware though, that hackers also run a preliminary test on VirusTotal to check if their malicious payload will be flagged.  
+For PDF files that do not contain any sensitive information, you can analyze the suspicious files on `VirusTotal <https://www.virustotal.com/>`_. Beware though, that hackers also run a preliminary test on VirusTotal to check if their malicious payload will be flagged.  
 
 For an in-depth analysis, it is recommended to use forensic tools such as ``pdfid.py`` in combination with the PDF parser ``pdf-parser.py`` from `Didier Stevens <https://blog.didierstevens.com/programs/pdf-tools/>`_. 
 
