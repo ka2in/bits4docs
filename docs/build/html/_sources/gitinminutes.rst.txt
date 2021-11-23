@@ -2,9 +2,9 @@
    :description: Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks
    :keywords: Git, commands, repository, versioning, documentation
 
-############################
+
 Git Primer for the Impatient
-############################
+============================
 
 .. image:: git-tutorial.png
    :alt: Git logo
@@ -14,18 +14,25 @@ Git Primer for the Impatient
 Short introduction
 ==================
 
-Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to trace back all the changes that you have made to your project. Git was initially introduced in the Linux community as a revision control system for kernel development. 
+Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
-Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
+* creating a copy of the original project 
+* tracking all the changes that you have made to the project
+* keeping track of previous versions of the project
+* marking milestones during the development cycle 
+
+Git was initially introduced in the Linux community as a revision control system for kernel development. Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. 
+
+With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
 ==========
 
 In a Git workflow, your files will basically go through 3 different states:
 
-* Modified: this is when you make changes to the files in your working directory; 
-* Staged: in this intermediate state, Git saves snapshots of the modified files in the staging area;
-* Committed: once you commit your changes, Git will save the staged files in the Git directory. 
+* Modified: This is when you make changes to the files in your working directory. 
+* Staged: In this intermediate state, Git saves snapshots of the modified files in the staging area.
+* Committed: Once you commit your changes, Git will save the staged files in the Git directory. 
 
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
@@ -66,7 +73,7 @@ To check all your personal settings, type the following command:
 
    $  git config --list
 
-Git Basic commands
+Git basic commands
 ==================
 
 Here are the most essential commands that will get you up and running within minutes.
@@ -299,23 +306,16 @@ You will then get a result similar to this:
    origin   https://codeberg.org/Codeberg/Documentation.git (fetch)
    origin   https://codeberg.org/Codeberg/Documentation.git (push)
 
-To set a different repo, type the command:
+Note that the output contains 2 different terms at the end of each line, which are ``fetch`` and ``push``: ``fetch`` is the action of getting data from the remote repository, while ``push`` means sending data to the remote. 
+
+If you want to set a different repo, type the command:
 
 .. code-block::
 
    $ git remote set-url origin <URL>
 
-To delete references to remote branches that no longer exist, type the command:
+To delete references to remote branches that no longer exist, use the command:
 
 .. code-block::
 
    git remote prune origin
-
-
-
-
-
-
-
-
-

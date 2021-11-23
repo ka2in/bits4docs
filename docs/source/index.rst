@@ -32,7 +32,14 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Table of Contents
+   :caption: Git
+   :hidden:
 
    gitinminutes
+   
+.. toctree::
+   :caption: Compression and Metadata
+   :hidden:
+
+   metadata-compression
+   

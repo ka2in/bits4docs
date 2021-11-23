@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compression and Metadata Removal" href="metadata-compression.html" />
     <link rel="prev" title="Welcome to bits4docs!" href="index.html" /> 
 </head>
 
@@ -37,27 +38,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Git</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Git Primer for the Impatient</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#git-states">Git states</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#initial-configuration">Initial configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git Basic commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-files">Add files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check-the-status">Check the status</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Git Primer for the Impatient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#git-states">Git states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#initial-configuration">Initial configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#git-basic-commands">Git basic commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-files">Add files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-the-status">Check the status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
 </ul>
 </li>
 </ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">Compression and Metadata</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression and Metadata Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#short-introduction">Short introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#git-states">Git states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#installation-on-linux">Installation on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#initial-configuration">Initial configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#git-basic-commands">Git basic commands</a></li>
 </ul>
 
         </div>
@@ -86,23 +94,31 @@
   <div class="section" id="git-primer-for-the-impatient">
 <h1>Git Primer for the Impatient<a class="headerlink" href="#git-primer-for-the-impatient" title="Permalink to this headline"></a></h1>
 <a class="reference internal image-reference" href="_images/git-tutorial.png"><img alt="Git logo" class="align-center" src="_images/git-tutorial.png" style="width: 105.0px; height: 44.0px;" /></a>
+</div>
 <div class="section" id="short-introduction">
-<h2>Short introduction<a class="headerlink" href="#short-introduction" title="Permalink to this headline"></a></h2>
-<p>Git is a <abbr title="Version Control System">VCS</abbr>. Basically, a version control system allows you to trace back all the changes that you have made to your project. Git was initially introduced in the Linux community as a revision control system for kernel development.</p>
-<p>Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system. With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.</p>
+<h1>Short introduction<a class="headerlink" href="#short-introduction" title="Permalink to this headline"></a></h1>
+<p>Git is a <abbr title="Version Control System">VCS</abbr>. Basically, a version control system allows you to perform a number of essential tasks, including:</p>
+<ul class="simple">
+<li><p>creating a copy of the original project</p></li>
+<li><p>tracking all the changes that you have made to the project</p></li>
+<li><p>keeping track of previous versions of the project</p></li>
+<li><p>marking milestones during the development cycle</p></li>
+</ul>
+<p>Git was initially introduced in the Linux community as a revision control system for kernel development. Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system.</p>
+<p>With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.</p>
 </div>
 <div class="section" id="git-states">
-<h2>Git states<a class="headerlink" href="#git-states" title="Permalink to this headline"></a></h2>
+<h1>Git states<a class="headerlink" href="#git-states" title="Permalink to this headline"></a></h1>
 <p>In a Git workflow, your files will basically go through 3 different states:</p>
 <ul class="simple">
-<li><p>Modified: this is when you make changes to the files in your working directory;</p></li>
-<li><p>Staged: in this intermediate state, Git saves snapshots of the modified files in the staging area;</p></li>
-<li><p>Committed: once you commit your changes, Git will save the staged files in the Git directory.</p></li>
+<li><p>Modified: This is when you make changes to the files in your working directory.</p></li>
+<li><p>Staged: In this intermediate state, Git saves snapshots of the modified files in the staging area.</p></li>
+<li><p>Committed: Once you commit your changes, Git will save the staged files in the Git directory.</p></li>
 </ul>
 <p>The Git directory is a hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code> at the top level of your working tree.</p>
 </div>
 <div class="section" id="installation-on-linux">
-<h2>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permalink to this headline"></a></h2>
+<h1>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permalink to this headline"></a></h1>
 <p>To install Git on Debian based distros, run the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt install git-all
@@ -115,7 +131,7 @@
 </div>
 </div>
 <div class="section" id="initial-configuration">
-<h2>Initial configuration<a class="headerlink" href="#initial-configuration" title="Permalink to this headline"></a></h2>
+<h1>Initial configuration<a class="headerlink" href="#initial-configuration" title="Permalink to this headline"></a></h1>
 <p>Git ships with a tool called <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> that allows you to set multiple configuration variables. These variables control how Git looks and behaves.</p>
 <p>Depending on your system, the configuration variables will be stored at different locations. For further details about the topic, check Git’s official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>.</p>
 <p>Once you have installed Git, you should set your credentials by indicating your <strong>user name</strong> and <strong>email</strong>. To do so, type the following commands:</p>
@@ -129,17 +145,17 @@
 </div>
 </div>
 <div class="section" id="git-basic-commands">
-<h2>Git Basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h2>
+<h1>Git basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h1>
 <p>Here are the most essential commands that will get you up and running within minutes.</p>
 <div class="section" id="initialize-a-new-repository">
-<h3>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h3>
+<h2>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h2>
 <p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git init
 </pre></div>
 </div>
 </div>
 <div class="section" id="clone-an-existing-repository">
-<h3>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h3>
+<h2>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h2>
 <p>To clone an existing repository, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone &lt;URL&gt;
 </pre></div>
@@ -150,7 +166,7 @@
 </div>
 </div>
 <div class="section" id="add-files">
-<h3>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h3>
+<h2>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h2>
 <p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add -A
 </pre></div>
@@ -166,7 +182,7 @@
 </div>
 </div>
 <div class="section" id="commit-changes">
-<h3>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h3>
+<h2>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h2>
 <p>To commit your changes with a message, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git commit -m <span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
 </pre></div>
@@ -177,7 +193,7 @@
 </div>
 </div>
 <div class="section" id="check-the-status">
-<h3>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h3>
+<h2>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h2>
 <p>If you want to check the status of the project’s files, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status
 </pre></div>
@@ -225,7 +241,7 @@
 <p>In the example above, The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code>.</p>
 </div>
 <div class="section" id="compare-with-diff">
-<h3>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h3>
+<h2>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h2>
 <p>To compare your local index with the repository, type the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git diff
 </pre></div>
@@ -268,7 +284,7 @@
 </div>
 </div>
 <div class="section" id="manage-branches">
-<h3>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h3>
+<h2>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h2>
 <p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, also called <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology.</p>
 <p>To view all current branches, type the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
@@ -284,11 +300,11 @@
 </div>
 </div>
 <div class="section" id="fork-from-a-repository">
-<h3>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h3>
+<h2>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
 </div>
 <div class="section" id="manage-remotes">
-<h3>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h3>
+<h2>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h2>
 <p>Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.</p>
 <p>To set a remote repository, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;URL&gt;
@@ -307,14 +323,14 @@
 <span class="n">origin</span>   <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codeberg</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Codeberg</span><span class="o">/</span><span class="n">Documentation</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To set a different repo, type the command:</p>
+<p>Note that the output contains 2 different terms at the end of each line, which are <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code>: <code class="docutils literal notranslate"><span class="pre">fetch</span></code> is the action of getting data from the remote repository, while <code class="docutils literal notranslate"><span class="pre">push</span></code> means sending data to the remote.</p>
+<p>If you want to set a different repo, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote set-url origin &lt;URL&gt;
 </pre></div>
 </div>
-<p>To delete references to remote branches that no longer exist, type the command:</p>
+<p>To delete references to remote branches that no longer exist, use the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">prune</span> <span class="n">origin</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -324,6 +340,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to bits4docs!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="metadata-compression.html" class="btn btn-neutral float-right" title="Compression and Metadata Removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
