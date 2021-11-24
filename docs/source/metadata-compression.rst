@@ -63,9 +63,9 @@ Depending on your work scenario, you can achieve the best results in terms of fi
 Metadata and privacy implications
 =================================
 
-Metadata reveals more about you than you might think. Here is an example of the metadata that was extracted from an image file taken by a conventional smartphone: ``Image Type`` ``Width`` ``Height`` ``Exposure Time`` ``Aperture Value`` ``ISO Speed Rating`` ``Flash Fired`` ``Metering Mode`` ``Exposure Program`` ``Focal Length`` ``Software`` ``Camera Brand`` ``Camera Model`` ``Date Taken``.
+Metadata reveal more about you than you might imagine. Here is an example of the metadata that were extracted from an image file taken by a conventional smartphone: ``Image Type`` ``Width`` ``Height`` ``Exposure Time`` ``Aperture Value`` ``ISO Speed Rating`` ``Flash Fired`` ``Metering Mode`` ``Exposure Program`` ``Focal Length`` ``Software`` ``Camera Brand`` ``Camera Model`` ``Date Taken``.
 
-With this information at hand, malicious users can easily look for the the most recent security vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
+With this information at hand, malicious users can easily search for the the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
 
 Metadata removal with mat2
 ---------------------------
@@ -97,9 +97,9 @@ Then mat2 will generate a new file called *foo.cleaned.pdf*.
 PDF forensics and safety measures
 ---------------------------------
 
-As a general rule of thumb, you should never, ever open PDF files in a productive environment, even if you receive such files from people you trust. The reason for this is pretty obvious, since the people you trust may themselves not be aware of the presence of a payload that is embedded in the PDF file. 
+As a general rule of thumb, you should never, ever open PDF files in a productive environment, even if you receive such files from people you trust. The reason for this is pretty obvious, since the persons you trust may themselves not be aware of the presence of an embedded payload in the PDF file. 
 
-For PDF files that do not contain any sensitive information, you can analyze the suspicious files on `VirusTotal <https://www.virustotal.com/>`_. Beware though, that hackers also run a preliminary test on VirusTotal to check if their malicious payload will be flagged.  
+For PDF files that do not contain any sensitive information, you can run a check on `VirusTotal <https://www.virustotal.com/>`_. Beware though, that hackers also run a preliminary test on VirusTotal to make sure that their malicious payloads will not be flagged.  
 
 For an in-depth analysis, it is recommended to use forensic tools such as ``pdfid.py`` in combination with the PDF parser ``pdf-parser.py`` from `Didier Stevens <https://blog.didierstevens.com/programs/pdf-tools/>`_. 
 
@@ -107,7 +107,7 @@ For an in-depth analysis, it is recommended to use forensic tools such as ``pdfi
 
    Even when using your tools of choice to analyze suspicious PDF files, you should always perform your analysis on a virtual environment or in a sandbox, with no connection to any other devices or a network. Remember, never run these tests on a productive environment!
 
-As a safety measure, check also if your PDF reader supports JavaScript by default and disable it. There are also multiple open-source PDF readers that do not support JavaScript at all.
+As a safety measure, check also if your PDF reader supports JavaScript by default and disable it. There are also multiple open-source PDF readers that do not render JavaScript at all.
 
 
 
