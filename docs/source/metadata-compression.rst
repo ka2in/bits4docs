@@ -107,7 +107,11 @@ For an in-depth analysis, it is recommended to use forensic tools such as ``pdfi
 
    Even when using your tools of choice to analyze suspicious PDF files, you should always perform your analysis on a virtual environment or in a sandbox, with no connection to any other devices or a network. Remember, never run these tests on a productive environment!
 
+<<<<<<< HEAD
 As a safety measure, check also if your PDF reader supports JavaScript by default and disable it. There are also multiple open-source PDF readers that do not render JavaScript at all.
+=======
+As a safety measure, check also if your PDF reader supports JavaScript by default and disable it. There are multiple open-source PDF readers that do not render JavaScript at all.
+>>>>>>> 3a3e3ff (changing metadata section)
 
 
 
