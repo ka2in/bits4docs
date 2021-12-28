@@ -43,3 +43,9 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
    metadata-compression
    
+.. toctree::
+   :caption: MTU and Connectivity
+   :hidden:
+
+   mtu-connectivity
+   
