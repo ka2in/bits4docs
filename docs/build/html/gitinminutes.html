@@ -329,11 +329,27 @@
 </pre></div>
 </div>
 <p>Note that the output contains 2 different terms at the end of each line, which are <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code>: <code class="docutils literal notranslate"><span class="pre">fetch</span></code> is the action of getting data from the remote repository, while <code class="docutils literal notranslate"><span class="pre">push</span></code> means sending data to the remote.</p>
+<p>To fetch data from your remote repository with its entire branches, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch &lt;remote&gt;
+</pre></div>
+</div>
+<p>If you want to fetch a specific branch from the remote repository, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fetch</span></code> command allows you to download the data to your local repository, but it does <strong>not</strong> alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.</p>
+</div>
+<p>To push your local commits to the remote repo, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
 <p>If you want to set a different repo, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote set-url origin &lt;URL&gt;
 </pre></div>
 </div>
-<p>To delete references to remote branches that no longer exist, use the command:</p>
+<p>In order to delete references to any remote branches that no longer exist, use the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">prune</span> <span class="n">origin</span>
 </pre></div>
 </div>

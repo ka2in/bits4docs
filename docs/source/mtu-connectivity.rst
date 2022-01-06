@@ -17,7 +17,7 @@ Factors impacting network connectivity
 
 Making changes to your network configuration can sometimes result in connection inconsistencies, such as a partial or complete loss of connectivity. The reasons for such incidents are multiple and range from DNS misconfiguration to inappropriate firewall rules or hardware failures, among other things. 
 
-One additional aspect that you should consider when some sites become unreachable after changing the network configuration is the MTU size. MTU stands for ``Maximum Transmission Unit`` and is a concept that relates to the `OSI reference model <https://www.redhat.com/sysadmin/osi-model-bean-dip>`_, `IP datagram size <https://www.linuxjunkies.org/network/tcpip/general-description-of-the-tcp-ip-protocols/>`_ and `IP fragmentation <https://packetpushers.net/ip-fragmentation-in-detail/>`_.     
+One additional aspect that you should consider when some sites become unreachable after changing the network configuration is the MTU size. MTU stands for ``Maximum Transmission Unit`` and is a concept that relates to the `OSI reference model <https://www.redhat.com/sysadmin/osi-model-bean-dip>`_, `IP datagram size <https://www.linuxjunkies.org/network/tcpip/general-description-of-the-tcp-ip-protocols/>`_ and `IP fragmentation <https://packetpushers.net/ip-fragmentation-in-detail/>`_.
 
 Analyzing network traffic
 -------------------------
@@ -37,7 +37,7 @@ Port mirroring is a technique that allows you to forward a copy of all inbound a
 Find out the MTU of your Ethernet interface
 -------------------------------------------
 
-In this particular case, it turned out that a connection timeout occured each time the client was trying to establish a connection with the destination server. This can happen when a gateway along the connection path is using an MTU smaller than the one we are using, and the IP datagram is not allowed to be fragmented.
+In this particular case, it turned out that a connection timeout occured each time the client was trying to establish a connection with the destination server. This can happen when a gateway along the connection path is using an MTU smaller than the one we are using, and the IPv4 datagram is not allowed to be fragmented (``DF flag`` set to "1"). An IPv4 datagram consists of two parts: a ``header`` and a ``payload``. The header contains fields that are essential for data transmission, while the payload encloses the actual data. The default MTU size for Ethernet is 1500 bytes.
 
 On Linux machines, you can check the MTU size of your ethernet interface through the following command:
 

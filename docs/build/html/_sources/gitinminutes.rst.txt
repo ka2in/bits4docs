@@ -308,13 +308,36 @@ You will then get a result similar to this:
 
 Note that the output contains 2 different terms at the end of each line, which are ``fetch`` and ``push``: ``fetch`` is the action of getting data from the remote repository, while ``push`` means sending data to the remote. 
 
+To fetch data from your remote repository with its entire branches, run the command:
+
+.. code-block::
+
+   $ git fetch <remote>
+
+If you want to fetch a specific branch from the remote repository, run the following command:
+
+.. code-block::
+
+   $ git fetch <remote> <branch>
+
+.. attention:: 
+
+   The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
+
+To push your local commits to the remote repo, run the following command:
+
+.. code-block::
+
+   $ git push <remote> <branch>
+
+
 If you want to set a different repo, type the command:
 
 .. code-block::
 
    $ git remote set-url origin <URL>
 
-To delete references to remote branches that no longer exist, use the command:
+In order to delete references to any remote branches that no longer exist, use the command:
 
 .. code-block::
 
