@@ -65,6 +65,16 @@ exclude_patterns = []
 
 html_theme = "sphinx_rtd_theme"
 
+# -- Adding options for TOC ------------------------------------------------
+
+html_theme_options = {
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -74,3 +84,8 @@ html_static_path = ['_static']
 #Disable the option 'View page source' on the homepage
 
 html_show_sourcelink = False
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+
+html_logo = "drawing-icon.png"
