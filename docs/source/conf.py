@@ -84,3 +84,8 @@ html_static_path = ['_static']
 #Disable the option 'View page source' on the homepage
 
 html_show_sourcelink = False
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+
+html_logo = "drawing-icon.png"
