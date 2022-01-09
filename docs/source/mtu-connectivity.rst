@@ -28,7 +28,9 @@ Port mirroring is a technique that allows you to forward a copy of all inbound a
 
 .. figure:: port-mirroring.svg
    :alt: Port Mirroring
-   :scale: 90%
+   :width: 276.8468mm
+   :height: 182.22717mm
+   :scale: 180%
    :align: center
 
    A simple network configuration for port mirroring 
@@ -37,7 +39,16 @@ Port mirroring is a technique that allows you to forward a copy of all inbound a
 Find out the MTU of your Ethernet interface
 -------------------------------------------
 
-In this particular case, it turned out that a connection timeout occured each time the client was trying to establish a connection with the destination server. This can happen when a gateway along the connection path is using an MTU smaller than the one we are using, and the IPv4 datagram is not allowed to be fragmented (``DF flag`` set to "1"). An IPv4 datagram consists of two parts: a ``header`` and a ``payload``. The header contains fields that are essential for data transmission, while the payload encloses the actual data. The default MTU size for Ethernet is 1500 bytes.
+In this particular case, it turned out that a connection timeout occured each time the client was trying to establish a connection with the destination server. This can happen when a gateway along the connection path is using an MTU smaller than the one we are using, and the IPv4 datagram is not allowed to be fragmented (``DF flag`` set to "1"). 
+
+.. figure:: mtu-difference.svg
+   :alt: MTU difference
+   :scale: 100%
+   :align: center
+
+   MTU difference along the transmission path
+
+An IPv4 datagram consists of two parts: a ``header`` and a ``payload``. The header contains fields that are essential for data transmission, while the payload encloses the actual data. The default MTU size for Ethernet is 1500 bytes.
 
 On Linux machines, you can check the MTU size of your ethernet interface through the following command:
 
@@ -93,7 +104,7 @@ Save and close the file, then restart the networking services by running the fol
 
 .. note::
 
-   The minimum allowed value for IPv6 is 1280.
+   The minimum allowed value for IPv6 is 1280. Moreover, IPv6 handles fragmentation in a completely different way to that of IPv4. For further information about the differences, check the article about `IP fragmentation <https://packetpushers.net/ip-fragmentation-in-detail/>`_. 
 
 
 .. |reg| unicode:: U+000AE .. REGISTERED SIGN
