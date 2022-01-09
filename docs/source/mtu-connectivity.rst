@@ -28,7 +28,9 @@ Port mirroring is a technique that allows you to forward a copy of all inbound a
 
 .. figure:: port-mirroring.svg
    :alt: Port Mirroring
-   :scale: 90%
+   :width: 276.8468mm
+   :height: 182.22717mm
+   :scale: 180%
    :align: center
 
    A simple network configuration for port mirroring 
