@@ -33,6 +33,13 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
 .. toctree::
    :maxdepth: 4
+   :caption: FTP vs. API
+   :hidden:
+
+   ftp-vs-api
+
+.. toctree::
+   :maxdepth: 4
    :caption: Git
    :hidden:
 
