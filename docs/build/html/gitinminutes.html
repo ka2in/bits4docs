@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Compression &amp; Metadata Removal" href="metadata-compression.html" />
-    <link rel="prev" title="Welcome to bits4docs!" href="index.html" /> 
+    <link rel="prev" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,25 +39,32 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Git</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FTP vs. API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html">FTP vs. API – differences in terms of data transmission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-an-old-well-established-protocol">FTP – an old, well-established protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-and-security">FTP and security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#api-more-access-options-for-a-better-customer-experience">API – more access options for a better customer experience</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Git</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Git Primer for the Impatient</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#git-states">Git states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#initial-configuration">Initial configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#git-basic-commands">Git basic commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#add-files">Add files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#check-the-status">Check the status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#initial-configuration">Initial configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git basic commands</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#add-files">Add files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#check-the-status">Check the status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compression and Metadata</span></p>
 <ul>
@@ -149,19 +156,20 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>git config --list
 </pre></div>
 </div>
-</div>
 <div class="section" id="git-basic-commands">
-<h1>Git basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h1>
+<h2>Git basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h2>
 <p>Here are the most essential commands that will get you up and running within minutes.</p>
+</div>
+</div>
 <div class="section" id="initialize-a-new-repository">
-<h2>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h2>
+<h1>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h1>
 <p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git init
 </pre></div>
 </div>
 </div>
 <div class="section" id="clone-an-existing-repository">
-<h2>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h2>
+<h1>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h1>
 <p>To clone an existing repository, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone &lt;URL&gt;
 </pre></div>
@@ -172,7 +180,7 @@
 </div>
 </div>
 <div class="section" id="add-files">
-<h2>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h2>
+<h1>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h1>
 <p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git add -A
 </pre></div>
@@ -188,7 +196,7 @@
 </div>
 </div>
 <div class="section" id="commit-changes">
-<h2>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h2>
+<h1>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h1>
 <p>To commit your changes with a message, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git commit -m <span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
 </pre></div>
@@ -199,7 +207,7 @@
 </div>
 </div>
 <div class="section" id="check-the-status">
-<h2>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h2>
+<h1>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h1>
 <p>If you want to check the status of the project’s files, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git status
 </pre></div>
@@ -247,7 +255,7 @@
 <p>In the example above, The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code>.</p>
 </div>
 <div class="section" id="compare-with-diff">
-<h2>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h2>
+<h1>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h1>
 <p>To compare your local index with the repository, type the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git diff
 </pre></div>
@@ -290,7 +298,7 @@
 </div>
 </div>
 <div class="section" id="manage-branches">
-<h2>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h2>
+<h1>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h1>
 <p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, also called <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology.</p>
 <p>To view all current branches, type the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
@@ -306,11 +314,11 @@
 </div>
 </div>
 <div class="section" id="fork-from-a-repository">
-<h2>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h2>
+<h1>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
 </div>
 <div class="section" id="manage-remotes">
-<h2>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h2>
+<h1>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h1>
 <p>Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.</p>
 <p>To set a remote repository, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;URL&gt;
@@ -355,13 +363,12 @@
 </pre></div>
 </div>
 </div>
-</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to bits4docs!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ftp-vs-api.html" class="btn btn-neutral float-left" title="FTP vs. API – differences in terms of data transmission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="metadata-compression.html" class="btn btn-neutral float-right" title="Compression &amp; Metadata Removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
