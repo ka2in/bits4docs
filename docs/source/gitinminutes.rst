@@ -4,7 +4,7 @@
 
 
 Git Primer for the Impatient
-============================
+----------------------------
 
 .. image:: git-tutorial.png
    :alt: Git logo
@@ -12,7 +12,7 @@ Git Primer for the Impatient
    :align: center
 
 Short introduction
-==================
+------------------
 
 Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
@@ -26,7 +26,7 @@ Git was initially introduced in the Linux community as a revision control system
 With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
-==========
+----------
 
 In a Git workflow, your files will basically go through 3 different states:
 
@@ -37,7 +37,7 @@ In a Git workflow, your files will basically go through 3 different states:
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
 Installation on Linux
-=====================
+---------------------
 
 To install Git on Debian based distros, run the following commands:
 
@@ -54,7 +54,7 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf install git-all
 
 Initial configuration
-=====================
+---------------------
 
 Git ships with a tool called ``git config`` that allows you to set multiple configuration variables. These variables control how Git looks and behaves. 
 
@@ -324,6 +324,19 @@ If you want to fetch a specific branch from the remote repository, run the follo
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
 
+If you want to pull a single file from the remote repo, check the current remote repo with the command:
+
+.. code-block::
+
+   $ git remote -v
+
+Once you have confirmed that ``origin`` is the name of your remote, run the following commands:
+
+.. code-block::
+
+   $ git fetch --all
+   $ git git checkout origin/main -- /path/to/your/file 
+
 To push your local commits to the remote repo, run the following command:
 
 .. code-block::
@@ -341,4 +354,19 @@ In order to delete references to any remote branches that no longer exist, use t
 
 .. code-block::
 
-   git remote prune origin
+   $ git remote prune origin
+
+Syncing your fork with upstream
+-------------------------------
+
+If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
+
+.. code-block::
+
+   $ git fetch upstream
+   $ git checkout main
+   $ git merge upstream/master
+
+.. note::
+
+   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub. 

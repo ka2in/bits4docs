@@ -4,7 +4,7 @@
 
 
 Git Primer for the Impatient
-============================
+----------------------------
 
 .. image:: git-tutorial.png
    :alt: Git logo
@@ -12,7 +12,7 @@ Git Primer for the Impatient
    :align: center
 
 Short introduction
-==================
+------------------
 
 Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
@@ -26,7 +26,7 @@ Git was initially introduced in the Linux community as a revision control system
 With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
-==========
+----------
 
 In a Git workflow, your files will basically go through 3 different states:
 
@@ -37,7 +37,7 @@ In a Git workflow, your files will basically go through 3 different states:
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
 Installation on Linux
-=====================
+---------------------
 
 To install Git on Debian based distros, run the following commands:
 
@@ -54,7 +54,7 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf install git-all
 
 Initial configuration
-=====================
+---------------------
 
 Git ships with a tool called ``git config`` that allows you to set multiple configuration variables. These variables control how Git looks and behaves. 
 

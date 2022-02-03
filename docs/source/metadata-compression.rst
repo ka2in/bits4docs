@@ -3,7 +3,7 @@
    :keywords: compression, metadata, privacy, image, pdf
 
 Compression & Metadata Removal
-================================
+------------------------------
 
 .. figure:: Data-Mike-Haynes-mini.jpeg
    :alt: Git logo
