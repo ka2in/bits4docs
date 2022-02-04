@@ -335,7 +335,7 @@ Once you have confirmed that ``origin`` is the name of your remote, run the foll
 .. code-block::
 
    $ git fetch --all
-   $ git git checkout origin/main -- /path/to/your/file 
+   $ git checkout origin/main -- /path/to/your/file 
 
 To push your local commits to the remote repo, run the following command:
 
