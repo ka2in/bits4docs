@@ -365,8 +365,8 @@ If you have forked an upstream repo and started working on your local fork, you 
 
    $ git fetch upstream
    $ git checkout main
-   $ git merge upstream/master
+   $ git merge upstream/main
 
 .. note::
 
-   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub. 
+   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
