@@ -55,6 +55,40 @@ While FTP is convenient for large data transfers, its performance in terms of ac
 API – more access options for a better customer experience
 ----------------------------------------------------------
 
-An API (*Application Programming Interface*) is an interface that serves as a bridge between two or more applications. The server-side components encapsulate the business logic and make it available to multiple clients through the API. To ensure a secure data transmission, companies can use the HTTPS protocol in conjunction with different encryption methods. 
+An API (*Application Programming Interface*) is an interface that serves as a bridge between two or more applications. The server-side components encapsulate the business logic and make it available to multiple clients through the API. 
 
-Besides providing real-time data access to the linked systems, an API integration allows clients to manage and process data by sending requests to the appropriate endpoints. APIs offer more advantages over FTP, but they require a higher investment of time and technical expertise.
+To ensure a secure data transmission, companies can use the HTTPS protocol in conjunction with different encryption methods. 
+Besides providing real-time data access to the linked systems, an API integration allows clients to manage and process data by sending requests to the appropriate endpoints. 
+
+In the context of HTTP based architectures, clients use ``URIs`` and ``HTTP verbs`` (or methods) to create, request, modify, or delete ``resources`` on a server. A URI (Unique Resource Identifier) allows clients to unequivocally identify a resource that is located on a server. A resource can be anything that is stored on a sever, e.g.:
+
+- an employee list in CSV format
+- a customer database in SQL format 
+- or a presentation file in ODP format
+
+The commonly used version of HTTP, i.e. HTTP/1.1, defines eight verbs as the table below shows:
+
+.. list-table::
+   :widths: 25 75
+   :class: tight-table
+
+   * - **HTTP Verb/Method**
+     - **Purpose**
+   * - GET
+     - Request a resource
+   * - HEAD
+     - Similar to GET, but only provides the HTTP header, and not the entire resource 
+   * - POST
+     - Generate a resource with a unique ID that is assigned by the server
+   * - PUT
+     - Create or replace a resource. The client specifies the resource ID through the URI
+   * - PATCH
+     - Partially update a resource that is accessed through its URI
+   * - DELETE
+     - Remove a resource that is identified by its URI
+   * - HEAD
+     - Provides only the HTTP header of a specific resource
+   * - OPTIONS
+     - Provides information about the available communication options for a given resource
+
+APIs offer more advantages over FTP, but they require a higher investment of time and technical expertise.
