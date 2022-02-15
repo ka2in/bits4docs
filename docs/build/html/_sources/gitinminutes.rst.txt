@@ -324,6 +324,19 @@ If you want to fetch a specific branch from the remote repository, run the follo
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
 
+If you want to pull a single file from the remote repo, check the current remote repo with the command:
+
+.. code-block::
+
+   $ git remote -v
+
+Once you have confirmed that ``origin`` is the name of your remote, run the following commands:
+
+.. code-block::
+
+   $ git fetch --all
+   $ git checkout origin/main -- /path/to/your/file 
+
 To push your local commits to the remote repo, run the following command:
 
 .. code-block::
@@ -341,4 +354,19 @@ In order to delete references to any remote branches that no longer exist, use t
 
 .. code-block::
 
-   git remote prune origin
+   $ git remote prune origin
+
+Syncing your fork with upstream
+-------------------------------
+
+If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
+
+.. code-block::
+
+   $ git fetch upstream
+   $ git checkout main
+   $ git merge upstream/main
+
+.. note::
+
+   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.

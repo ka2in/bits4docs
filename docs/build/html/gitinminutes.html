@@ -8,6 +8,7 @@
   <title>Git Primer for the Impatient &mdash; bits4docs 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -65,12 +66,16 @@
 <li class="toctree-l1"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compression and Metadata</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression &amp; Metadata Removal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#compressing-from-the-command-line">Compressing from the command line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#metadata-and-privacy-implications">Metadata and privacy implications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-compression-with-ps2pdf">PDF compression with ps2pdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#installation-on-linux">Installation on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#ps2pdf-commands">ps2pdf commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#metadata-removal-with-mat2">Metadata removal with mat2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-forensics-and-safety-measures">PDF forensics and safety measures</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MTU and Connectivity</span></p>
 <ul>
@@ -350,6 +355,15 @@
 <p class="admonition-title">Attention</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">fetch</span></code> command allows you to download the data to your local repository, but it does <strong>not</strong> alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.</p>
 </div>
+<p>If you want to pull a single file from the remote repo, check the current remote repo with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+<p>Once you have confirmed that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is the name of your remote, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch --all
+$ git checkout origin/main -- /path/to/your/file
+</pre></div>
+</div>
 <p>To push your local commits to the remote repo, run the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push &lt;remote&gt; &lt;branch&gt;
 </pre></div>
@@ -359,8 +373,21 @@
 </pre></div>
 </div>
 <p>In order to delete references to any remote branches that no longer exist, use the command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">prune</span> <span class="n">origin</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote prune origin
 </pre></div>
+</div>
+</div>
+<div class="section" id="syncing-your-fork-with-upstream">
+<h1>Syncing your fork with upstream<a class="headerlink" href="#syncing-your-fork-with-upstream" title="Permalink to this headline"></a></h1>
+<p>If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+$ git checkout main
+$ git merge upstream/main
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
 </div>
 </div>
 

@@ -80,6 +80,9 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Adding settings for custom css file in the _Static folder
+def setup(app):
+  app.add_css_file('css/custom.css')
 
 #Disable the option 'View page source' on the homepage
 

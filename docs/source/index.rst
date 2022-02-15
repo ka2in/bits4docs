@@ -28,7 +28,7 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
 .. note::
 
-   This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID:  0xDFFF2152``
+   This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID: 0x52D6AF10``
 
 
 .. toctree::
