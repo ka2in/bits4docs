@@ -24,7 +24,26 @@ One particular aspect of FTP is that it relies on "two" logical TCP connections 
 
 * **Data connection:** Whenever you need to transfer files between a client and a remote server or vice versa, FTP will initiate this TCP connection to ensure data transmission over port 20. Unlike the control connection, a data connection does not remain active during the entire FTP session and ends immediately after the file transfer.
 
-FTP uses a simple authentication mechanism that consists in using a "user name" and a "password". The client sends the authentication data to the remote server using the FTP commands: ``USER`` and ``PASS``. 
+FTP uses a simple authentication mechanism that consists in using a "user name" and a "password". The client sends the authentication data to the remote server using the FTP commands: ``USER`` and ``PASS``.
+
+The following table illustrates the three main categories of FTP commands according to the FTP standard:
+
+.. role::  raw-html(raw)
+    :format: html
+
+.. list-table::
+   :widths: 50
+   :class: tight-table
+   
+   * - **Access Control Commands**
+   * - ``USER`` :raw-html:`&rarr;` *User Name*, ``PASS`` :raw-html:`&rarr;` *Password*, ``ACCT`` :raw-html:`&rarr;` *Account*, ``CWD`` :raw-html:`&rarr;` *Change Working Directory*, ``CDUP`` :raw-html:`&rarr;` *Change Directory Up*, ``SMNT`` :raw-html:`&rarr;` *Structure Mount*, ``REIN`` :raw-html:`&rarr;` *Reinitialize*, ``QUIT`` :raw-html:`&rarr;` *Logout*
+   * - **Transfer Parameter Commands**
+   * - ``PORT`` :raw-html:`&rarr;` *Data Port*, ``PASV`` :raw-html:`&rarr;` *Passive*, ``TYPE`` :raw-html:`&rarr;` *Representation Type*, ``STRU`` :raw-html:`&rarr;` *File Structure*, ``MODE`` :raw-html:`&rarr;` *Transfer Mode*
+   * - **FTP Service Commands**
+   * - ``RETR`` :raw-html:`&rarr;` *Retrieve*, ``STOR`` :raw-html:`&rarr;` *Store*, ``STOU`` :raw-html:`&rarr;` *Store Unique*, ``APPE`` :raw-html:`&rarr;` *Append*, ``ALLO`` :raw-html:`&rarr;` *Allocate*, ``REST`` :raw-html:`&rarr;` *Restart*, ``RNFR`` :raw-html:`&rarr;` *Rename From*, ``RNTO`` :raw-html:`&rarr;` *Rename To*, ``ABOR`` :raw-html:`&rarr;` *Abort*, ``DELE`` :raw-html:`&rarr;` *Delete*, ``RMD`` :raw-html:`&rarr;` *Remove Directory*, ``MKD`` :raw-html:`&rarr;` *Make Directory*, ``PWD`` :raw-html:`&rarr;` *Print Working Directory*, ``LIST`` :raw-html:`&rarr;` *List*, ``NLST`` :raw-html:`&rarr;` *Name List*, ``SITE`` :raw-html:`&rarr;` *Site Parameters*, ``SYST`` :raw-html:`&rarr;` *System*, ``STAT`` :raw-html:`&rarr;` *Status*, ``HELP`` :raw-html:`&rarr;` *Help*, ``NOOP`` :raw-html:`&rarr;` *Noop*
+
+The FTP specification `RFC959 <https://www.w3.org/Protocols/rfc959/4_FileTransfer.html>`_ provides a detailed description for each of the above illustrated commands. 
+
 
 FTP and security
 ----------------
