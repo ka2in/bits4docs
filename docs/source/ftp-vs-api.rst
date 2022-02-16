@@ -86,9 +86,9 @@ The commonly used version of HTTP, i.e. HTTP/1.1, defines eight verbs as the tab
      - Partially update a resource that is accessed through its URI
    * - DELETE
      - Remove a resource that is identified by its URI
-   * - HEAD
-     - Provides only the HTTP header of a specific resource
+   * - CONNECT
+     - Establish an end-to-end tunnel connection through a proxy server
    * - OPTIONS
-     - Provides information about the available communication options for a given resource
+     - Retrieve information about the available communication options for a given resource
 
 APIs offer more advantages over FTP, but they require a higher investment of time and technical expertise.
