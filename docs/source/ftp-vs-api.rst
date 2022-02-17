@@ -84,7 +84,7 @@ The following tables provide an overview of the different commands within each c
    |           |                 | (``File``, ``Record``, or ``Page``)              |
    +-----------+-----------------+--------------------------------------------------+
    | ``MODE``  | *Transfer Mode* | Specify the transmission mode to use             |
-   |           |                 | (``Stream``, ```Block``, or ``Compressed``)`     |
+   |           |                 | (``Stream``, ``Block``, or ``Compressed``) `     |
    +-----------+-----------------+--------------------------------------------------+
    
 .. table::
