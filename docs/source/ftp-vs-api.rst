@@ -26,24 +26,130 @@ One particular aspect of FTP is that it relies on "two" logical TCP connections 
 
 FTP uses a simple authentication mechanism that consists in using a "user name" and a "password". The client sends the authentication data to the remote server using the FTP commands: ``USER`` and ``PASS``.
 
-The following table illustrates the three main categories of FTP commands according to the FTP standard:
+the FTP standard defines three main categories of FTP commands:
+
+- ``Access Control Commands``
+- ``Transfer Parameter Commands``
+- ``FTP Service Commands`` 
+
+The following tables provide an overview of the different commands within each category:
 
 .. role::  raw-html(raw)
     :format: html
 
-.. list-table::
-   :widths: 50
+
+.. table::
    :class: tight-table
+
+   +--------------------------------------------------------------------------------------+
+   | **Access Control Commands**                                                          |
+   +===========+============+====+========================================================+
+   | ``USER``  | *User Name*     | User identification to access the server's file system |
+   +-----------+-----------------+--------------------------------------------------------+
+   | ``PASS``  | *Password*      | Command that follows the ``USER`` command immediately  |
+   +-----------+-----------------+-----------------------------+--------------------------+
+   | ``ACCT``  | *Account*       | For login purposes or tasks requiring specific access  |
+   +-----------+-----------------+--------------------------------------------------------+
+   | ``CWD``   | *Change Working*| Store or retrieve files on a different directory       |
+   |           | *Directory*     | without modifying login or account information         |
+   +-----------+-----------------+--------------------------------------------------------+
+   | ``CDUP``  | *Change*        | Transfer directory trees between operating systems     |
+   |           | *Directory Up*  | that use different syntaxes to name the parent         |
+   |           |                 | directory                                              |   
+   +-----------+-----------------++-------------------------------------------------------+
+   | ``SMNT``  | *Structure Mount*| Mount a different file system data structure without  | 
+   |           |                  | modifying the login or accounting information         |
+   +-----------+------------------+-------------------------------------------------------+
+   | ``REIN``  | *Reinitialize*   | Reset parameters to the default settings and flush    |
+   |           |                  | account information and all Input/Output              |
+   +-----------+------------------+-------------------------------------------------------+
+   | ``QUIT``  | *Logout*         | Terminate USER session and close control connection   |
+   +-----------+------------------+-------------------------------------------------------+
+
+.. table::
+   :class: tight-table
+
+   +------------------------+------------+----------+-------------------------------+
+   | **Transfer Parameter Commands**                                                |
+   +===========+=================+=======+==========+===============================+
+   | ``PORT``  | *Data Port*     | Specify port number to use for data connection   |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``PASV``  | *Passive*       | Request the Server Data Transfer Process to      | 
+   |           |                 | *listen* on a non-default data port              |
+   +-----------+-----------------+----+---------------------------------------------+
+   | ``TYPE``  | *Representation*| Inform the server about the data type of         |
+   |           | *Type*          | files that are transferred by the client         |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``STRU``  | *File Structure*| Specify the data structure for the file          |
+   |           |                 | (``File``, ``Record``, or ``Page``)              |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``MODE``  | *Transfer Mode* | Specify the transmission mode to use             |
+   |           |                 | (``Stream``, ```Block``, or ``Compressed``)`     |
+   +-----------+-----------------+--------------------------------------------------+
    
-   * - **Access Control Commands**
-   * - ``USER`` :raw-html:`&rarr;` *User Name*, ``PASS`` :raw-html:`&rarr;` *Password*, ``ACCT`` :raw-html:`&rarr;` *Account*, ``CWD`` :raw-html:`&rarr;` *Change Working Directory*, ``CDUP`` :raw-html:`&rarr;` *Change Directory Up*, ``SMNT`` :raw-html:`&rarr;` *Structure Mount*, ``REIN`` :raw-html:`&rarr;` *Reinitialize*, ``QUIT`` :raw-html:`&rarr;` *Logout*
-   * - **Transfer Parameter Commands**
-   * - ``PORT`` :raw-html:`&rarr;` *Data Port*, ``PASV`` :raw-html:`&rarr;` *Passive*, ``TYPE`` :raw-html:`&rarr;` *Representation Type*, ``STRU`` :raw-html:`&rarr;` *File Structure*, ``MODE`` :raw-html:`&rarr;` *Transfer Mode*
-   * - **FTP Service Commands**
-   * - ``RETR`` :raw-html:`&rarr;` *Retrieve*, ``STOR`` :raw-html:`&rarr;` *Store*, ``STOU`` :raw-html:`&rarr;` *Store Unique*, ``APPE`` :raw-html:`&rarr;` *Append*, ``ALLO`` :raw-html:`&rarr;` *Allocate*, ``REST`` :raw-html:`&rarr;` *Restart*, ``RNFR`` :raw-html:`&rarr;` *Rename From*, ``RNTO`` :raw-html:`&rarr;` *Rename To*, ``ABOR`` :raw-html:`&rarr;` *Abort*, ``DELE`` :raw-html:`&rarr;` *Delete*, ``RMD`` :raw-html:`&rarr;` *Remove Directory*, ``MKD`` :raw-html:`&rarr;` *Make Directory*, ``PWD`` :raw-html:`&rarr;` *Print Working Directory*, ``LIST`` :raw-html:`&rarr;` *List*, ``NLST`` :raw-html:`&rarr;` *Name List*, ``SITE`` :raw-html:`&rarr;` *Site Parameters*, ``SYST`` :raw-html:`&rarr;` *System*, ``STAT`` :raw-html:`&rarr;` *Status*, ``HELP`` :raw-html:`&rarr;` *Help*, ``NOOP`` :raw-html:`&rarr;` *Noop*
+.. table::
+   :class: tight-table
 
-The FTP specification `RFC959 <https://www.w3.org/Protocols/rfc959/4_FileTransfer.html>`_ provides a detailed description for each of the above illustrated commands. 
+   +------------------------+------------+----------+-------------------------------+
+   | **FTP Service Commands**                                                       |
+   +===========+============+====+=======+==========+===============================+
+   | ``RETR``  | *Retrieve*      | Transfer a file from the server to the client    |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``STOR``  | *Store*         | Store data as a file on the server               |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``STOU``  | *Store Unique*  | Similar to ``STOR``, but the file must have a    |
+   |           |                 | unique name inside the current directory         |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``APPE``  | *Append*        | If a file with same name already exists on the   |
+   |           |                 | server, the data is appended to the existing file|
+   +-----------+-----------------+--------------------------------------------------+
+   | ``ALLO``  | *Allocate*      | Make sure that sufficient storage is available on|
+   |           |                 | the server before data transmission              |
+   +-----------+-----------------++-------------------------------------------------+
+   | ``REST``  | *Restart*       | Restart file transfer at a specific server marker|
+   +-----------+-----------------+--------------------------------------------------+
+   | ``RNFR``  | *Rename From*   | Specify the old name of the file to be renamed.  |
+   |           |                 | Must be followed by the ``RNTO`` command         |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``RNTO``  | *Rename To*     | Specify the new name of the file to be renamed.  |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``ABOR``  | *Abort*         | Instruct the server to abort the last FTP command| 
+   |           |                 | and any associated data transfer                 |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``DELE``  | *Delete*        | Remove the specified file from the server        |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``RMD``   | *Remove*        | Remove the specified directory from the server   |
+   |           | *Directory*     |                                                  |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``MKD``   | *Make Directory*| Create a directory                               |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``PWD``   | *Print Working* | Display the current working directory on the     |
+   |           | *Directory*     | server                                           |
+   |           |                 |                                                  |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``LIST``  | *List*          | Instruct the server to send a list of the content|
+   |           |                 | available in the current directory               |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``NLST``  | *Name List*     | Similar to ``LIST``, but only sends a directory  |
+   |           |                 | listing                                          |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``SITE``  | *Site*          | Server-side commands to use specific functions   | 
+   |           | *Parameters*    | that are required for data transfer              |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``SYST``  | *System*        | Instruct the server to send information about its|
+   |           |                 | operating system                                 |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``STAT``  | *Status*        | Instruct the server to indicate the status of a  |
+   |           |                 | file or the ongoing data transfer                |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``HELP``  | *Help*          | Prompt the server to send help information that  |
+   |           |                 | shows how to use the server                      |
+   +-----------+-----------------+--------------------------------------------------+
+   | ``NOOP``  | *No Operation*  | Prompt the server to send an OK reply but does   |
+   |           |                 | not impact the previously entered commands       |
+   +-----------+-----------------+--------------------------------------------------+
 
+For a more detailed description, please refer to The FTP specification `RFC959 <https://www.w3.org/Protocols/rfc959/4_FileTransfer.html>`_. 
 
 FTP and security
 ----------------
