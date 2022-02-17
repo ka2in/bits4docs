@@ -81,10 +81,10 @@ The following tables provide an overview of the different commands within each c
    |           | *Type*          | files that are transferred by the client         |
    +-----------+-----------------+--------------------------------------------------+
    | ``STRU``  | *File Structure*| Specify the data structure for the file          |
-   |           |                 | (``File``, ``Record``, or ``Page``)              |
+   |           |                 | (**File**, **Record**, or **Page**)              |
    +-----------+-----------------+--------------------------------------------------+
    | ``MODE``  | *Transfer Mode* | Specify the transmission mode to use             |
-   |           |                 | (``Stream``, ``Block``, or ``Compressed``) `     |
+   |           |                 | (**Stream**, **Block**, or **Compressed**)       |
    +-----------+-----------------+--------------------------------------------------+
    
 .. table::
