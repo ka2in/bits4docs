@@ -137,7 +137,7 @@ To commit your changes with a message, type the command:
 
 .. note::
 
-   If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the defaut text editor that is set in your environment variables.
+   If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the default text editor that is set in your environment variables.
 
 Check the status
 ---------------- 
@@ -369,4 +369,4 @@ If you have forked an upstream repo and started working on your local fork, you 
 
 .. note::
 
-   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
+   Use the term ``main`` or ``master`` in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
