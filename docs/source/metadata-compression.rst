@@ -65,12 +65,12 @@ Metadata and privacy implications
 
 Metadata reveal more about you than you might imagine. Here is an example of the metadata that were extracted from an image file taken by a conventional smartphone: ``Image Type`` ``Width`` ``Height`` ``Exposure Time`` ``Aperture Value`` ``ISO Speed Rating`` ``Flash Fired`` ``Metering Mode`` ``Exposure Program`` ``Focal Length`` ``Software`` ``Camera Brand`` ``Camera Model`` ``Date Taken``.
 
-With this information at hand, malicious users can easily search for the the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
+With this information at hand, malicious users can easily search for the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
 
 Metadata removal with mat2
 ---------------------------
 
-``mat2`` is a metadata anonymisation toolkit that runs from the command line. ``mat2`` allows you to remove metadata from a wide range of file formats, including archive, image, office, audio, video and PDF files.  
+``mat2`` is a metadata anonymization toolkit that runs from the command line. ``mat2`` allows you to remove metadata from a wide range of file formats, including archive, image, office, audio, video and PDF files.  
 
 To install ``mat2`` on Debian based distros, run the following commands:
 
