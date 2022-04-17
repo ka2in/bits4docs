@@ -25,7 +25,7 @@ PDF compression with ps2pdf
 ``ps2pdf`` is a PostScript-to-PDF converter that uses ``ghostscript`` to convert a PDF into a PostScript file before converting it back again. This process allows you to compress your initial PDF file. According to its man page, ``ps2pdf`` provides nearly all the features that you would find in Adobe's Acrobat |reg| product, Distiller |reg|.   
 
 Installation on Linux
----------------------
+=====================
 
 To install ``ps2pdf`` with all the required dependencies, you need to install ``ghostscript``. 
 
@@ -44,7 +44,7 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf install ghostscript
 
 ps2pdf commands
----------------
+===============
 
 To compress a file without any additional options, type the following command:     
 
@@ -61,14 +61,14 @@ Depending on your work scenario, you can achieve the best results in terms of fi
    $ ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf
 
 Metadata and privacy implications
-=================================
+---------------------------------
 
-Metadata reveal more about you than you might imagine. Here is an example of the metadata that were extracted from an image file taken by a conventional smartphone: ``Image Type`` ``Width`` ``Height`` ``Exposure Time`` ``Aperture Value`` ``ISO Speed Rating`` ``Flash Fired`` ``Metering Mode`` ``Exposure Program`` ``Focal Length`` ``Software`` ``Camera Brand`` ``Camera Model`` ``Date Taken``.
+Metadata reveal more about you than you might imagine. Here is an example of the metadata that were extracted from an image file taken by a conventional smartphone: ``Image Type``, ``Width``, ``Height``, ``Exposure Time``, ``Aperture Value``, ``ISO Speed Rating``, ``Flash Fired``, ``Metering Mode``, ``Exposure Program``, ``Focal Length``, ``Software``, ``Camera Brand``, ``Camera Model``, and ``Date Taken``.
 
 With this information at hand, malicious users can easily search for the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
 
 Metadata removal with mat2
----------------------------
+==========================
 
 ``mat2`` is a metadata anonymization toolkit that runs from the command line. ``mat2`` allows you to remove metadata from a wide range of file formats, including archive, image, office, audio, video and PDF files.  
 
