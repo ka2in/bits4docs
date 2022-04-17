@@ -7,20 +7,20 @@ Compression & Metadata Removal
 
 .. figure:: Data-Mike-Haynes-mini.jpeg
    :alt: Git logo
-   :scale: 50%
+   :scale: 80%
    :align: center
 
    Picture by Mike Haynes under `CC0 1.0 License <https://creativecommons.org/publicdomain/zero/1.0/>`_
 
 Compressing from the command line
-=================================
+---------------------------------
 
 There are multiple scenarios where you would need to compress your files, whether it is for a web development project or to send some attachments by email, just to name a few examples. You do not necessarily need to rely on proprietary software products or :abbr:`GUIs (Graphical User Interfaces)` to achieve these tasks, especially if your are a Linux user. 
 
 In fact, Linux has many command line tools that allow you to compress your PDF and image files easily. My favorite open source tools for the compression of PDF and image files are ``ps2pdf`` and ``jpegoptim``, respectively.  
 
 PDF compression with ps2pdf
----------------------------
+===========================
 
 ``ps2pdf`` is a PostScript-to-PDF converter that uses ``ghostscript`` to convert a PDF into a PostScript file before converting it back again. This process allows you to compress your initial PDF file. According to its man page, ``ps2pdf`` provides nearly all the features that you would find in Adobe's Acrobat |reg| product, Distiller |reg|.   
 

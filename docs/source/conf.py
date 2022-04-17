@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'bits4docs'
-copyright = '2021, GlobalTech Translations'
+copyright = '2022, GlobalTech Translations'
 author = 'GlobalTech Translations'
 
 
@@ -41,6 +41,7 @@ extensions = [
 	'sphinx_rtd_theme',
     'sphinx.ext.autosectionlabel',
     'sphinx_markdown_tables',
+    'sphinxcontrib.inkscapeconverter',
 ]
 
 source_suffix = {
@@ -101,3 +102,35 @@ html_show_sourcelink = False
 # of the sidebar.
 
 html_logo = "drawing-icon.png"
+
+
+# LaTeX customization for PDF
+latex_engine = 'xelatex'
+latex_elements = {
+    'fontpkg': r'''
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+''',
+    'preamble': r'''
+\usepackage[titles]{tocloft}
+\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+\setlength{\cftchapnumwidth}{0.75cm}
+\setlength{\cftsecindent}{\cftchapnumwidth}
+\setlength{\cftsecnumwidth}{1.25cm}
+''',
+}
+latex_show_urls = 'footnote'
+
+# Grouping the document tree into LaTeX files. List of tuples# (source start file, target name, title, author, documentclass [howto/manual]).
+latex_documents = [
+ ('index', 'yourdoc.tex', u'bits4docs Documentation', u'GlobalTech Translations', 'manual'),
+ ]
+
+# Options for LaTeX output
+latex_elements = {
+  'extraclassoptions': 'openany,oneside',
+  'fncychap' : r'\usepackage[Bjornstrup]{fncychap}',
+  'printindex': r'\footnotesize\raggedright\printindex',
+  'geometry': r'\usepackage{geometry}',
+}
