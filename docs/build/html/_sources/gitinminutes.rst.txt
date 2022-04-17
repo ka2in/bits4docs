@@ -441,6 +441,55 @@ To get a compact overview of your commit history, you can combine the ``git log`
 
    2. Provide a good description in your commit message. The commit message should explain precisely what the commit does.
 
+Squashing commits
+=================
+
+Squashing is the act of merging multiple commits into a single one. You can squash commits at any time with the *interactive rebase* feature.
+For instance, to display the three latest commits, we will type the following command:
+
+.. code-block::
+
+   git rebase -i HEAD~3
+
+.. note::
+
+   In the command above, the ``n`` within ``HEAD~n`` denotes the number of commits you want to go back. In this particular case, the HEAD branch will move three positions back to a previous commit.
+
+You should then get an output similar to this:
+
+.. code-block::
+
+   pick 09ca794 Proofreading the git article
+   pick ad06d9b Updating content about metadata
+   pick b60f293 Introducing changes to produce PDF with LaTeX and updating article
+
+   # Rebase b5ef042..b60f293 onto b5ef042 (3 commands)
+   #
+   # Commands:
+   # p, pick <commit> = use commit
+   # r, reword <commit> = use commit, but edit the commit message
+   # e, edit <commit> = use commit, but stop for amending
+   # s, squash <commit> = use commit, but meld into previous commit
+   # f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+   #                    commit's log message, unless -C is used, in which case
+   #                    keep only this commit's message; -c is same as -C but
+   #                    opens the editor
+   # x, exec <command> = run command (the rest of the line) using shell
+   # b, break = stop here (continue rebase later with 'git rebase --continue')
+   # d, drop <commit> = remove commit
+   # l, label <label> = label current HEAD with a name
+   # t, reset <label> = reset HEAD to a label
+
+If you replace **pick** by **squash** in one of the lines above, the line in question will be combined with the one above, e.g.:
+
+.. code-block::
+
+   pick 09ca794 Proofreading the git article
+   squash ad06d9b Updating content about metadata
+   squash b60f293 Introducing changes to produce PDF with LaTeX and updating article
+
+Once you edit the commit message for the new compact commit, the interactive rebase will complete successfully. You should now have a single commit instead of three.  
+
 Submitting separate pull requests
 =================================
 

@@ -68,6 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#managing-remotes">Managing remotes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#viewing-the-commit-history">Viewing the commit history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#squashing-commits">Squashing commits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submitting-separate-pull-requests">Submitting separate pull requests</a></li>
 </ul>
 </li>
@@ -450,6 +451,48 @@ fd9e2e4 Updating the table about HTTP verbs
 <li><p>Provide a good description in your commit message. The commit message should explain precisely what the commit does.</p></li>
 </ol>
 </div>
+</div>
+<div class="section" id="squashing-commits">
+<h2>Squashing commits<a class="headerlink" href="#squashing-commits" title="Permalink to this headline"></a></h2>
+<p>Squashing is the act of merging multiple commits into a single one. You can squash commits at any time with the <em>interactive rebase</em> feature.
+For instance, to display the three latest commits, we will type the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">rebase</span> <span class="o">-</span><span class="n">i</span> <span class="n">HEAD</span><span class="o">~</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the command above, the <code class="docutils literal notranslate"><span class="pre">n</span></code> within <code class="docutils literal notranslate"><span class="pre">HEAD~n</span></code> denotes the number of commits you want to go back. In this particular case, the HEAD branch will move three positions back to a previous commit.</p>
+</div>
+<p>You should then get an output similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pick</span> <span class="mi">09</span><span class="n">ca794</span> <span class="n">Proofreading</span> <span class="n">the</span> <span class="n">git</span> <span class="n">article</span>
+<span class="n">pick</span> <span class="n">ad06d9b</span> <span class="n">Updating</span> <span class="n">content</span> <span class="n">about</span> <span class="n">metadata</span>
+<span class="n">pick</span> <span class="n">b60f293</span> <span class="n">Introducing</span> <span class="n">changes</span> <span class="n">to</span> <span class="n">produce</span> <span class="n">PDF</span> <span class="k">with</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">updating</span> <span class="n">article</span>
+
+<span class="c1"># Rebase b5ef042..b60f293 onto b5ef042 (3 commands)</span>
+<span class="c1">#</span>
+<span class="c1"># Commands:</span>
+<span class="c1"># p, pick &lt;commit&gt; = use commit</span>
+<span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+<span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+<span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+<span class="c1"># f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous</span>
+<span class="c1">#                    commit&#39;s log message, unless -C is used, in which case</span>
+<span class="c1">#                    keep only this commit&#39;s message; -c is same as -C but</span>
+<span class="c1">#                    opens the editor</span>
+<span class="c1"># x, exec &lt;command&gt; = run command (the rest of the line) using shell</span>
+<span class="c1"># b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)</span>
+<span class="c1"># d, drop &lt;commit&gt; = remove commit</span>
+<span class="c1"># l, label &lt;label&gt; = label current HEAD with a name</span>
+<span class="c1"># t, reset &lt;label&gt; = reset HEAD to a label</span>
+</pre></div>
+</div>
+<p>If you replace <strong>pick</strong> by <strong>squash</strong> in one of the lines above, the line in question will be combined with the one above, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pick</span> <span class="mi">09</span><span class="n">ca794</span> <span class="n">Proofreading</span> <span class="n">the</span> <span class="n">git</span> <span class="n">article</span>
+<span class="n">squash</span> <span class="n">ad06d9b</span> <span class="n">Updating</span> <span class="n">content</span> <span class="n">about</span> <span class="n">metadata</span>
+<span class="n">squash</span> <span class="n">b60f293</span> <span class="n">Introducing</span> <span class="n">changes</span> <span class="n">to</span> <span class="n">produce</span> <span class="n">PDF</span> <span class="k">with</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">updating</span> <span class="n">article</span>
+</pre></div>
+</div>
+<p>Once you edit the commit message for the new compact commit, the interactive rebase will complete successfully. You should now have a single commit instead of three.</p>
 </div>
 <div class="section" id="submitting-separate-pull-requests">
 <h2>Submitting separate pull requests<a class="headerlink" href="#submitting-separate-pull-requests" title="Permalink to this headline"></a></h2>
