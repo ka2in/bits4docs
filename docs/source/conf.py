@@ -40,6 +40,7 @@ extensions = [
     'myst_parser',
 	'sphinx_rtd_theme',
     'sphinx.ext.autosectionlabel',
+    'sphinx_markdown_tables',
 ]
 
 source_suffix = {
@@ -47,6 +48,14 @@ source_suffix = {
     '.txt': 'markdown',
     '.md': 'markdown',
 }
+
+# Settings for sphinx-markdown-tables
+
+source_parsers = {
+    '.md': 'recommonmark.parser.CommonMarkParser',
+}
+
+source_suffix = ['.rst', '.md']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -80,6 +89,9 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Adding settings for custom css file in the _Static folder
+def setup(app):
+  app.add_css_file('css/custom.css')
 
 #Disable the option 'View page source' on the homepage
 
