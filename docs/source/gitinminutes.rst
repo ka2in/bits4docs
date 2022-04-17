@@ -12,7 +12,7 @@ Git Primer for the Impatient
    :align: center
 
 Short introduction
-------------------
+==================
 
 Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
@@ -26,7 +26,7 @@ Git was initially introduced in the Linux community as a revision control system
 With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
-----------
+==========
 
 In a Git workflow, your files will basically go through 3 different states:
 
@@ -37,7 +37,7 @@ In a Git workflow, your files will basically go through 3 different states:
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
 Installation on Linux
----------------------
+=====================
 
 To install Git on Debian based distros, run the following commands:
 
@@ -54,7 +54,7 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf install git-all
 
 Initial configuration
----------------------
+=====================
 
 Git ships with a tool called ``git config`` that allows you to set multiple configuration variables. These variables control how Git looks and behaves. 
 
@@ -73,13 +73,13 @@ To check all your personal settings, type the following command:
 
    $  git config --list
 
-Git basic commands
-==================
+Git essential commands
+----------------------
 
 Here are the most essential commands that will get you up and running within minutes.
 
-Initialize a new repository
----------------------------
+Initializing a new repository
+=============================
 
 If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:
 
@@ -87,8 +87,8 @@ If you already have a project, you can immediately navigate to the relevant fold
 
    $ git init
 
-Clone an existing repository
-----------------------------
+Cloning an existing repository
+==============================
 
 To clone an existing repository, type the command:
 
@@ -103,8 +103,8 @@ For instance, if we want to clone the documentation repository from the collabor
    $ git clone https://codeberg.org/Codeberg/Documentation.git
 
 
-Add files
----------
+Adding files
+============
 
 Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:
 
@@ -126,8 +126,8 @@ To add a single file called 'foo', type the command:
 
    $ git add foo
 
-Commit changes
---------------
+Committing changes
+==================
 
 To commit your changes with a message, type the command:
 
@@ -139,8 +139,8 @@ To commit your changes with a message, type the command:
 
    If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the default text editor that is set in your environment variables.
 
-Check the status
----------------- 
+Checking the status
+=================== 
 
 If you want to check the status of the project's files, type the command:
 
@@ -199,8 +199,8 @@ This will you give you the following result:
 
 In the example above, The letter **M** at the beginning of each line means ``Modified``.
 
-Compare with 'diff'
--------------------
+Comparing with 'diff'
+=====================
 
 To compare your local index with the repository, type the following command:
 
@@ -251,8 +251,8 @@ The command above will display something similar to this:
    docs/source/gitcommands.rst                  |  78 ++++++++++++++++++++++-
    11 files changed, 228 insertions(+), 33 deletions(-)
 
-Manage branches
----------------
+Managing branches
+=================
 
 At the beginning of each project, you will have a ``master branch``, also called ``main branch`` in newer terminology.
 
@@ -272,13 +272,13 @@ If you want to create a new branch and switch to it, type the command:
    
    The Git command ``checkout`` allows you to switch to a different branch, which then becomes the ``HEAD`` branch. ``HEAD`` is a special pointer that points to the branch you are currently on.
 
-Fork from a repository
-----------------------
+Forking from a repository
+=========================
 
 ``Forking`` is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a ``pull request``.     
 
-Manage remotes
---------------
+Managing remotes
+================
 
 Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.
 
@@ -343,6 +343,28 @@ To push your local commits to the remote repo, run the following command:
 
    $ git push <remote> <branch>
 
+If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. the ``--force`` option allows you to force the push in such cases and overwrite the history:
+
+.. code-block::
+
+   $ git push -f <remote> <branch>
+
+You can also achieve the same result by typing the following:
+
+.. code-block::
+
+   git push <remote> <branch> --force
+
+.. attention::
+
+   Proceed with caution when using the ``--force`` option. Rewriting the commit history means that others cannot access the older commit history anymore. Here are some "safer" alternatives:
+
+   * Avoid force pushing commits on repos with a shared history.
+   
+   * Use ``git revert`` to undo changes from existing commits.
+
+   * Use the command ``git push <remote> <branch> --force-with-lease``. This command will not rewrite any changes made by other team members on the remote repo.  
+
 
 If you want to set a different repo, type the command:
 
@@ -357,7 +379,7 @@ In order to delete references to any remote branches that no longer exist, use t
    $ git remote prune origin
 
 Syncing your fork with upstream
--------------------------------
+===============================
 
 If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
 
@@ -370,3 +392,69 @@ If you have forked an upstream repo and started working on your local fork, you 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
+
+Viewing the commit history
+==========================
+
+During your project, you may want to go back to a "safe" commit if you encounter some issues at a certain point. There are also other reasons why you might need access to the commit history, such as finding out *who* made *what* changes and *why*.
+
+The ``git log`` command allows you to track your project history in a reverse chronological order, i.e. the newest commit appears at the top.
+
+Below is a sample output of the ``git log`` command without any additional flags:
+
+.. code-block::
+
+   $ git log
+   commit ad06d9ba80ba723b68b6600600e23bc85af7ff82 (HEAD -> easydocbranch, origin/easydocbranch)
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 21:43:38 2022 +0100
+
+   Updating content about metadata
+
+   commit 09ca7947a1935841ea4d76d3fe815ea988ad2c77
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 21:31:59 2022 +0100
+
+   Proofreading the Git article
+
+   commit b5ef042c0f907bfebb2c6917b5de1e072a3fd18a
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 20:29:28 2022 +0100
+
+   Finished proofreading the article
+
+
+To get a compact overview of your commit history, you can combine the ``git log`` command with the option ``--oneline``. Each single line will then display the **commit ID** and the **first line** of the commit message, e.g.:
+
+.. code-block::
+
+   $ git log --oneline
+   
+   fd9e2e4 Updating the table about HTTP verbs
+   91137e4 Adding information about HTTP methods and URIs
+   3b5f0e8 Adding content about FTP commands
+   41f2a36 Updating the article about Git 
+
+.. note:: To get the greatest benefit from your commit history, always follow these two rules:
+
+   1. Keep your commits as small as possible, i.e. each commit should include the smallest possible amount of changes. This ensures a logical organization of your commits and makes it easier to revert single changes.
+
+   2. Provide a good description in your commit message. The commit message should explain precisely what the commit does.
+
+Submitting separate pull requests
+=================================
+
+You may want to submit a separate pull request for each commit. To do so, you first have to reset your ``main`` repo to sync it with ``upstream``:
+
+.. code-block::
+
+   git checkout main
+   git reset --hard upstream/main
+
+The next step consits in creating a new branch for each new commit, then "cherry-picking" the relevant commit. The ``git cherry-pick`` command allows you to re-apply the changes from a previous commit to the current active branch:
+
+.. code-block::
+
+   git checkout -b new-branch
+   git cherry-pick 91137e4
+   git push --set-upstream origin new-branch
