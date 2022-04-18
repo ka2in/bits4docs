@@ -39,9 +39,9 @@ sys.path.insert(0, os.path.abspath('../..'))
 extensions = [
     'myst_parser',
 	'sphinx_rtd_theme',
-    'sphinx.ext.autosectionlabel',
     'sphinx_markdown_tables',
     'sphinxcontrib.inkscapeconverter',
+    'sphinxcontrib.httpdomain',
 ]
 
 source_suffix = {
@@ -106,6 +106,7 @@ html_logo = "drawing-icon.png"
 
 # LaTeX customization for PDF
 latex_engine = 'xelatex'
+
 latex_elements = {
     'fontpkg': r'''
 \setmainfont{DejaVu Serif}
@@ -120,6 +121,7 @@ latex_elements = {
 \setlength{\cftsecnumwidth}{1.25cm}
 ''',
 }
+
 latex_show_urls = 'footnote'
 
 # Grouping the document tree into LaTeX files. List of tuples# (source start file, target name, title, author, documentclass [howto/manual]).
@@ -133,4 +135,11 @@ latex_elements = {
   'fncychap' : r'\usepackage[Bjornstrup]{fncychap}',
   'printindex': r'\footnotesize\raggedright\printindex',
   'geometry': r'\usepackage{geometry}',
+  'preamble': r'\usepackage[bottom]{footmisc}',
+
+# Paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
+
+# Latex figure (float) alignment
+    'figure_align': 'htbp',
 }

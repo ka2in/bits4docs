@@ -5,9 +5,8 @@
 Compression & metadata removal
 ------------------------------
 
-.. figure:: Data-Mike-Haynes-mini.jpeg
+.. figure:: Data-Mike-Haynes-mini.svg
    :alt: Git logo
-   :scale: 85%
    :align: center
 
    Picture by Mike Haynes under `CC0 1.0 License <https://creativecommons.org/publicdomain/zero/1.0/>`_

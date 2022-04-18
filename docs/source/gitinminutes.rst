@@ -260,7 +260,11 @@ To view all current branches, type the following command:
 
 .. code-block::
 
-   $ git branch -a 
+   $ git branch -a
+
+.. raw:: latex
+
+    \newpage
 
 If you want to create a new branch and switch to it, type the command:
 
@@ -323,6 +327,10 @@ If you want to fetch a specific branch from the remote repository, run the follo
 .. attention:: 
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
+
+.. raw:: latex
+
+    \newpage
 
 If you want to pull a single file from the remote repo, check the current remote repo with the command:
 

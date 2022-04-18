@@ -13,7 +13,7 @@ MTU Size and Connectivity Issues
    Picture by kreatikar `(pixabay.com) <https://pixabay.com>`_
 
 Factors impacting network connectivity
---------------------------------------
+======================================
 
 Making changes to your network configuration can sometimes result in connection inconsistencies, such as a partial or complete loss of connectivity. The reasons for such incidents are multiple and range from DNS misconfiguration to inappropriate firewall rules or hardware failures, among other things. 
 
