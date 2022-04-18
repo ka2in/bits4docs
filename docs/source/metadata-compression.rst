@@ -2,30 +2,30 @@
    :description: Compression and Metadata Removal - how to compress and remove metadata from PDF and image files
    :keywords: compression, metadata, privacy, image, pdf
 
-Compression & Metadata Removal
+Compression & metadata removal
 ------------------------------
 
 .. figure:: Data-Mike-Haynes-mini.jpeg
    :alt: Git logo
-   :scale: 80%
+   :scale: 85%
    :align: center
 
    Picture by Mike Haynes under `CC0 1.0 License <https://creativecommons.org/publicdomain/zero/1.0/>`_
 
 Compressing from the command line
----------------------------------
+=================================
 
 There are multiple scenarios where you would need to compress your files, whether it is for a web development project or to send some attachments by email, just to name a few examples. You do not necessarily need to rely on proprietary software products or :abbr:`GUIs (Graphical User Interfaces)` to achieve these tasks, especially if your are a Linux user. 
 
 In fact, Linux has many command line tools that allow you to compress your PDF and image files easily. My favorite open source tools for the compression of PDF and image files are ``ps2pdf`` and ``jpegoptim``, respectively.  
 
-PDF compression with ps2pdf
+Compressing PDF with ps2pdf
 ===========================
 
 ``ps2pdf`` is a PostScript-to-PDF converter that uses ``ghostscript`` to convert a PDF into a PostScript file before converting it back again. This process allows you to compress your initial PDF file. According to its man page, ``ps2pdf`` provides nearly all the features that you would find in Adobe's Acrobat |reg| product, Distiller |reg|.   
 
-Installation on Linux
-=====================
+Installing ps2pdf on Linux
+==========================
 
 To install ``ps2pdf`` with all the required dependencies, you need to install ``ghostscript``. 
 
@@ -67,8 +67,8 @@ Metadata reveal more about you than you might imagine. Here is an example of the
 
 With this information at hand, malicious users can easily search for the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over. 
 
-Metadata removal with mat2
-==========================
+Installing mat2 on Linux 
+========================
 
 ``mat2`` is a metadata anonymization toolkit that runs from the command line. ``mat2`` allows you to remove metadata from a wide range of file formats, including archive, image, office, audio, video and PDF files.  
 
@@ -86,13 +86,14 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf update
    $ sudo dnf install mat2
 
-mat2 does not overwrite the source file. Instead, it will generate a new output file that contains the word *cleaned* between the filename and the file extension. So, if you run the command: 
+Removing metadata with mat2
+===========================
+
+mat2 does not overwrite the source file. Instead, it will generate a new output file that contains the word *cleaned* between the filename and the file extension. If you run the command below, mat2 will generate a new file called *foo.cleaned.pdf*:  
 
 .. code-block:: console
 
    $ mat2 foo.pdf
-
-Then mat2 will generate a new file called *foo.cleaned.pdf*.
 
 PDF forensics and safety measures
 ---------------------------------

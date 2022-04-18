@@ -343,7 +343,7 @@ To push your local commits to the remote repo, run the following command:
 
    $ git push <remote> <branch>
 
-If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. the ``--force`` option allows you to force the push in such cases and overwrite the history:
+If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. The ``--force`` option allows you to force the push in such cases and overwrite the history:
 
 .. code-block::
 
@@ -396,7 +396,7 @@ If you have forked an upstream repo and started working on your local fork, you 
 Viewing the commit history
 ==========================
 
-During your project, you may want to go back to a "safe" commit if you encounter some issues at a certain point. There are also other reasons why you might need access to the commit history, such as finding out *who* made *what* changes and *why*.
+During your project, you may want to go back to a "safe" commit if you encounter some issues at a certain point. There are other reasons why you might need access to the commit history, such as finding out *who* made *what* changes and *why*.
 
 The ``git log`` command allows you to track your project history in a reverse chronological order, i.e. the newest commit appears at the top.
 
@@ -500,7 +500,7 @@ You may want to submit a separate pull request for each commit. To do so, you fi
    git checkout main
    git reset --hard upstream/main
 
-The next step consits in creating a new branch for each new commit, then "cherry-picking" the relevant commit. The ``git cherry-pick`` command allows you to re-apply the changes from a previous commit to the current active branch:
+The next step consists in creating a new branch for each new commit, then "cherry-picking" the relevant commit. The ``git cherry-pick`` command allows you to re-apply the changes from a previous commit to the current active branch:
 
 .. code-block::
 

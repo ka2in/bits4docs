@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Compression &amp; Metadata Removal" href="metadata-compression.html" />
+    <link rel="next" title="Compression &amp; metadata removal" href="metadata-compression.html" />
     <link rel="prev" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" /> 
 </head>
 
@@ -75,7 +75,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Compression and Metadata</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression &amp; Metadata Removal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression &amp; metadata removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#metadata-and-privacy-implications">Metadata and privacy implications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-forensics-and-safety-measures">PDF forensics and safety measures</a></li>
 </ul>
@@ -369,7 +369,7 @@ $ git checkout origin/main -- /path/to/your/file
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push &lt;remote&gt; &lt;branch&gt;
 </pre></div>
 </div>
-<p>If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option allows you to force the push in such cases and overwrite the history:</p>
+<p>If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. The <code class="docutils literal notranslate"><span class="pre">--force</span></code> option allows you to force the push in such cases and overwrite the history:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push -f &lt;remote&gt; &lt;branch&gt;
 </pre></div>
 </div>
@@ -410,7 +410,7 @@ $ git merge upstream/main
 </div>
 <div class="section" id="viewing-the-commit-history">
 <h2>Viewing the commit history<a class="headerlink" href="#viewing-the-commit-history" title="Permalink to this headline"></a></h2>
-<p>During your project, you may want to go back to a “safe” commit if you encounter some issues at a certain point. There are also other reasons why you might need access to the commit history, such as finding out <em>who</em> made <em>what</em> changes and <em>why</em>.</p>
+<p>During your project, you may want to go back to a “safe” commit if you encounter some issues at a certain point. There are other reasons why you might need access to the commit history, such as finding out <em>who</em> made <em>what</em> changes and <em>why</em>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command allows you to track your project history in a reverse chronological order, i.e. the newest commit appears at the top.</p>
 <p>Below is a sample output of the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command without any additional flags:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log
@@ -500,7 +500,7 @@ For instance, to display the three latest commits, we will type the following co
 <span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">upstream</span><span class="o">/</span><span class="n">main</span>
 </pre></div>
 </div>
-<p>The next step consits in creating a new branch for each new commit, then “cherry-picking” the relevant commit. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span></code> command allows you to re-apply the changes from a previous commit to the current active branch:</p>
+<p>The next step consists in creating a new branch for each new commit, then “cherry-picking” the relevant commit. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span></code> command allows you to re-apply the changes from a previous commit to the current active branch:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">new</span><span class="o">-</span><span class="n">branch</span>
 <span class="n">git</span> <span class="n">cherry</span><span class="o">-</span><span class="n">pick</span> <span class="mf">91137e4</span>
 <span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span> <span class="n">origin</span> <span class="n">new</span><span class="o">-</span><span class="n">branch</span>
@@ -514,7 +514,7 @@ For instance, to display the three latest commits, we will type the following co
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ftp-vs-api.html" class="btn btn-neutral float-left" title="FTP vs. API – differences in terms of data transmission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="metadata-compression.html" class="btn btn-neutral float-right" title="Compression &amp; Metadata Removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metadata-compression.html" class="btn btn-neutral float-right" title="Compression &amp; metadata removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
