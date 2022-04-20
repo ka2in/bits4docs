@@ -64,6 +64,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#checking-the-status">Checking the status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#comparing-with-diff">Comparing with ‘diff’</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#managing-branches">Managing branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-branches">Deleting branches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-branches-locally">Deleting branches locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-branches-remotely">Deleting branches remotely</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#forking-from-a-repository">Forking from a repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#managing-remotes">Managing remotes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
@@ -82,7 +87,6 @@
 <p class="caption" role="heading"><span class="caption-text">MTU and Connectivity</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html">MTU Size and Connectivity Issues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#factors-impacting-network-connectivity">Factors impacting network connectivity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#analyzing-network-traffic">Analyzing network traffic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#find-out-the-mtu-of-your-ethernet-interface">Find out the MTU of your Ethernet interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#change-the-mtu-size-permanently">Change the MTU size permanently</a></li>
@@ -317,6 +321,38 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Git command <code class="docutils literal notranslate"><span class="pre">checkout</span></code> allows you to switch to a different branch, which then becomes the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> branch. <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a special pointer that points to the branch you are currently on.</p>
+</div>
+</div>
+<div class="section" id="deleting-branches">
+<h2>Deleting branches<a class="headerlink" href="#deleting-branches" title="Permalink to this headline"></a></h2>
+<p>Each time you want to introduce a fix or a feature, you create a new branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.</p>
+<div class="section" id="deleting-branches-locally">
+<h3>Deleting branches locally<a class="headerlink" href="#deleting-branches-locally" title="Permalink to this headline"></a></h3>
+<p>You can delete a local branch with the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option. Since you cannot delete the branch you are currently on, you will first have to checkout a different branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="ow">not</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">be</span><span class="o">-</span><span class="n">deleted</span> <span class="n">branch</span><span class="o">&gt;</span>
+
+<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">delete</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-d</span></code> option only allows you to delete branches that have already been pushed and merged with their respective remote branches.</p>
+</div>
+<p>To force local deletion <strong>without</strong> prior push and merge, use the <code class="docutils literal notranslate"><span class="pre">-D</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">delete</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-branches-remotely">
+<h3>Deleting branches remotely<a class="headerlink" href="#deleting-branches-remotely" title="Permalink to this headline"></a></h3>
+<p>To delete a branch on a remote repo, use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> command in combination with the <code class="docutils literal notranslate"><span class="pre">--delete</span></code> option as shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">delete</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">feature</span><span class="o">/</span><span class="n">captcha</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="forking-from-a-repository">

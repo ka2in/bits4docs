@@ -260,7 +260,11 @@ To view all current branches, type the following command:
 
 .. code-block::
 
-   $ git branch -a 
+   $ git branch -a
+
+.. raw:: latex
+
+    \newpage
 
 If you want to create a new branch and switch to it, type the command:
 
@@ -271,6 +275,48 @@ If you want to create a new branch and switch to it, type the command:
 .. note:: 
    
    The Git command ``checkout`` allows you to switch to a different branch, which then becomes the ``HEAD`` branch. ``HEAD`` is a special pointer that points to the branch you are currently on.
+
+Deleting branches
+==================
+
+Each time you want to introduce a fix or a feature, you create a new branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.
+
+Deleting branches locally
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can delete a local branch with the ``-d`` option. Since you cannot delete the branch you are currently on, you will first have to checkout a different branch:
+
+.. code-block::
+   
+   git checkout <not-to-be-deleted branch>
+
+   git branch -d <branch-to-delete>
+
+.. note::
+
+   The ``-d`` option only allows you to delete branches that have already been pushed and merged with their respective remote branches.
+
+To force local deletion **without** prior push and merge, use the ``-D`` option:
+
+.. code-block::
+
+   git branch -D <branch-to-delete>
+
+Deleting branches remotely
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To delete a branch on a remote repo, use the ``git push`` command in combination with the ``--delete`` option as shown below:
+
+.. code-block::
+
+   git push <remote> --delete <branch>
+
+Example:
+
+.. code-block::
+
+   git push origin --delete feature/captcha
+
 
 Forking from a repository
 =========================
@@ -323,6 +369,10 @@ If you want to fetch a specific branch from the remote repository, run the follo
 .. attention:: 
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
+
+.. raw:: latex
+
+    \newpage
 
 If you want to pull a single file from the remote repo, check the current remote repo with the command:
 
