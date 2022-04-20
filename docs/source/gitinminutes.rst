@@ -279,7 +279,7 @@ If you want to create a new branch and switch to it, type the command:
 Deleting branches
 ==================
 
-Each time you want to introduce a fix or a feature, you create a new branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.
+Each time you want to introduce a fix or a feature, you create a new dedicated branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.
 
 Deleting branches locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -415,7 +415,6 @@ You can also achieve the same result by typing the following:
 
    * Use the command ``git push <remote> <branch> --force-with-lease``. This command will not rewrite any changes made by other team members on the remote repo.  
 
-
 If you want to set a different repo, type the command:
 
 .. code-block::
@@ -491,6 +490,27 @@ To get a compact overview of your commit history, you can combine the ``git log`
 
    2. Provide a good description in your commit message. The commit message should explain precisely what the commit does.
 
+Rebasing commits
+================
+
+Git provides two mechanisms to integrate changes from one branch into another: ``merge`` and ``rebase``. 
+
+The merge option is a *non-destructive* operation. It allows you to join two or more sequences of commits together "without" altering the project history. 
+
+Unlike the merge option, a rebase "rewrites" the project history by **reapplying** all the commits of a given branch on top of the base branch. With ``git rebase``, you can move an entire feature branch to place it on the tip of the base branch in the tree.
+
+To rebase a feature branch onto the main branch, run the following commands:
+
+.. code-block::
+
+   git checkout <feature-branch> 
+
+   git rebase main
+
+.. attention::
+
+   Rebasing alters the project history. This means you can rebase any local commits that you have not pushed yet, but you should **never** rebase shared commits on remote repositories. Otherwise, you risk altering the development history that other contributors may rely on.
+
 Squashing commits
 =================
 
@@ -529,6 +549,10 @@ You should then get an output similar to this:
    # d, drop <commit> = remove commit
    # l, label <label> = label current HEAD with a name
    # t, reset <label> = reset HEAD to a label
+
+.. raw:: latex
+
+    \newpage
 
 If you replace **pick** by **squash** in one of the lines above, the line in question will be combined with the one above, e.g.:
 

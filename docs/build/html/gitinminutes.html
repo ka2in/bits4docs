@@ -73,6 +73,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#managing-remotes">Managing remotes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#viewing-the-commit-history">Viewing the commit history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rebasing-commits">Rebasing commits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#squashing-commits">Squashing commits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submitting-separate-pull-requests">Submitting separate pull requests</a></li>
 </ul>
@@ -325,7 +326,7 @@
 </div>
 <div class="section" id="deleting-branches">
 <h2>Deleting branches<a class="headerlink" href="#deleting-branches" title="Permalink to this headline"></a></h2>
-<p>Each time you want to introduce a fix or a feature, you create a new branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.</p>
+<p>Each time you want to introduce a fix or a feature, you create a new dedicated branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.</p>
 <div class="section" id="deleting-branches-locally">
 <h3>Deleting branches locally<a class="headerlink" href="#deleting-branches-locally" title="Permalink to this headline"></a></h3>
 <p>You can delete a local branch with the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option. Since you cannot delete the branch you are currently on, you will first have to checkout a different branch:</p>
@@ -485,6 +486,22 @@ fd9e2e4 Updating the table about HTTP verbs
 <li><p>Keep your commits as small as possible, i.e. each commit should include the smallest possible amount of changes. This ensures a logical organization of your commits and makes it easier to revert single changes.</p></li>
 <li><p>Provide a good description in your commit message. The commit message should explain precisely what the commit does.</p></li>
 </ol>
+</div>
+</div>
+<div class="section" id="rebasing-commits">
+<h2>Rebasing commits<a class="headerlink" href="#rebasing-commits" title="Permalink to this headline"></a></h2>
+<p>Git provides two mechanisms to integrate changes from one branch into another: <code class="docutils literal notranslate"><span class="pre">merge</span></code> and <code class="docutils literal notranslate"><span class="pre">rebase</span></code>.</p>
+<p>The merge option is a <em>non-destructive</em> operation. It allows you to join two or more sequences of commits together “without” altering the project history.</p>
+<p>Unlike the merge option, a rebase “rewrites” the project history by <strong>reapplying</strong> all the commits of a given branch on top of the base branch. With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>, you can move an entire feature branch to place it on the tip of the base branch in the tree.</p>
+<p>To rebase a feature branch onto the main branch, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">feature</span><span class="o">-</span><span class="n">branch</span><span class="o">&gt;</span>
+
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">main</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Rebasing alters the project history. This means you can rebase any local commits that you have not pushed yet, but you should <strong>never</strong> rebase shared commits on remote repositories. Otherwise, you risk altering the development history that other contributors may rely on.</p>
 </div>
 </div>
 <div class="section" id="squashing-commits">
