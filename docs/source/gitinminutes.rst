@@ -6,10 +6,13 @@
 Git Primer for the Impatient
 ----------------------------
 
-.. image:: git-tutorial.png
-   :alt: Git logo
-   :scale: 50%
+.. figure:: gitflow.svg
+   :alt: Rebasing in Git
+   :width: 800px
+   :height: 323px
    :align: center
+
+   Picture under a `CC0 1.0 Universal <https://creativecommons.org/publicdomain/zero/1.0/>`_ license 
 
 Short introduction
 ==================
@@ -498,6 +501,16 @@ Git provides two mechanisms to integrate changes from one branch into another: `
 The merge option is a *non-destructive* operation. It allows you to join two or more sequences of commits together "without" altering the project history. 
 
 Unlike the merge option, a rebase "rewrites" the project history by **reapplying** all the commits of a given branch on top of the base branch. With ``git rebase``, you can move an entire feature branch to place it on the tip of the base branch in the tree.
+
+.. figure:: git-rebase.svg
+   :alt: Rebasing in Git
+   :width: 800px
+   :height: 544px
+   :align: center
+
+   Rebasing commits – Picture under a `CC0 1.0 Universal`_ license
+
+.. _CC0: https://creativecommons.org/publicdomain/zero/1.0/
 
 To rebase a feature branch onto the main branch, run the following commands:
 
