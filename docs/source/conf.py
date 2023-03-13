@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'bits4docs'
-copyright = '2022, GlobalTech Translations'
+copyright = '2023, GlobalTech Translations'
 author = 'GlobalTech Translations'
 
 
@@ -42,6 +42,7 @@ extensions = [
     'sphinx_markdown_tables',
     'sphinxcontrib.inkscapeconverter',
     'sphinxcontrib.httpdomain',
+    'sphinxemoji.sphinxemoji',
 ]
 
 source_suffix = {
@@ -49,6 +50,10 @@ source_suffix = {
     '.txt': 'markdown',
     '.md': 'markdown',
 }
+
+# Setting a consistent emoji style
+
+sphinxemoji_style = 'twemoji'
 
 # Settings for sphinx-markdown-tables
 
@@ -109,9 +114,8 @@ latex_engine = 'xelatex'
 
 latex_elements = {
     'fontpkg': r'''
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
+\\usepackage{fontspec}
+\setmainfont{Symbole}
 ''',
     'preamble': r'''
 \usepackage[titles]{tocloft}
@@ -141,5 +145,5 @@ latex_elements = {
     'papersize': 'a4paper',
 
 # Latex figure (float) alignment
-    'figure_align': 'htbp',
+    'figure_align': 'H',
 }
