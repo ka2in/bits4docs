@@ -7,7 +7,7 @@ MTU Size and Connectivity Issues
 
 .. figure:: mtu-connectivity.png
    :alt: MTU and Connectivity
-   :scale: 50%
+   :scale: 75%
    :align: center
 
    Picture by kreatikar `(pixabay.com) <https://pixabay.com>`_

@@ -78,16 +78,45 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 
-html_theme = "sphinx_rtd_theme"
+html_theme = "pydata_sphinx_theme"
 
 # -- Adding options for TOC ------------------------------------------------
 
 html_theme_options = {
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/ka2in",
+            "icon": "fab fa-github-square",
+            "type": "fontawesome",
+        },
+        {
+            "name": "Mastodon",
+            "url": "https://fosstodon.org/@gnufcl",
+            "icon": "fab fa-mastodon",
+            "type": "fontawesome",
+        },
+   ],
+    "navbar_start": "navbar-logo",
+    "pygment_light_style": "tango",
+    "pygment_dark_style": "native",
+    "footer_start": "copyright",
+    "footer_end": "",
+    'collapse_navigation': True, # ToC options
+    "show_nav_level": 0,
+}
+
+
+# Dark mode as default
+
+html_context = {
+   "default_mode": "dark",
+}
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -109,7 +138,8 @@ html_show_sourcelink = False
 html_logo = "drawing-icon.png"
 
 
-# LaTeX customization for PDF
+# LaTeX customization for PDF 
+
 latex_engine = 'xelatex'
 
 latex_elements = {

@@ -540,7 +540,7 @@ For instance, to display the three latest commits, we will type the following co
 
 You should then get an output similar to this:
 
-.. code-block::
+.. code-block:: bash
 
    pick 09ca794 Proofreading the git article
    pick ad06d9b Updating content about metadata
@@ -594,3 +594,34 @@ The next step consists in creating a new branch for each new commit, then "cherr
    git checkout -b new-branch
    git cherry-pick 91137e4
    git push --set-upstream origin new-branch
+
+Reverting a merged commit from a pull request
+==============================================
+
+To undo the changes that were introduced after a ``git pull`` and bring your repo to an older state, run the following commands:
+
+.. code-block::
+
+   git reflog
+
+This will give you an output like the following:
+
+.. code-block:: console
+
+   bb38466 HEAD@{7}: commit: Adding graphics to the rebase section
+   6304089 HEAD@{8}: commit: Adding a topic about rebasing in Git
+   bd9e921 HEAD@{9}: commit: Adding content about local and remote deletion on Git
+   81f6a9a HEAD@{10}: commit: Resolving the issue with footnotes on LaTeX
+
+.. note:: 
+
+   ``reflog`` is short for reference log. A reference log shows when the tips of branches were updated in a local repository.
+
+To bring the repo to a given previous state, we will use the following command in combination with the shortened commit SHA (e.g., ``81f6a9a``):
+
+.. code-block::
+
+   git reset --hard <shortened commit SHA> 
+
+
+   

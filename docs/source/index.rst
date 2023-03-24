@@ -27,7 +27,7 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
       |:closed_book:| Web Security for Developers - Real Threats, Practical Defense - Malcolm McDonald - No Starch Press - ISBN: 978-1-59327-994-3
       
-      |:closed_book:| Eloquent JavaScript - A Modern Introduction to Programming - Marijn Haverbeke - No Starch Press - 978-1-59327950-9  
+      |:closed_book:| Eloquent JavaScript - A Modern Introduction to Programming - Marijn Haverbeke - No Starch Press - ISBN: 978-1-59327950-9  
 
 
 .. note::
@@ -35,35 +35,11 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
    This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID: 0x52D6AF10``
 
 .. toctree::
-   :maxdepth: 4
+   :hidden:
    :caption: Table of Contents
-   :hidden:
 
-.. toctree::
-   :maxdepth: 4
-   :caption: FTP vs. API
-   :hidden:
-
-   ftp-vs-api
-
-.. toctree::
-   :maxdepth: 4
-   :caption: Git
-   :hidden:
-
-   gitinminutes
-   
-.. toctree::
-   :maxdepth: 4
-   :caption: Compression and Metadata
-   :hidden:
-
-   metadata-compression
-   
-.. toctree::
-   :maxdepth: 4
-   :caption: MTU and Connectivity
-   :hidden:
-
-   mtu-connectivity
+   FTP vs. API <ftp-vs-api>
+   Git Primer <gitinminutes>
+   Compression and Metadata <metadata-compression>
+   MTU and Connectivity <mtu-connectivity>
    
