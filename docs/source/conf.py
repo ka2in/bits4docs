@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'bits4docs'
-copyright = '2023, GlobalTech Translations'
+copyright = '2025, GlobalTech Translations'
 author = 'GlobalTech Translations'
 
 
