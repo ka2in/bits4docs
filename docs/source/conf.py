@@ -46,6 +46,8 @@ import pydata_sphinx_theme
 
 extensions = [
     'myst_parser',
+	'sphinx_rtd_theme',
+    'sphinx.ext.autosectionlabel',
     'sphinx_markdown_tables',
     'sphinxcontrib.inkscapeconverter',
     'sphinxcontrib.httpdomain',
@@ -59,11 +61,9 @@ source_suffix = {
 }
 
 # Setting a consistent emoji style
-
 sphinxemoji_style = 'twemoji'
 
 # Settings for sphinx-markdown-tables
-
 source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }

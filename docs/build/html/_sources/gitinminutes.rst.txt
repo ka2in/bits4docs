@@ -15,7 +15,7 @@ Git Primer for the Impatient
    Picture under a `CC0 1.0 Universal <https://creativecommons.org/publicdomain/zero/1.0/>`_ license 
 
 Short introduction
-==================
+------------------
 
 Git is a :abbr:`VCS (Version Control System)`. Basically, a version control system allows you to perform a number of essential tasks, including:
 
@@ -29,7 +29,7 @@ Git was initially introduced in the Linux community as a revision control system
 With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.  
 
 Git states
-==========
+----------
 
 In a Git workflow, your files will basically go through 3 different states:
 
@@ -40,7 +40,7 @@ In a Git workflow, your files will basically go through 3 different states:
 The Git directory is a hidden folder ``.git`` at the top level of your working tree.
 
 Installation on Linux
-=====================
+---------------------
 
 To install Git on Debian based distros, run the following commands:
 
@@ -57,7 +57,7 @@ For Red Hat based distros, use the following commands:
    $ sudo dnf install git-all
 
 Initial configuration
-=====================
+---------------------
 
 Git ships with a tool called ``git config`` that allows you to set multiple configuration variables. These variables control how Git looks and behaves. 
 
@@ -373,10 +373,13 @@ If you want to fetch a specific branch from the remote repository, run the follo
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
 
+<<<<<<< HEAD
+=======
 .. raw:: latex
 
     \newpage
 
+>>>>>>> easydocbranch
 If you want to pull a single file from the remote repo, check the current remote repo with the command:
 
 .. code-block::
@@ -388,7 +391,15 @@ Once you have confirmed that ``origin`` is the name of your remote, run the foll
 .. code-block::
 
    $ git fetch --all
+<<<<<<< HEAD
+<<<<<<< HEAD
+   $ git git checkout origin/main -- /path/to/your/file 
+=======
    $ git checkout origin/main -- /path/to/your/file 
+>>>>>>> origin/main
+=======
+   $ git checkout origin/main -- /path/to/your/file 
+>>>>>>> easydocbranch
 
 To push your local commits to the remote repo, run the following command:
 
@@ -431,7 +442,11 @@ In order to delete references to any remote branches that no longer exist, use t
    $ git remote prune origin
 
 Syncing your fork with upstream
+<<<<<<< HEAD
+-------------------------------
+=======
 ===============================
+>>>>>>> easydocbranch
 
 If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
 
@@ -439,11 +454,24 @@ If you have forked an upstream repo and started working on your local fork, you 
 
    $ git fetch upstream
    $ git checkout main
+<<<<<<< HEAD
+<<<<<<< HEAD
+   $ git merge upstream/master
+
+.. note::
+
+   Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub. 
+=======
+=======
+>>>>>>> easydocbranch
    $ git merge upstream/main
 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 
 Viewing the commit history
 ==========================
@@ -625,3 +653,4 @@ To bring the repo to a given previous state, we will use the following command i
 
 
    
+>>>>>>> easydocbranch

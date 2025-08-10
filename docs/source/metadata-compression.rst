@@ -2,7 +2,11 @@
    :description: Compression and Metadata Removal - how to compress and remove metadata from PDF and image files
    :keywords: compression, metadata, privacy, image, pdf
 
+<<<<<<< HEAD
+Compression & Metadata Removal
+=======
 Compression & metadata removal
+>>>>>>> easydocbranch
 ------------------------------
 
 .. figure:: Data-Mike-Haynes.jpeg
