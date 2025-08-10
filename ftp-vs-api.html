@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="ftp, api, networks, protocols" name="keywords" />
+
+    <title>FTP vs. API – differences in terms of data transmission &#8212; bits4docs 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=92b56f59" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+    <script src="_static/twemoji.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ftp-vs-api';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Git Primer for the Impatient" href="gitinminutes.html" />
+    <link rel="prev" title="Welcome to bits4docs!" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/drawing-icon.png" class="logo__image only-dark" alt="bits4docs 1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/drawing-icon.png" class="logo__image only-light" alt="bits4docs 1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">FTP vs. API...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ftp-vs-api-differences-in-terms-of-data-transmission">
+<h1>FTP vs. API – differences in terms of data transmission<a class="headerlink" href="#ftp-vs-api-differences-in-terms-of-data-transmission" title="Link to this heading">#</a></h1>
+<p>Users can choose either to send their data to an FTP server or via an API. These two connectivity options have different implications in terms of security, access possibilities, and customer experience.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/network-ftp.png"><img alt="FTP vs. API" src="_images/network-ftp.png" style="width: 527.121155px; height: 346.62805px;" />
+</a>
+</figure>
+</section>
+<section id="ftp-an-old-well-established-protocol">
+<h1>FTP – an old, well-established protocol<a class="headerlink" href="#ftp-an-old-well-established-protocol" title="Link to this heading">#</a></h1>
+<p>FTP (<em>File Transfer Protocol</em>) uses a client/server model to allow users to move files between a local machine (<em>client</em>) and a remote host (<em>server</em>). FTP is an easy and convenient method to download and upload large data volumes.</p>
+<p>One particular aspect of FTP is that it relies on “two” logical TCP connections to ensure communication between the client and the server:</p>
+<ul class="simple">
+<li><p><strong>Control connection:</strong> This primary communication channel ensures the transmission of control traffic over port 21 and remains active during the entire FTP session. Control traffic includes FTP commands and replies.</p></li>
+<li><p><strong>Data connection:</strong> Whenever you need to transfer files between a client and a remote server or vice versa, FTP will initiate this TCP connection to ensure data transmission over port 20. Unlike the control connection, a data connection does not remain active during the entire FTP session and ends immediately after the file transfer.</p></li>
+</ul>
+<p>FTP uses a simple authentication mechanism that consists in using a “user name” and a “password”. The client sends the authentication data to the remote server using the FTP commands: <code class="docutils literal notranslate"><span class="pre">USER</span></code> and <code class="docutils literal notranslate"><span class="pre">PASS</span></code>.</p>
+<p>The FTP standard defines three main categories of FTP commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">Control</span> <span class="pre">Commands</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Transfer</span> <span class="pre">Parameter</span> <span class="pre">Commands</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FTP</span> <span class="pre">Service</span> <span class="pre">Commands</span></code></p></li>
+</ul>
+<p>The following tables provide an overview of the different commands within each category:</p>
+<div class="pst-scrollable-table-container"><table class="tight-table table">
+<thead>
+<tr class="row-odd"><th class="head" colspan="4"><p><strong>Access Control Commands</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">USER</span></code></p></td>
+<td><p><em>User Name</em></p></td>
+<td colspan="2"><p>User identification to access the server’s file system</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PASS</span></code></p></td>
+<td><p><em>Password</em></p></td>
+<td colspan="2"><p>Command that follows the <code class="docutils literal notranslate"><span class="pre">USER</span></code> command immediately</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ACCT</span></code></p></td>
+<td><p><em>Account</em></p></td>
+<td colspan="2"><p>For login purposes or tasks requiring specific access</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CWD</span></code></p></td>
+<td><p><em>Change Working</em>
+<em>Directory</em></p></td>
+<td colspan="2"><p>Store or retrieve files on a different directory
+without modifying login or account information</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CDUP</span></code></p></td>
+<td><p><em>Change</em>
+<em>Directory Up</em></p></td>
+<td colspan="2"><p>Transfer directory trees between operating systems
+that use different syntaxes to name the parent
+directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SMNT</span></code></p></td>
+<td><p><em>Structure Mount</em></p></td>
+<td colspan="2"><p>Mount a different file system data structure without
+modifying the login or accounting information</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">REIN</span></code></p></td>
+<td><p><em>Reinitialize</em></p></td>
+<td colspan="2"><p>Reset parameters to the default settings and flush
+account information and all Input/Output</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">QUIT</span></code></p></td>
+<td><p><em>Logout</em></p></td>
+<td colspan="2"><p>Terminate USER session and close control connection</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="tight-table table">
+<thead>
+<tr class="row-odd"><th class="head" colspan="7"><p><strong>Transfer Parameter Commands</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PORT</span></code></p></td>
+<td colspan="2"><p><em>Data Port</em></p></td>
+<td colspan="4"><p>Specify port number to use for data connection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PASV</span></code></p></td>
+<td colspan="2"><p><em>Passive</em></p></td>
+<td colspan="4"><p>Request the Server Data Transfer Process to
+<em>listen</em> on a non-default data port</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TYPE</span></code></p></td>
+<td colspan="2"><p><em>Representation</em>
+<em>Type</em></p></td>
+<td colspan="4"><p>Inform the server about the data type of
+files that are transferred by the client</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STRU</span></code></p></td>
+<td colspan="2"><p><em>File Structure</em></p></td>
+<td colspan="4"><p>Specify the data structure for the file
+(<strong>File</strong>, <strong>Record</strong>, or <strong>Page</strong>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MODE</span></code></p></td>
+<td colspan="2"><p><em>Transfer Mode</em></p></td>
+<td colspan="4"><p>Specify the transmission mode to use
+(<strong>Stream</strong>, <strong>Block</strong>, or <strong>Compressed</strong>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="tight-table table">
+<thead>
+<tr class="row-odd"><th class="head" colspan="7"><p><strong>FTP Service Commands</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RETR</span></code></p></td>
+<td colspan="2"><p><em>Retrieve</em></p></td>
+<td colspan="4"><p>Transfer a file from the server to the client</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STOR</span></code></p></td>
+<td colspan="2"><p><em>Store</em></p></td>
+<td colspan="4"><p>Store data as a file on the server</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STOU</span></code></p></td>
+<td colspan="2"><p><em>Store Unique</em></p></td>
+<td colspan="4"><p>Similar to <code class="docutils literal notranslate"><span class="pre">STOR</span></code>, but the file must have a
+unique name inside the current directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">APPE</span></code></p></td>
+<td colspan="2"><p><em>Append</em></p></td>
+<td colspan="4"><p>If a file with same name already exists on the
+server, the data is appended to the existing file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ALLO</span></code></p></td>
+<td colspan="2"><p><em>Allocate</em></p></td>
+<td colspan="4"><p>Make sure that sufficient storage is available on
+the server before data transmission</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">REST</span></code></p></td>
+<td colspan="2"><p><em>Restart</em></p></td>
+<td colspan="4"><p>Restart file transfer at a specific server marker</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RNFR</span></code></p></td>
+<td colspan="2"><p><em>Rename From</em></p></td>
+<td colspan="4"><p>Specify the old name of the file to be renamed.
+Must be followed by the <code class="docutils literal notranslate"><span class="pre">RNTO</span></code> command</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RNTO</span></code></p></td>
+<td colspan="2"><p><em>Rename To</em></p></td>
+<td colspan="4"><p>Specify the new name of the file to be renamed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ABOR</span></code></p></td>
+<td colspan="2"><p><em>Abort</em></p></td>
+<td colspan="4"><p>Instruct the server to abort the last FTP command
+and any associated data transfer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DELE</span></code></p></td>
+<td colspan="2"><p><em>Delete</em></p></td>
+<td colspan="4"><p>Remove the specified file from the server</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RMD</span></code></p></td>
+<td colspan="2"><p><em>Remove</em>
+<em>Directory</em></p></td>
+<td colspan="4"><p>Remove the specified directory from the server</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MKD</span></code></p></td>
+<td colspan="2"><p><em>Make Directory</em></p></td>
+<td colspan="4"><p>Create a directory</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PWD</span></code></p></td>
+<td colspan="2"><p><em>Print Working</em>
+<em>Directory</em></p></td>
+<td colspan="4"><p>Display the current working directory on the
+server</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LIST</span></code></p></td>
+<td colspan="2"><p><em>List</em></p></td>
+<td colspan="4"><p>Instruct the server to send a list of the content
+available in the current directory</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">NLST</span></code></p></td>
+<td colspan="2"><p><em>Name List</em></p></td>
+<td colspan="4"><p>Similar to <code class="docutils literal notranslate"><span class="pre">LIST</span></code>, but only sends a directory
+listing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SITE</span></code></p></td>
+<td colspan="2"><p><em>Site</em>
+<em>Parameters</em></p></td>
+<td colspan="4"><p>Server-side commands to use specific functions
+that are required for data transfer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYST</span></code></p></td>
+<td colspan="2"><p><em>System</em></p></td>
+<td colspan="4"><p>Instruct the server to send information about its
+operating system</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAT</span></code></p></td>
+<td colspan="2"><p><em>Status</em></p></td>
+<td colspan="4"><p>Instruct the server to indicate the status of a
+file or the ongoing data transfer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HELP</span></code></p></td>
+<td colspan="2"><p><em>Help</em></p></td>
+<td colspan="4"><p>Prompt the server to send help information that
+shows how to use the server</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NOOP</span></code></p></td>
+<td colspan="2"><p><em>No Operation</em></p></td>
+<td colspan="4"><p>Prompt the server to send an OK reply but does
+not impact the previously entered commands</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For a more detailed description, please refer to The FTP specification <a class="reference external" href="https://www.w3.org/Protocols/rfc959/4_FileTransfer.html">RFC959</a>.</p>
+</section>
+<section id="ftp-and-security">
+<h1>FTP and security<a class="headerlink" href="#ftp-and-security" title="Link to this heading">#</a></h1>
+<p>Data transmission with the basic FTP protocol is insecure because it is unencrypted. For a secure data transfer, you need to use FTPS (<em>FTP over SSL</em>) or SFTP (<em>SSH File Transfer Protocol</em>). Unlike FTPS, which requires opening multiple ports for data transmission, SFTP only needs a single port number to transfer the data. Therefore, SFTP is more suitable for firewall security.</p>
+<p>While FTP is convenient for large data transfers, its performance in terms of access possibilities and customer experience remains rather limited. For instance, FTP does not allow you to share resources in real-time between multiple systems, nor does it give you the ability to process data on remote systems.</p>
+</section>
+<section id="api-more-access-options-for-a-better-customer-experience">
+<h1>API – more access options for a better customer experience<a class="headerlink" href="#api-more-access-options-for-a-better-customer-experience" title="Link to this heading">#</a></h1>
+<p>An API (<em>Application Programming Interface</em>) is an interface that serves as a bridge between two or more applications. The server-side components encapsulate the business logic and make it available to multiple clients through the API.</p>
+<p>To ensure a secure data transmission, companies can use the HTTPS protocol in conjunction with different encryption methods.
+Besides providing real-time data access to the linked systems, an API integration allows clients to manage and process data by sending requests to the appropriate endpoints.</p>
+<p>In the context of HTTP based architectures, clients use <code class="docutils literal notranslate"><span class="pre">URIs</span></code> and <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">verbs</span></code> (or methods) to create, request, modify, or delete <code class="docutils literal notranslate"><span class="pre">resources</span></code> on a server. A URI (Unique Resource Identifier) allows clients to unequivocally identify a resource that is located on a server. A resource can be anything that is stored on a sever, e.g.:</p>
+<ul class="simple">
+<li><p>an employee list in CSV format</p></li>
+<li><p>a customer database in SQL format</p></li>
+<li><p>or a presentation file in ODP format</p></li>
+</ul>
+<p>The commonly used version of HTTP, i.e. HTTP/1.1, defines eight verbs as the table below shows:</p>
+<div class="pst-scrollable-table-container"><table class="tight-table table">
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p><strong>HTTP Verb/Method</strong> | <strong>Purpose</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GET</span></code></p></td>
+<td><p>Request a resource</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code></p></td>
+<td><p>Similar to <code class="docutils literal notranslate"><span class="pre">GET</span></code>, but only provides the HTTP header
+and not the entire resource</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">POST</span></code></p></td>
+<td><p>Generate a resource with a unique ID assigned by the server</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PUT</span></code></p></td>
+<td><p>Create or replace a resource. The client specifies the
+resource ID through the URI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PATCH</span></code></p></td>
+<td><p>Partially update a resource that is accessed through its URI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p></td>
+<td><p>Remove a resource that is identified by its URI</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CONNECT</span></code></p></td>
+<td><p>Establish an end-to-end tunnel connection through a proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>Retrieve information about the available communication
+options for a given resource</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>APIs offer more advantages over FTP, but they require a higher investment of time and technical expertise.</p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to bits4docs!</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gitinminutes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Git Primer for the Impatient</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">FTP vs. API – differences in terms of data transmission</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ftp-an-old-well-established-protocol">FTP – an old, well-established protocol</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ftp-and-security">FTP and security</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#api-more-access-options-for-a-better-customer-experience">API – more access options for a better customer experience</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GlobalTech Translations.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

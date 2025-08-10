@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks" name="description" />
+<meta content="Git, commands, repository, versioning, documentation" name="keywords" />
+
+    <title>Git Primer for the Impatient &#8212; bits4docs 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=92b56f59" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+    <script src="_static/twemoji.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gitinminutes';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compression &amp; metadata removal" href="metadata-compression.html" />
+    <link rel="prev" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/drawing-icon.png" class="logo__image only-dark" alt="bits4docs 1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/drawing-icon.png" class="logo__image only-light" alt="bits4docs 1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Git Primer...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="git-primer-for-the-impatient">
+<h1>Git Primer for the Impatient<a class="headerlink" href="#git-primer-for-the-impatient" title="Link to this heading">#</a></h1>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/gitflow.svg"><img alt="Rebasing in Git" src="_images/gitflow.svg" style="width: 800px; height: 323px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Picture under a <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> license</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="short-introduction">
+<h1>Short introduction<a class="headerlink" href="#short-introduction" title="Link to this heading">#</a></h1>
+<p>Git is a <abbr title="Version Control System">VCS</abbr>. Basically, a version control system allows you to perform a number of essential tasks, including:</p>
+<ul class="simple">
+<li><p>creating a copy of the original project</p></li>
+<li><p>tracking all the changes that you have made to the project</p></li>
+<li><p>keeping track of previous versions of the project</p></li>
+<li><p>marking milestones during the development cycle</p></li>
+</ul>
+<p>Git was initially introduced in the Linux community as a revision control system for kernel development. Unlike centralized version control systems such as Subversion and CVS, Git is a fast distributed system.</p>
+<p>With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.</p>
+</section>
+<section id="git-states">
+<h1>Git states<a class="headerlink" href="#git-states" title="Link to this heading">#</a></h1>
+<p>In a Git workflow, your files will basically go through 3 different states:</p>
+<ul class="simple">
+<li><p>Modified: This is when you make changes to the files in your working directory.</p></li>
+<li><p>Staged: In this intermediate state, Git saves snapshots of the modified files in the staging area.</p></li>
+<li><p>Committed: Once you commit your changes, Git will save the staged files in the Git directory.</p></li>
+</ul>
+<p>The Git directory is a hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code> at the top level of your working tree.</p>
+</section>
+<section id="installation-on-linux">
+<h1>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Link to this heading">#</a></h1>
+<p>To install Git on Debian based distros, run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git-all
+</pre></div>
+</div>
+<p>For Red Hat based distros, use the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git-all
+</pre></div>
+</div>
+</section>
+<section id="initial-configuration">
+<h1>Initial configuration<a class="headerlink" href="#initial-configuration" title="Link to this heading">#</a></h1>
+<p>Git ships with a tool called <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> that allows you to set multiple configuration variables. These variables control how Git looks and behaves.</p>
+<p>Depending on your system, the configuration variables will be stored at different locations. For further details about the topic, check Git’s official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>.</p>
+<p>Once you have installed Git, you should set your credentials by indicating your <strong>user name</strong> and <strong>email</strong>. To do so, type the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Random User&quot;</span>
+<span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>randomuser@test.com
+</pre></div>
+</div>
+<p>To check all your personal settings, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>git<span class="w"> </span>config<span class="w"> </span>--list
+</pre></div>
+</div>
+</section>
+<section id="git-essential-commands">
+<h1>Git essential commands<a class="headerlink" href="#git-essential-commands" title="Link to this heading">#</a></h1>
+<p>Here are the most essential commands that will get you up and running within minutes.</p>
+<section id="initializing-a-new-repository">
+<h2>Initializing a new repository<a class="headerlink" href="#initializing-a-new-repository" title="Link to this heading">#</a></h2>
+<p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>init
+</pre></div>
+</div>
+</section>
+<section id="cloning-an-existing-repository">
+<h2>Cloning an existing repository<a class="headerlink" href="#cloning-an-existing-repository" title="Link to this heading">#</a></h2>
+<p>To clone an existing repository, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>&lt;URL&gt;
+</pre></div>
+</div>
+<p>For instance, if we want to clone the documentation repository from the collaboration platform <em>Codeberg</em>, then we will type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://codeberg.org/Codeberg/Documentation.git
+</pre></div>
+</div>
+</section>
+<section id="adding-files">
+<h2>Adding files<a class="headerlink" href="#adding-files" title="Link to this heading">#</a></h2>
+<p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>-A
+</pre></div>
+</div>
+<p>You can achieve the same result with the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Either way, the files existing in your project’s folder will be added recursively to Git’s index.</p>
+<p>To add a single file called ‘foo’, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>foo
+</pre></div>
+</div>
+</section>
+<section id="committing-changes">
+<h2>Committing changes<a class="headerlink" href="#committing-changes" title="Link to this heading">#</a></h2>
+<p>To commit your changes with a message, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not insert a commit message at the time of committing your files, i.e. if you only type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, Git will launch the default text editor that is set in your environment variables.</p>
+</div>
+</section>
+<section id="checking-the-status">
+<h2>Checking the status<a class="headerlink" href="#checking-the-status" title="Link to this heading">#</a></h2>
+<p>If you want to check the status of the project’s files, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>You will then get something like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go"> On branch maindoc</span>
+<span class="go"> Changes not staged for commit:</span>
+<span class="gp gp-VirtualEnv">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="gp gp-VirtualEnv">(use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="go"> modified:   build/doctrees/environment.pickle</span>
+<span class="go"> modified:   build/doctrees/gitcommands.doctree</span>
+<span class="go"> modified:   build/doctrees/index.doctree</span>
+<span class="go"> modified:   build/html/_sources/gitcommands.rst.txt</span>
+<span class="go"> modified:   build/html/_static/pygments.css</span>
+<span class="go"> modified:   build/html/gitcommands.html</span>
+<span class="go"> modified:   build/html/index.html</span>
+<span class="go"> modified:   build/html/objects.inv</span>
+<span class="go"> modified:   build/html/searchindex.js</span>
+<span class="go"> modified:   source/conf.py</span>
+<span class="go"> modified:   source/gitcommands.rst</span>
+</pre></div>
+</div>
+<p>The command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> provides the default description. To get a verbose description, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status<span class="w"> </span>-v
+</pre></div>
+</div>
+<p>If you prefer a shorter description, type the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status<span class="w"> </span>-s
+</pre></div>
+</div>
+<p>This will you give you the following result:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">M build/doctrees/environment.pickle</span>
+<span class="go">M build/doctrees/gitcommands.doctree</span>
+<span class="go">M build/doctrees/index.doctree</span>
+<span class="go">M build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">M build/html/_static/pygments.css</span>
+<span class="go">M build/html/gitcommands.html</span>
+<span class="go">M build/html/index.html</span>
+<span class="go">M build/html/objects.inv</span>
+<span class="go">M build/html/searchindex.js</span>
+<span class="go">M source/conf.py</span>
+<span class="go">M source/gitcommands.rst</span>
+</pre></div>
+</div>
+<p>In the example above, The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code>.</p>
+</section>
+<section id="comparing-with-diff">
+<h2>Comparing with ‘diff’<a class="headerlink" href="#comparing-with-diff" title="Link to this heading">#</a></h2>
+<p>To compare your local index with the repository, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+<p>You will then get a result similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">diff --git a/docs/build/doctrees/environment.pickle b/docs/build/doctrees/environment.pickle</span>
+<span class="go">index 76e71d8..ca8948d 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/environment.pickle and b/docs/build/doctrees/environment.pickle differ</span>
+<span class="go">diff --git a/docs/build/doctrees/gitcommands.doctree b/docs/build/doctrees/gitcommands.doctree</span>
+<span class="go">index b4e2fe0..5821717 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/gitcommands.doctree and b/docs/build/doctrees/gitcommands.doctree differ</span>
+<span class="go">diff --git a/docs/build/doctrees/index.doctree b/docs/build/doctrees/index.doctree</span>
+<span class="go">index dc2937d..d476ecb 100644</span>
+<span class="go">Binary files a/docs/build/doctrees/index.doctree and b/docs/build/doctrees/index.doctree differ</span>
+<span class="go">diff --git a/docs/build/html/_sources/gitcommands.rst.txt b/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">index 9a17fde..962687d 100644</span>
+<span class="go">--- a/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">+++ b/docs/build/html/_sources/gitcommands.rst.txt</span>
+<span class="go">@@ -24,8 +24,8 @@ In a Git workflow, your files will basically go through 3 diff</span>
+</pre></div>
+</div>
+<p>If you want the same result in a table format, add the option <code class="docutils literal notranslate"><span class="pre">--stat</span></code> to the initial command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>diff<span class="w"> </span>--stat
+</pre></div>
+</div>
+<p>The command above will display something similar to this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docs/build/doctrees/environment.pickle        | Bin 15477 -&gt; 15570 bytes</span>
+<span class="go">docs/build/doctrees/gitcommands.doctree      | Bin 14576 -&gt; 20749 bytes</span>
+<span class="go">docs/build/doctrees/index.doctree             | Bin 9193 -&gt; 8977 bytes</span>
+<span class="go">docs/build/html/_sources/gitcommands.rst.txt |  78 ++++++++++++++++++++++-</span>
+<span class="go">docs/build/html/_static/pygments.css          |   6 +-</span>
+<span class="go">docs/build/html/gitcommands.html             |  86 +++++++++++++++++++++-----</span>
+<span class="go">docs/build/html/index.html                    |   9 ++-</span>
+<span class="go">docs/build/html/objects.inv                   | Bin 402 -&gt; 414 bytes</span>
+<span class="go">docs/build/html/searchindex.js                |   2 +-</span>
+<span class="go">docs/source/conf.py                           |   2 +-</span>
+<span class="go">docs/source/gitcommands.rst                  |  78 ++++++++++++++++++++++-</span>
+<span class="go">11 files changed, 228 insertions(+), 33 deletions(-)</span>
+</pre></div>
+</div>
+</section>
+<section id="managing-branches">
+<h2>Managing branches<a class="headerlink" href="#managing-branches" title="Link to this heading">#</a></h2>
+<p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, also called <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology.</p>
+<p>To view all current branches, type the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
+</pre></div>
+</div>
+<p>If you want to create a new branch and switch to it, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;new-branch&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Git command <code class="docutils literal notranslate"><span class="pre">checkout</span></code> allows you to switch to a different branch, which then becomes the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> branch. <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> is a special pointer that points to the branch you are currently on.</p>
+</div>
+</section>
+<section id="deleting-branches">
+<h2>Deleting branches<a class="headerlink" href="#deleting-branches" title="Link to this heading">#</a></h2>
+<p>Each time you want to introduce a fix or a feature, you create a new dedicated branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.</p>
+<section id="deleting-branches-locally">
+<h3>Deleting branches locally<a class="headerlink" href="#deleting-branches-locally" title="Link to this heading">#</a></h3>
+<p>You can delete a local branch with the <code class="docutils literal notranslate"><span class="pre">-d</span></code> option. Since you cannot delete the branch you are currently on, you will first have to checkout a different branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="ow">not</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">be</span><span class="o">-</span><span class="n">deleted</span> <span class="n">branch</span><span class="o">&gt;</span>
+
+<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">delete</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-d</span></code> option only allows you to delete branches that have already been pushed and merged with their respective remote branches.</p>
+</div>
+<p>To force local deletion <strong>without</strong> prior push and merge, use the <code class="docutils literal notranslate"><span class="pre">-D</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">delete</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="deleting-branches-remotely">
+<h3>Deleting branches remotely<a class="headerlink" href="#deleting-branches-remotely" title="Link to this heading">#</a></h3>
+<p>To delete a branch on a remote repo, use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> command in combination with the <code class="docutils literal notranslate"><span class="pre">--delete</span></code> option as shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">delete</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">feature</span><span class="o">/</span><span class="n">captcha</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="forking-from-a-repository">
+<h2>Forking from a repository<a class="headerlink" href="#forking-from-a-repository" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
+</section>
+<section id="managing-remotes">
+<h2>Managing remotes<a class="headerlink" href="#managing-remotes" title="Link to this heading">#</a></h2>
+<p>Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.</p>
+<p>To set a remote repository, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;URL&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the context of Git hosting platforms, <code class="docutils literal notranslate"><span class="pre">origin</span></code> designates your own fork, while <code class="docutils literal notranslate"><span class="pre">upstream</span></code> refers to the original repository that you have forked.</p>
+</div>
+<p>To verify the remote repository, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+<p>You will then get a result similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span>   <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codeberg</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Codeberg</span><span class="o">/</span><span class="n">Documentation</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">fetch</span><span class="p">)</span>
+<span class="n">origin</span>   <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">codeberg</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">Codeberg</span><span class="o">/</span><span class="n">Documentation</span><span class="o">.</span><span class="n">git</span> <span class="p">(</span><span class="n">push</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the output contains 2 different terms at the end of each line, which are <code class="docutils literal notranslate"><span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code>: <code class="docutils literal notranslate"><span class="pre">fetch</span></code> is the action of getting data from the remote repository, while <code class="docutils literal notranslate"><span class="pre">push</span></code> means sending data to the remote.</p>
+<p>To fetch data from your remote repository with its entire branches, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch &lt;remote&gt;
+</pre></div>
+</div>
+<p>If you want to fetch a specific branch from the remote repository, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fetch</span></code> command allows you to download the data to your local repository, but it does <strong>not</strong> alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.</p>
+</div>
+<p>If you want to pull a single file from the remote repo, check the current remote repo with the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+<p>Once you have confirmed that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is the name of your remote, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch --all
+
+$ git checkout origin/main -- /path/to/your/file
+</pre></div>
+</div>
+<p>To push your local commits to the remote repo, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<p>If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. The <code class="docutils literal notranslate"><span class="pre">--force</span></code> option allows you to force the push in such cases and overwrite the history:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push -f &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<p>You can also achieve the same result by typing the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">force</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Proceed with caution when using the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option. Rewriting the commit history means that others cannot access the older commit history anymore. Here are some “safer” alternatives:</p>
+<ul class="simple">
+<li><p>Avoid force pushing commits on repos with a shared history.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> to undo changes from existing commits.</p></li>
+<li><p>Use the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;branch&gt;</span> <span class="pre">--force-with-lease</span></code>. This command will not rewrite any changes made by other team members on the remote repo.</p></li>
+</ul>
+</div>
+<p>If you want to set a different repo, type the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote set-url origin &lt;URL&gt;
+</pre></div>
+</div>
+<p>In order to delete references to any remote branches that no longer exist, use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote prune origin
+</pre></div>
+</div>
+</section>
+</section>
+<section id="syncing-your-fork-with-upstream">
+<h1>Syncing your fork with upstream<a class="headerlink" href="#syncing-your-fork-with-upstream" title="Link to this heading">#</a></h1>
+<p>If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+$ git checkout main
+$ git merge upstream/master
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
+<p>$ git merge upstream/main</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
+</div>
+<section id="viewing-the-commit-history">
+<h2>Viewing the commit history<a class="headerlink" href="#viewing-the-commit-history" title="Link to this heading">#</a></h2>
+<p>During your project, you may want to go back to a “safe” commit if you encounter some issues at a certain point. There are other reasons why you might need access to the commit history, such as finding out <em>who</em> made <em>what</em> changes and <em>why</em>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command allows you to track your project history in a reverse chronological order, i.e. the newest commit appears at the top.</p>
+<p>Below is a sample output of the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command without any additional flags:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log
+commit ad06d9ba80ba723b68b6600600e23bc85af7ff82 (HEAD -&gt; easydocbranch, origin/easydocbranch)
+Author: Faycal Alami-Hassani &lt;anon@yme.com&gt;
+Date:   Thu Feb 17 21:43:38 2022 +0100
+
+Updating content about metadata
+
+commit 09ca7947a1935841ea4d76d3fe815ea988ad2c77
+Author: Faycal Alami-Hassani &lt;anon@yme.com&gt;
+Date:   Thu Feb 17 21:31:59 2022 +0100
+
+Proofreading the Git article
+
+commit b5ef042c0f907bfebb2c6917b5de1e072a3fd18a
+Author: Faycal Alami-Hassani &lt;anon@yme.com&gt;
+Date:   Thu Feb 17 20:29:28 2022 +0100
+
+Finished proofreading the article
+</pre></div>
+</div>
+<p>To get a compact overview of your commit history, you can combine the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command with the option <code class="docutils literal notranslate"><span class="pre">--oneline</span></code>. Each single line will then display the <strong>commit ID</strong> and the <strong>first line</strong> of the commit message, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline
+
+fd9e2e4 Updating the table about HTTP verbs
+91137e4 Adding information about HTTP methods and URIs
+3b5f0e8 Adding content about FTP commands
+41f2a36 Updating the article about Git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the greatest benefit from your commit history, always follow these two rules:</p>
+<ol class="arabic simple">
+<li><p>Keep your commits as small as possible, i.e. each commit should include the smallest possible amount of changes. This ensures a logical organization of your commits and makes it easier to revert single changes.</p></li>
+<li><p>Provide a good description in your commit message. The commit message should explain precisely what the commit does.</p></li>
+</ol>
+</div>
+</section>
+<section id="rebasing-commits">
+<h2>Rebasing commits<a class="headerlink" href="#rebasing-commits" title="Link to this heading">#</a></h2>
+<p>Git provides two mechanisms to integrate changes from one branch into another: <code class="docutils literal notranslate"><span class="pre">merge</span></code> and <code class="docutils literal notranslate"><span class="pre">rebase</span></code>.</p>
+<p>The merge option is a <em>non-destructive</em> operation. It allows you to join two or more sequences of commits together “without” altering the project history.</p>
+<p>Unlike the merge option, a rebase “rewrites” the project history by <strong>reapplying</strong> all the commits of a given branch on top of the base branch. With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>, you can move an entire feature branch to place it on the tip of the base branch in the tree.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/git-rebase.svg"><img alt="Rebasing in Git" src="_images/git-rebase.svg" style="width: 800px; height: 544px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Rebasing commits – Picture under a <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> license</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To rebase a feature branch onto the main branch, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">feature</span><span class="o">-</span><span class="n">branch</span><span class="o">&gt;</span>
+
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">main</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Rebasing alters the project history. This means you can rebase any local commits that you have not pushed yet, but you should <strong>never</strong> rebase shared commits on remote repositories. Otherwise, you risk altering the development history that other contributors may rely on.</p>
+</div>
+</section>
+<section id="squashing-commits">
+<h2>Squashing commits<a class="headerlink" href="#squashing-commits" title="Link to this heading">#</a></h2>
+<p>Squashing is the act of merging multiple commits into a single one. You can squash commits at any time with the <em>interactive rebase</em> feature.
+For instance, to display the three latest commits, we will type the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">rebase</span> <span class="o">-</span><span class="n">i</span> <span class="n">HEAD</span><span class="o">~</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the command above, the <code class="docutils literal notranslate"><span class="pre">n</span></code> within <code class="docutils literal notranslate"><span class="pre">HEAD~n</span></code> denotes the number of commits you want to go back. In this particular case, the HEAD branch will move three positions back to a previous commit.</p>
+</div>
+<p>You should then get an output similar to this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pick<span class="w"> </span>09ca794<span class="w"> </span>Proofreading<span class="w"> </span>the<span class="w"> </span>git<span class="w"> </span>article
+pick<span class="w"> </span>ad06d9b<span class="w"> </span>Updating<span class="w"> </span>content<span class="w"> </span>about<span class="w"> </span>metadata
+pick<span class="w"> </span>b60f293<span class="w"> </span>Introducing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>produce<span class="w"> </span>PDF<span class="w"> </span>with<span class="w"> </span>LaTeX<span class="w"> </span>and<span class="w"> </span>updating<span class="w"> </span>article
+
+<span class="c1"># Rebase b5ef042..b60f293 onto b5ef042 (3 commands)</span>
+<span class="c1">#</span>
+<span class="c1"># Commands:</span>
+<span class="c1"># p, pick &lt;commit&gt; = use commit</span>
+<span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+<span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+<span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+<span class="c1"># f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous</span>
+<span class="c1">#                    commit&#39;s log message, unless -C is used, in which case</span>
+<span class="c1">#                    keep only this commit&#39;s message; -c is same as -C but</span>
+<span class="c1">#                    opens the editor</span>
+<span class="c1"># x, exec &lt;command&gt; = run command (the rest of the line) using shell</span>
+<span class="c1"># b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)</span>
+<span class="c1"># d, drop &lt;commit&gt; = remove commit</span>
+<span class="c1"># l, label &lt;label&gt; = label current HEAD with a name</span>
+<span class="c1"># t, reset &lt;label&gt; = reset HEAD to a label</span>
+</pre></div>
+</div>
+<p>If you replace <strong>pick</strong> by <strong>squash</strong> in one of the lines above, the line in question will be combined with the one above, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pick</span> <span class="mi">09</span><span class="n">ca794</span> <span class="n">Proofreading</span> <span class="n">the</span> <span class="n">git</span> <span class="n">article</span>
+<span class="n">squash</span> <span class="n">ad06d9b</span> <span class="n">Updating</span> <span class="n">content</span> <span class="n">about</span> <span class="n">metadata</span>
+<span class="n">squash</span> <span class="n">b60f293</span> <span class="n">Introducing</span> <span class="n">changes</span> <span class="n">to</span> <span class="n">produce</span> <span class="n">PDF</span> <span class="k">with</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">updating</span> <span class="n">article</span>
+</pre></div>
+</div>
+<p>Once you edit the commit message for the new compact commit, the interactive rebase will complete successfully. You should now have a single commit instead of three.</p>
+</section>
+<section id="submitting-separate-pull-requests">
+<h2>Submitting separate pull requests<a class="headerlink" href="#submitting-separate-pull-requests" title="Link to this heading">#</a></h2>
+<p>You may want to submit a separate pull request for each commit. To do so, you first have to reset your <code class="docutils literal notranslate"><span class="pre">main</span></code> repo to sync it with <code class="docutils literal notranslate"><span class="pre">upstream</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">upstream</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>The next step consists in creating a new branch for each new commit, then “cherry-picking” the relevant commit. The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span></code> command allows you to re-apply the changes from a previous commit to the current active branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">new</span><span class="o">-</span><span class="n">branch</span>
+<span class="n">git</span> <span class="n">cherry</span><span class="o">-</span><span class="n">pick</span> <span class="mf">91137e4</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span> <span class="n">origin</span> <span class="n">new</span><span class="o">-</span><span class="n">branch</span>
+</pre></div>
+</div>
+</section>
+<section id="reverting-a-merged-commit-from-a-pull-request">
+<h2>Reverting a merged commit from a pull request<a class="headerlink" href="#reverting-a-merged-commit-from-a-pull-request" title="Link to this heading">#</a></h2>
+<p>To undo the changes that were introduced after a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> and bring your repo to an older state, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reflog</span>
+</pre></div>
+</div>
+<p>This will give you an output like the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bb38466 HEAD@{7}: commit: Adding graphics to the rebase section</span>
+<span class="go">6304089 HEAD@{8}: commit: Adding a topic about rebasing in Git</span>
+<span class="go">bd9e921 HEAD@{9}: commit: Adding content about local and remote deletion on Git</span>
+<span class="go">81f6a9a HEAD@{10}: commit: Resolving the issue with footnotes on LaTeX</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">reflog</span></code> is short for reference log. A reference log shows when the tips of branches were updated in a local repository.</p>
+</div>
+<p>To bring the repo to a given previous state, we will use the following command in combination with the shortened commit SHA (e.g., <code class="docutils literal notranslate"><span class="pre">81f6a9a</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="o">&lt;</span><span class="n">shortened</span> <span class="n">commit</span> <span class="n">SHA</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ftp-vs-api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FTP vs. API – differences in terms of data transmission</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="metadata-compression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Compression &amp; metadata removal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Git Primer for the Impatient</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#short-introduction">Short introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#git-states">Git states</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-linux">Installation on Linux</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-configuration">Initial configuration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#git-essential-commands">Git essential commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-a-new-repository">Initializing a new repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-an-existing-repository">Cloning an existing repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-files">Adding files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-changes">Committing changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-status">Checking the status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-with-diff">Comparing with ‘diff’</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-branches">Managing branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches">Deleting branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-locally">Deleting branches locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-branches-remotely">Deleting branches remotely</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forking-from-a-repository">Forking from a repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-remotes">Managing remotes</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-commit-history">Viewing the commit history</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rebasing-commits">Rebasing commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#squashing-commits">Squashing commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submitting-separate-pull-requests">Submitting separate pull requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reverting-a-merged-commit-from-a-pull-request">Reverting a merged commit from a pull request</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GlobalTech Translations.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

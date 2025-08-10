@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="MTU and Connectivity - resolving connectivity issues by adjusting the MTU size" name="description" />
+<meta content="maximum transmission unit, MTU, TCP/IP, fragmentation, IP datagram, connectivity" name="keywords" />
+
+    <title>MTU Size and Connectivity Issues &#8212; bits4docs 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=92b56f59" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+    <script src="_static/twemoji.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mtu-connectivity';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Compression &amp; metadata removal" href="metadata-compression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/drawing-icon.png" class="logo__image only-dark" alt="bits4docs 1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/drawing-icon.png" class="logo__image only-light" alt="bits4docs 1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="metadata-compression.html">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">MTU Size...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mtu-size-and-connectivity-issues">
+<h1>MTU Size and Connectivity Issues<a class="headerlink" href="#mtu-size-and-connectivity-issues" title="Link to this heading">#</a></h1>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/mtu-connectivity.png"><img alt="MTU and Connectivity" src="_images/mtu-connectivity.png" style="width: 375.0px; height: 249.75px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Picture by kreatikar <a class="reference external" href="https://pixabay.com">(pixabay.com)</a></span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="factors-impacting-network-connectivity">
+<h2>Factors impacting network connectivity<a class="headerlink" href="#factors-impacting-network-connectivity" title="Link to this heading">#</a></h2>
+<p>Making changes to your network configuration can sometimes result in connection inconsistencies, such as a partial or complete loss of connectivity. The reasons for such incidents are multiple and range from DNS misconfiguration to inappropriate firewall rules or hardware failures, among other things.</p>
+<p>One additional aspect that you should consider when some sites become unreachable after changing the network configuration is the MTU size. MTU stands for <code class="docutils literal notranslate"><span class="pre">Maximum</span> <span class="pre">Transmission</span> <span class="pre">Unit</span></code> and is a concept that relates to the <a class="reference external" href="https://www.redhat.com/sysadmin/osi-model-bean-dip">OSI reference model</a>, <a class="reference external" href="https://www.linuxjunkies.org/network/tcpip/general-description-of-the-tcp-ip-protocols/">IP datagram size</a> and <a class="reference external" href="https://packetpushers.net/ip-fragmentation-in-detail/">IP fragmentation</a>.</p>
+</section>
+</section>
+<section id="analyzing-network-traffic">
+<h1>Analyzing network traffic<a class="headerlink" href="#analyzing-network-traffic" title="Link to this heading">#</a></h1>
+<p>If you have a <a class="reference external" href="https://www.cisco.com/c/en/us/products/switches/what-is-a-managed-switch.html">managed switch</a> and face connectivity issues after altering your network configuration, a recommended method to capture and analyze your traffic would be to use port mirroring in combination with packet/network analyzers such as <a class="reference external" href="https://www.linuxjournal.com/content/tcpdump-fu">tcpdump</a> and <a class="reference external" href="https://www.linuxjournal.com/content/tcp-analysis-wireshark">wireshark</a>.</p>
+<p>Port mirroring is a technique that allows you to forward a copy of all inbound and outbound packets from a single port or an entire VLAN to a target port for diagnostic purposes. You can hence configure a <code class="docutils literal notranslate"><span class="pre">mirrored</span> <span class="pre">port</span></code> for the traffic to be mirrored, and a <code class="docutils literal notranslate"><span class="pre">monitor</span> <span class="pre">port</span></code> for your local traffic destination.</p>
+<figure class="align-center" id="id3">
+<img alt="Port Mirroring" src="_images/port-mirroring.png" />
+<figcaption>
+<p><span class="caption-text">A simple network configuration for port mirroring</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="find-out-the-mtu-of-your-ethernet-interface">
+<h1>Find out the MTU of your Ethernet interface<a class="headerlink" href="#find-out-the-mtu-of-your-ethernet-interface" title="Link to this heading">#</a></h1>
+<p>In this particular case, it turned out that a connection timeout occured each time the client was trying to establish a connection with the destination server. This can happen when a gateway along the connection path is using an MTU smaller than the one we are using, and the IPv4 datagram is not allowed to be fragmented (<code class="docutils literal notranslate"><span class="pre">DF</span> <span class="pre">flag</span></code> set to “1”).</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/mtu-difference.svg"><img alt="MTU difference" src="_images/mtu-difference.svg" style="width: 525.0px; height: 118.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">MTU difference along the transmission path</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>An IPv4 datagram consists of two parts: a <code class="docutils literal notranslate"><span class="pre">header</span></code> and a <code class="docutils literal notranslate"><span class="pre">payload</span></code>. The header contains fields that are essential for data transmission, while the payload encloses the actual data. The default MTU size for Ethernet is 1500 bytes.</p>
+<p>On Linux machines, you can check the MTU size of your ethernet interface through the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ip<span class="w"> </span>a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mtu
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code> command also allows you to list all the available interfaces on your machine with their corresponding IPs.</p>
+</div>
+</section>
+<section id="change-the-mtu-size-permanently">
+<h1>Change the MTU size permanently<a class="headerlink" href="#change-the-mtu-size-permanently" title="Link to this heading">#</a></h1>
+<p>Fot the purpose of this guide, we are going to assume that the name of your ethernet interface is <code class="docutils literal notranslate"><span class="pre">eth0</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code> command to check the actual name of your ethernet interface.</p>
+<p>To change the MTU size on Debian based distros, run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/network/interfaces
+</pre></div>
+</div>
+<p>Then set a lower MTU value (e.g. 1464) for the required interface by adding a corresponding line at the bottom:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mtu<span class="w"> </span><span class="m">1464</span>
+</pre></div>
+</div>
+<p>Save and close the file, then restart the networking services by running the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>networking<span class="w"> </span>restart
+</pre></div>
+</div>
+<p>To change the MTU size on Red Hat based distros, run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/sysconfig/network-scripts/ifcfg-eth0
+</pre></div>
+</div>
+<p>Then set a lower MTU value (e.g. 1464) for the required interface by adding a corresponding line at the bottom:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">MTU</span><span class="o">=</span><span class="s2">&quot;1464&quot;</span>
+</pre></div>
+</div>
+<p>Save and close the file, then restart the networking services by running the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>service<span class="w"> </span>networking<span class="w"> </span>restart
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The minimum allowed value for IPv6 is 1280. Moreover, IPv6 handles fragmentation in a completely different way to that of IPv4. For further information about the differences, check the article about <a class="reference external" href="https://packetpushers.net/ip-fragmentation-in-detail/">IP fragmentation</a>.</p>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="metadata-compression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Compression &amp; metadata removal</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MTU Size and Connectivity Issues</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-impacting-network-connectivity">Factors impacting network connectivity</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-network-traffic">Analyzing network traffic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#find-out-the-mtu-of-your-ethernet-interface">Find out the MTU of your Ethernet interface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#change-the-mtu-size-permanently">Change the MTU size permanently</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GlobalTech Translations.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

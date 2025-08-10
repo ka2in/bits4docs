@@ -1,0 +1,16 @@
+.tight-table td {
+	white-space: normal !important;
+}
+
+table.tight-table > tbody > tr.row-odd > td {
+  background: #d0e6a5 !important;
+  color: #1a1a1a !important;
+}
+
+table.tight-table tr:nth-child(even) {
+  background: #cce5ff !important;
+  color: #1a1a1a !important;
+}
+
+
+

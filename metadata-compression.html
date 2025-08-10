@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Compression and Metadata Removal - how to compress and remove metadata from PDF and image files" name="description" />
+<meta content="compression, metadata, privacy, image, pdf" name="keywords" />
+
+    <title>Compression &amp; metadata removal &#8212; bits4docs 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=92b56f59" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
+    <script src="_static/twemoji.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metadata-compression';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MTU Size and Connectivity Issues" href="mtu-connectivity.html" />
+    <link rel="prev" title="Git Primer for the Impatient" href="gitinminutes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/drawing-icon.png" class="logo__image only-dark" alt="bits4docs 1.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/drawing-icon.png" class="logo__image only-light" alt="bits4docs 1.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Compression and Metadata
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="mtu-connectivity.html">
+    MTU and Connectivity
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ka2in" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@gnufcl" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-mastodon fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Compression...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="compression-metadata-removal">
+<h1>Compression &amp; metadata removal<a class="headerlink" href="#compression-metadata-removal" title="Link to this heading">#</a></h1>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/Data-Mike-Haynes.jpeg"><img alt="Compression and metadata removal" src="_images/Data-Mike-Haynes.jpeg" style="width: 495.0px; height: 278.1px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Picture by Mike Haynes under <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="compressing-from-the-command-line">
+<h2>Compressing from the command line<a class="headerlink" href="#compressing-from-the-command-line" title="Link to this heading">#</a></h2>
+<p>There are multiple scenarios where you would need to compress your files, whether it is for a web development project or to send some attachments by email, just to name a few examples. You do not necessarily need to rely on proprietary software products or <abbr title="Graphical User Interfaces">GUIs</abbr> to achieve these tasks, especially if your are a Linux user.</p>
+<p>In fact, Linux has many command line tools that allow you to compress your PDF and image files easily. My favorite open source tools for the compression of PDF and image files are <code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> and <code class="docutils literal notranslate"><span class="pre">jpegoptim</span></code>, respectively.</p>
+</section>
+<section id="compressing-pdf-with-ps2pdf">
+<h2>Compressing PDF with ps2pdf<a class="headerlink" href="#compressing-pdf-with-ps2pdf" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> is a PostScript-to-PDF converter that uses <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code> to convert a PDF into a PostScript file before converting it back again. This process allows you to compress your initial PDF file. According to its man page, <code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> provides nearly all the features that you would find in Adobe’s Acrobat ® product, Distiller ®.</p>
+</section>
+<section id="installing-ps2pdf-on-linux">
+<h2>Installing ps2pdf on Linux<a class="headerlink" href="#installing-ps2pdf-on-linux" title="Link to this heading">#</a></h2>
+<p>To install <code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> with all the required dependencies, you need to install <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code>.</p>
+<p>On Debian based distros, run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ghostscript
+</pre></div>
+</div>
+<p>For Red Hat based distros, use the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>ghostscript
+</pre></div>
+</div>
+</section>
+<section id="ps2pdf-commands">
+<h2>ps2pdf commands<a class="headerlink" href="#ps2pdf-commands" title="Link to this heading">#</a></h2>
+<p>To compress a file without any additional options, type the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ps2pdf<span class="w">  </span><span class="o">[</span>options...<span class="o">]</span><span class="w"> </span><span class="o">{</span>input.<span class="o">[</span>e<span class="o">]</span>ps<span class="p">|</span>-<span class="o">}</span><span class="w"> </span><span class="o">[</span>output.pdf<span class="p">|</span>-<span class="o">]</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">ps2pdf</span></code> uses the same options as <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code>.</p>
+<p>Depending on your work scenario, you can achieve the best results in terms of file compression and image quality by using the option <code class="docutils literal notranslate"><span class="pre">-dPDFSETTINGS=/ebook</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ps2pdf<span class="w"> </span>-dPDFSETTINGS<span class="o">=</span>/ebook<span class="w"> </span>input.pdf<span class="w"> </span>output.pdf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="metadata-and-privacy-implications">
+<h1>Metadata and privacy implications<a class="headerlink" href="#metadata-and-privacy-implications" title="Link to this heading">#</a></h1>
+<p>Metadata reveal more about you than you might imagine. Here is an example of the metadata that were extracted from an image file taken by a conventional smartphone: <code class="docutils literal notranslate"><span class="pre">Image</span> <span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Width</span></code>, <code class="docutils literal notranslate"><span class="pre">Height</span></code>, <code class="docutils literal notranslate"><span class="pre">Exposure</span> <span class="pre">Time</span></code>, <code class="docutils literal notranslate"><span class="pre">Aperture</span> <span class="pre">Value</span></code>, <code class="docutils literal notranslate"><span class="pre">ISO</span> <span class="pre">Speed</span> <span class="pre">Rating</span></code>, <code class="docutils literal notranslate"><span class="pre">Flash</span> <span class="pre">Fired</span></code>, <code class="docutils literal notranslate"><span class="pre">Metering</span> <span class="pre">Mode</span></code>, <code class="docutils literal notranslate"><span class="pre">Exposure</span> <span class="pre">Program</span></code>, <code class="docutils literal notranslate"><span class="pre">Focal</span> <span class="pre">Length</span></code>, <code class="docutils literal notranslate"><span class="pre">Software</span></code>, <code class="docutils literal notranslate"><span class="pre">Camera</span> <span class="pre">Brand</span></code>, <code class="docutils literal notranslate"><span class="pre">Camera</span> <span class="pre">Model</span></code>, and <code class="docutils literal notranslate"><span class="pre">Date</span> <span class="pre">Taken</span></code>.</p>
+<p>With this information at hand, malicious users can easily search for the most recent vulnerabilities associated with your device and craft a custom payload. Therefore, it is always good practice to remove metadata from your files before handing them over.</p>
+<section id="installing-mat2-on-linux">
+<h2>Installing mat2 on Linux<a class="headerlink" href="#installing-mat2-on-linux" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mat2</span></code> is a metadata anonymization toolkit that runs from the command line. <code class="docutils literal notranslate"><span class="pre">mat2</span></code> allows you to remove metadata from a wide range of file formats, including archive, image, office, audio, video and PDF files.</p>
+<p>To install <code class="docutils literal notranslate"><span class="pre">mat2</span></code> on Debian based distros, run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mat2
+</pre></div>
+</div>
+<p>For Red Hat based distros, use the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>mat2
+</pre></div>
+</div>
+</section>
+<section id="removing-metadata-with-mat2">
+<h2>Removing metadata with mat2<a class="headerlink" href="#removing-metadata-with-mat2" title="Link to this heading">#</a></h2>
+<p>mat2 does not overwrite the source file. Instead, it will generate a new output file that contains the word <em>cleaned</em> between the filename and the file extension. If you run the command below, mat2 will generate a new file called <em>foo.cleaned.pdf</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mat2<span class="w"> </span>foo.pdf
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pdf-forensics-and-safety-measures">
+<h1>PDF forensics and safety measures<a class="headerlink" href="#pdf-forensics-and-safety-measures" title="Link to this heading">#</a></h1>
+<p>As a general rule of thumb, you should never, ever open PDF files in a productive environment, even if you receive such files from people you trust. The reason for this is pretty obvious, since the persons you trust may themselves not be aware of the presence of an embedded payload in the PDF file.</p>
+<p>For PDF files that do not contain any sensitive information, you can run a check on <a class="reference external" href="https://www.virustotal.com/">VirusTotal</a>. Beware though, that hackers also run a preliminary test on VirusTotal to make sure that their malicious payloads will not be flagged.</p>
+<p>For an in-depth analysis, it is recommended to use forensic tools such as <code class="docutils literal notranslate"><span class="pre">pdfid.py</span></code> in combination with the PDF parser <code class="docutils literal notranslate"><span class="pre">pdf-parser.py</span></code> from <a class="reference external" href="https://blog.didierstevens.com/programs/pdf-tools/">Didier Stevens</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even when using your tools of choice to analyze suspicious PDF files, you should always perform your analysis on a virtual environment or in a sandbox, with no connection to any other devices or a network. Remember, never run these tests on a productive environment!</p>
+</div>
+<p>As a safety measure, check also if your PDF reader supports JavaScript by default and disable it. There are multiple open-source PDF readers that do not render JavaScript at all.</p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gitinminutes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Git Primer for the Impatient</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mtu-connectivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MTU Size and Connectivity Issues</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Compression &amp; metadata removal</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-from-the-command-line">Compressing from the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressing-pdf-with-ps2pdf">Compressing PDF with ps2pdf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-ps2pdf-on-linux">Installing ps2pdf on Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ps2pdf-commands">ps2pdf commands</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-and-privacy-implications">Metadata and privacy implications</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-mat2-on-linux">Installing mat2 on Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-metadata-with-mat2">Removing metadata with mat2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pdf-forensics-and-safety-measures">PDF forensics and safety measures</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, GlobalTech Translations.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>
