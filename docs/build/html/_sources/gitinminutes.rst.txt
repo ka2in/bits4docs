@@ -373,13 +373,10 @@ If you want to fetch a specific branch from the remote repository, run the follo
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
 
-<<<<<<< HEAD
-=======
 .. raw:: latex
 
     \newpage
 
->>>>>>> easydocbranch
 If you want to pull a single file from the remote repo, check the current remote repo with the command:
 
 .. code-block::
@@ -391,15 +388,9 @@ Once you have confirmed that ``origin`` is the name of your remote, run the foll
 .. code-block::
 
    $ git fetch --all
-<<<<<<< HEAD
-<<<<<<< HEAD
-   $ git git checkout origin/main -- /path/to/your/file 
-=======
+
    $ git checkout origin/main -- /path/to/your/file 
->>>>>>> origin/main
-=======
-   $ git checkout origin/main -- /path/to/your/file 
->>>>>>> easydocbranch
+
 
 To push your local commits to the remote repo, run the following command:
 
@@ -442,11 +433,7 @@ In order to delete references to any remote branches that no longer exist, use t
    $ git remote prune origin
 
 Syncing your fork with upstream
-<<<<<<< HEAD
 -------------------------------
-=======
-===============================
->>>>>>> easydocbranch
 
 If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
 
@@ -454,24 +441,18 @@ If you have forked an upstream repo and started working on your local fork, you 
 
    $ git fetch upstream
    $ git checkout main
-<<<<<<< HEAD
-<<<<<<< HEAD
    $ git merge upstream/master
 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub. 
-=======
-=======
->>>>>>> easydocbranch
+
    $ git merge upstream/main
 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
-<<<<<<< HEAD
->>>>>>> origin/main
-=======
+
 
 Viewing the commit history
 ==========================
@@ -650,7 +631,3 @@ To bring the repo to a given previous state, we will use the following command i
 .. code-block::
 
    git reset --hard <shortened commit SHA> 
-
-
-   
->>>>>>> easydocbranch

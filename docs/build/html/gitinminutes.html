@@ -10,18 +10,7 @@
 <meta content="Git in 30 minutes - get to know the basic Git commands to perform the most essential tasks" name="description" />
 <meta content="Git, commands, repository, versioning, documentation" name="keywords" />
 
-<<<<<<< HEAD
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Git Primer for the Impatient &mdash; bits4docs 1.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-=======
     <title>Git Primer for the Impatient &#8212; bits4docs 1.0 documentation</title>
->>>>>>> easydocbranch
   
   
   
@@ -45,7 +34,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a775c0e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b3f9fa6c" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,6 +42,8 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=f2a433a1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -61,11 +52,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'gitinminutes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-<<<<<<< HEAD
-    <link rel="next" title="Compression &amp; Metadata Removal" href="metadata-compression.html" />
-    <link rel="prev" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" /> 
-</head>
-=======
     <link rel="next" title="Compression &amp; metadata removal" href="metadata-compression.html" />
     <link rel="prev" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -75,7 +61,6 @@
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
->>>>>>> easydocbranch
 
   
   
@@ -109,54 +94,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<<<<<<< HEAD
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">FTP vs. API</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html">FTP vs. API – differences in terms of data transmission</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-an-old-well-established-protocol">FTP – an old, well-established protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-and-security">FTP and security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#api-more-access-options-for-a-better-customer-experience">API – more access options for a better customer experience</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Git</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Git Primer for the Impatient</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#short-introduction">Short introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#git-states">Git states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#initial-configuration">Initial configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#git-basic-commands">Git basic commands</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#initialize-a-new-repository">Initialize a new repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#clone-an-existing-repository">Clone an existing repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#add-files">Add files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#commit-changes">Commit changes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#check-the-status">Check the status</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#compare-with-diff">Compare with ‘diff’</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#manage-branches">Manage branches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#fork-from-a-repository">Fork from a repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#manage-remotes">Manage remotes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Compression and Metadata</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression &amp; Metadata Removal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-compression-with-ps2pdf">PDF compression with ps2pdf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#installation-on-linux">Installation on Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#ps2pdf-commands">ps2pdf commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#metadata-removal-with-mat2">Metadata removal with mat2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-forensics-and-safety-measures">PDF forensics and safety measures</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">MTU and Connectivity</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html">MTU Size and Connectivity Issues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#factors-impacting-network-connectivity">Factors impacting network connectivity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#analyzing-network-traffic">Analyzing network traffic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#find-out-the-mtu-of-your-ethernet-interface">Find out the MTU of your Ethernet interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mtu-connectivity.html#change-the-mtu-size-permanently">Change the MTU size permanently</a></li>
-</ul>
-=======
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -204,7 +141,6 @@
     FTP vs. API
   </a>
 </li>
->>>>>>> easydocbranch
 
 
 <li class="nav-item current active">
@@ -485,8 +421,9 @@
 <p><span class="caption-text">Picture under a <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> license</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
 <section id="short-introduction">
-<h2>Short introduction<a class="headerlink" href="#short-introduction" title="Link to this heading">#</a></h2>
+<h1>Short introduction<a class="headerlink" href="#short-introduction" title="Link to this heading">#</a></h1>
 <p>Git is a <abbr title="Version Control System">VCS</abbr>. Basically, a version control system allows you to perform a number of essential tasks, including:</p>
 <ul class="simple">
 <li><p>creating a copy of the original project</p></li>
@@ -498,7 +435,7 @@
 <p>With Git, you do not need a single central repository to work on your project, since you can work locally on a full clone of the remote repository. What is beautiful about Git is that you can also use it to automate your documentation process.</p>
 </section>
 <section id="git-states">
-<h2>Git states<a class="headerlink" href="#git-states" title="Link to this heading">#</a></h2>
+<h1>Git states<a class="headerlink" href="#git-states" title="Link to this heading">#</a></h1>
 <p>In a Git workflow, your files will basically go through 3 different states:</p>
 <ul class="simple">
 <li><p>Modified: This is when you make changes to the files in your working directory.</p></li>
@@ -508,7 +445,7 @@
 <p>The Git directory is a hidden folder <code class="docutils literal notranslate"><span class="pre">.git</span></code> at the top level of your working tree.</p>
 </section>
 <section id="installation-on-linux">
-<h2>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Link to this heading">#</a></h2>
+<h1>Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Link to this heading">#</a></h1>
 <p>To install Git on Debian based distros, run the following commands:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 <span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git-all
@@ -521,7 +458,7 @@
 </div>
 </section>
 <section id="initial-configuration">
-<h2>Initial configuration<a class="headerlink" href="#initial-configuration" title="Link to this heading">#</a></h2>
+<h1>Initial configuration<a class="headerlink" href="#initial-configuration" title="Link to this heading">#</a></h1>
 <p>Git ships with a tool called <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> that allows you to set multiple configuration variables. These variables control how Git looks and behaves.</p>
 <p>Depending on your system, the configuration variables will be stored at different locations. For further details about the topic, check Git’s official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>.</p>
 <p>Once you have installed Git, you should set your credentials by indicating your <strong>user name</strong> and <strong>email</strong>. To do so, type the following commands:</p>
@@ -533,36 +470,19 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$  </span>git<span class="w"> </span>config<span class="w"> </span>--list
 </pre></div>
 </div>
-<<<<<<< HEAD
-<div class="section" id="git-basic-commands">
-<h2>Git basic commands<a class="headerlink" href="#git-basic-commands" title="Permalink to this headline"></a></h2>
-<p>Here are the most essential commands that will get you up and running within minutes.</p>
-</div>
-</div>
-<div class="section" id="initialize-a-new-repository">
-<h1>Initialize a new repository<a class="headerlink" href="#initialize-a-new-repository" title="Permalink to this headline"></a></h1>
-=======
-</section>
 </section>
 <section id="git-essential-commands">
 <h1>Git essential commands<a class="headerlink" href="#git-essential-commands" title="Link to this heading">#</a></h1>
 <p>Here are the most essential commands that will get you up and running within minutes.</p>
 <section id="initializing-a-new-repository">
 <h2>Initializing a new repository<a class="headerlink" href="#initializing-a-new-repository" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>init
 </pre></div>
 </div>
-<<<<<<< HEAD
-</div>
-<div class="section" id="clone-an-existing-repository">
-<h1>Clone an existing repository<a class="headerlink" href="#clone-an-existing-repository" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="cloning-an-existing-repository">
 <h2>Cloning an existing repository<a class="headerlink" href="#cloning-an-existing-repository" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>To clone an existing repository, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>&lt;URL&gt;
 </pre></div>
@@ -571,15 +491,9 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://codeberg.org/Codeberg/Documentation.git
 </pre></div>
 </div>
-<<<<<<< HEAD
-</div>
-<div class="section" id="add-files">
-<h1>Add files<a class="headerlink" href="#add-files" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="adding-files">
 <h2>Adding files<a class="headerlink" href="#adding-files" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>-A
 </pre></div>
@@ -593,15 +507,9 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>foo
 </pre></div>
 </div>
-<<<<<<< HEAD
-</div>
-<div class="section" id="commit-changes">
-<h1>Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="committing-changes">
 <h2>Committing changes<a class="headerlink" href="#committing-changes" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>To commit your changes with a message, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit for Git&#39;s documentation project&quot;</span>
 </pre></div>
@@ -610,15 +518,9 @@
 <p class="admonition-title">Note</p>
 <p>If you do not insert a commit message at the time of committing your files, i.e. if you only type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, Git will launch the default text editor that is set in your environment variables.</p>
 </div>
-<<<<<<< HEAD
-</div>
-<div class="section" id="check-the-status">
-<h1>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="checking-the-status">
 <h2>Checking the status<a class="headerlink" href="#checking-the-status" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>If you want to check the status of the project’s files, type the command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
 </pre></div>
@@ -664,15 +566,9 @@
 </pre></div>
 </div>
 <p>In the example above, The letter <strong>M</strong> at the beginning of each line means <code class="docutils literal notranslate"><span class="pre">Modified</span></code>.</p>
-<<<<<<< HEAD
-</div>
-<div class="section" id="compare-with-diff">
-<h1>Compare with ‘diff’<a class="headerlink" href="#compare-with-diff" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="comparing-with-diff">
 <h2>Comparing with ‘diff’<a class="headerlink" href="#comparing-with-diff" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>To compare your local index with the repository, type the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>diff
 </pre></div>
@@ -713,15 +609,9 @@
 <span class="go">11 files changed, 228 insertions(+), 33 deletions(-)</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-</div>
-<div class="section" id="manage-branches">
-<h1>Manage branches<a class="headerlink" href="#manage-branches" title="Permalink to this headline"></a></h1>
-=======
 </section>
 <section id="managing-branches">
 <h2>Managing branches<a class="headerlink" href="#managing-branches" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>At the beginning of each project, you will have a <code class="docutils literal notranslate"><span class="pre">master</span> <span class="pre">branch</span></code>, also called <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">branch</span></code> in newer terminology.</p>
 <p>To view all current branches, type the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
@@ -747,14 +637,6 @@
 <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">delete</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
-<div class="section" id="fork-from-a-repository">
-<h1>Fork from a repository<a class="headerlink" href="#fork-from-a-repository" title="Permalink to this headline"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Forking</span></code> is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>.</p>
-</div>
-<div class="section" id="manage-remotes">
-<h1>Manage remotes<a class="headerlink" href="#manage-remotes" title="Permalink to this headline"></a></h1>
-=======
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">-d</span></code> option only allows you to delete branches that have already been pushed and merged with their respective remote branches.</p>
@@ -782,7 +664,6 @@
 </section>
 <section id="managing-remotes">
 <h2>Managing remotes<a class="headerlink" href="#managing-remotes" title="Link to this heading">#</a></h2>
->>>>>>> easydocbranch
 <p>Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.</p>
 <p>To set a remote repository, type the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add origin &lt;URL&gt;
@@ -820,15 +701,8 @@
 </div>
 <p>Once you have confirmed that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is the name of your remote, run the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch --all
-<<<<<<< HEAD
-<<<<<<< HEAD
-$ git git checkout origin/main -- /path/to/your/file
-=======
+
 $ git checkout origin/main -- /path/to/your/file
->>>>>>> origin/main
-=======
-$ git checkout origin/main -- /path/to/your/file
->>>>>>> easydocbranch
 </pre></div>
 </div>
 <p>To push your local commits to the remote repo, run the following command:</p>
@@ -861,42 +735,24 @@ $ git checkout origin/main -- /path/to/your/file
 </pre></div>
 </div>
 </section>
-<section id="syncing-your-fork-with-upstream">
-<h2>Syncing your fork with upstream<a class="headerlink" href="#syncing-your-fork-with-upstream" title="Link to this heading">#</a></h2>
-<p>If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
-$ git checkout main
-$ git merge upstream/main
-</pre></div>
-</div>
-<<<<<<< HEAD
-<div class="section" id="syncing-your-fork-with-upstream">
-<h1>Syncing your fork with upstream<a class="headerlink" href="#syncing-your-fork-with-upstream" title="Permalink to this headline"></a></h1>
-<p>If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
-$ git checkout main
-<<<<<<< HEAD
-$ git merge upstream/master
-=======
-$ git merge upstream/main
->>>>>>> origin/main
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<<<<<<< HEAD
-<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
-=======
-<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
->>>>>>> origin/main
-</div>
-=======
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
->>>>>>> easydocbranch
-</div>
 </section>
+<section id="syncing-your-fork-with-upstream">
+<h1>Syncing your fork with upstream<a class="headerlink" href="#syncing-your-fork-with-upstream" title="Link to this heading">#</a></h1>
+<p>If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+$ git checkout main
+$ git merge upstream/master
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
+<p>$ git merge upstream/main</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the term <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code> in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.</p>
+</div>
 <section id="viewing-the-commit-history">
 <h2>Viewing the commit history<a class="headerlink" href="#viewing-the-commit-history" title="Link to this heading">#</a></h2>
 <p>During your project, you may want to go back to a “safe” commit if you encounter some issues at a certain point. There are other reasons why you might need access to the commit history, such as finding out <em>who</em> made <em>what</em> changes and <em>why</em>.</p>
@@ -1044,28 +900,6 @@ pick<span class="w"> </span>b60f293<span class="w"> </span>Introducing<span clas
 </section>
 
 
-<<<<<<< HEAD
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ftp-vs-api.html" class="btn btn-neutral float-left" title="FTP vs. API – differences in terms of data transmission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="metadata-compression.html" class="btn btn-neutral float-right" title="Compression &amp; Metadata Removal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2021, GlobalTech Translations.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
-=======
                 </article>
               
               
@@ -1082,7 +916,6 @@ pick<span class="w"> </span>b60f293<span class="w"> </span>Introducing<span clas
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">FTP vs. API – differences in terms of data transmission</p>
->>>>>>> easydocbranch
       </div>
     </a>
     <a class="right-next"
@@ -1113,13 +946,11 @@ pick<span class="w"> </span>b60f293<span class="w"> </span>Introducing<span clas
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Git Primer for the Impatient</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-introduction">Short introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-states">Git states</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-linux">Installation on Linux</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-configuration">Initial configuration</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Git Primer for the Impatient</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#short-introduction">Short introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#git-states">Git states</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-on-linux">Installation on Linux</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-configuration">Initial configuration</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#git-essential-commands">Git essential commands</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-a-new-repository">Initializing a new repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-an-existing-repository">Cloning an existing repository</a></li>
@@ -1135,7 +966,9 @@ pick<span class="w"> </span>b60f293<span class="w"> </span>Introducing<span clas
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forking-from-a-repository">Forking from a repository</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-remotes">Managing remotes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syncing-your-fork-with-upstream">Syncing your fork with upstream</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-commit-history">Viewing the commit history</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rebasing-commits">Rebasing commits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#squashing-commits">Squashing commits</a></li>
