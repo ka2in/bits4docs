@@ -46,16 +46,12 @@ import pydata_sphinx_theme
 
 extensions = [
     'myst_parser',
-<<<<<<< HEAD
 	'sphinx_rtd_theme',
     'sphinx.ext.autosectionlabel',
-    'sphinx_markdown_tables',
-=======
     'sphinx_markdown_tables',
     'sphinxcontrib.inkscapeconverter',
     'sphinxcontrib.httpdomain',
     'sphinxemoji.sphinxemoji',
->>>>>>> easydocbranch
 ]
 
 source_suffix = {
