@@ -6,10 +6,13 @@
 Git Primer for the Impatient
 ----------------------------
 
-.. image:: git-tutorial.png
-   :alt: Git logo
-   :scale: 50%
+.. figure:: gitflow.svg
+   :alt: Rebasing in Git
+   :width: 800px
+   :height: 323px
    :align: center
+
+   Picture under a `CC0 1.0 Universal <https://creativecommons.org/publicdomain/zero/1.0/>`_ license 
 
 Short introduction
 ------------------
@@ -73,13 +76,13 @@ To check all your personal settings, type the following command:
 
    $  git config --list
 
-Git basic commands
-==================
+Git essential commands
+----------------------
 
 Here are the most essential commands that will get you up and running within minutes.
 
-Initialize a new repository
----------------------------
+Initializing a new repository
+=============================
 
 If you already have a project, you can immediately navigate to the relevant folder, then initialize an empty repository with the command:
 
@@ -87,8 +90,8 @@ If you already have a project, you can immediately navigate to the relevant fold
 
    $ git init
 
-Clone an existing repository
-----------------------------
+Cloning an existing repository
+==============================
 
 To clone an existing repository, type the command:
 
@@ -103,8 +106,8 @@ For instance, if we want to clone the documentation repository from the collabor
    $ git clone https://codeberg.org/Codeberg/Documentation.git
 
 
-Add files
----------
+Adding files
+============
 
 Git will not begin tracking your files unless you add them. To add all the files that are available in your directory to Git, type the command:
 
@@ -126,8 +129,8 @@ To add a single file called 'foo', type the command:
 
    $ git add foo
 
-Commit changes
---------------
+Committing changes
+==================
 
 To commit your changes with a message, type the command:
 
@@ -139,8 +142,8 @@ To commit your changes with a message, type the command:
 
    If you do not insert a commit message at the time of committing your files, i.e. if you only type ``git commit``, Git will launch the default text editor that is set in your environment variables.
 
-Check the status
----------------- 
+Checking the status
+=================== 
 
 If you want to check the status of the project's files, type the command:
 
@@ -199,8 +202,8 @@ This will you give you the following result:
 
 In the example above, The letter **M** at the beginning of each line means ``Modified``.
 
-Compare with 'diff'
--------------------
+Comparing with 'diff'
+=====================
 
 To compare your local index with the repository, type the following command:
 
@@ -251,8 +254,8 @@ The command above will display something similar to this:
    docs/source/gitcommands.rst                  |  78 ++++++++++++++++++++++-
    11 files changed, 228 insertions(+), 33 deletions(-)
 
-Manage branches
----------------
+Managing branches
+=================
 
 At the beginning of each project, you will have a ``master branch``, also called ``main branch`` in newer terminology.
 
@@ -260,7 +263,11 @@ To view all current branches, type the following command:
 
 .. code-block::
 
-   $ git branch -a 
+   $ git branch -a
+
+.. raw:: latex
+
+    \newpage
 
 If you want to create a new branch and switch to it, type the command:
 
@@ -272,13 +279,55 @@ If you want to create a new branch and switch to it, type the command:
    
    The Git command ``checkout`` allows you to switch to a different branch, which then becomes the ``HEAD`` branch. ``HEAD`` is a special pointer that points to the branch you are currently on.
 
-Fork from a repository
-----------------------
+Deleting branches
+==================
+
+Each time you want to introduce a fix or a feature, you create a new dedicated branch to separate your work from the codebase. Once you deploy your contribution, you can delete that particular branch both locally and remotely. Note that the local and the remote branch are two completely different objects in Git, i.e. deleting a branch locally does not mean that its remote counterpart will be removed, and vice versa.
+
+Deleting branches locally
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can delete a local branch with the ``-d`` option. Since you cannot delete the branch you are currently on, you will first have to checkout a different branch:
+
+.. code-block::
+   
+   git checkout <not-to-be-deleted branch>
+
+   git branch -d <branch-to-delete>
+
+.. note::
+
+   The ``-d`` option only allows you to delete branches that have already been pushed and merged with their respective remote branches.
+
+To force local deletion **without** prior push and merge, use the ``-D`` option:
+
+.. code-block::
+
+   git branch -D <branch-to-delete>
+
+Deleting branches remotely
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To delete a branch on a remote repo, use the ``git push`` command in combination with the ``--delete`` option as shown below:
+
+.. code-block::
+
+   git push <remote> --delete <branch>
+
+Example:
+
+.. code-block::
+
+   git push origin --delete feature/captcha
+
+
+Forking from a repository
+=========================
 
 ``Forking`` is the process of creating a completely new copy of a public repository. Forking allows you to work on your own copy of the project before submitting your changes back to the main repository through a ``pull request``.     
 
-Manage remotes
---------------
+Managing remotes
+================
 
 Managing your remotes, i.e. remote servers, involves verifying the available remotes, setting a particular remote and removing references to remote branches, among other things.
 
@@ -324,6 +373,13 @@ If you want to fetch a specific branch from the remote repository, run the follo
 
    The ``fetch`` command allows you to download the data to your local repository, but it does **not** alter your local content. If you want to check out the fetched content, you will have to do it manually. Another possibility would be to use the ``git pull`` command, which allows you to fetch the content from the remote server and merge it automatically into your local branch.
 
+<<<<<<< HEAD
+=======
+.. raw:: latex
+
+    \newpage
+
+>>>>>>> easydocbranch
 If you want to pull a single file from the remote repo, check the current remote repo with the command:
 
 .. code-block::
@@ -336,10 +392,14 @@ Once you have confirmed that ``origin`` is the name of your remote, run the foll
 
    $ git fetch --all
 <<<<<<< HEAD
+<<<<<<< HEAD
    $ git git checkout origin/main -- /path/to/your/file 
 =======
    $ git checkout origin/main -- /path/to/your/file 
 >>>>>>> origin/main
+=======
+   $ git checkout origin/main -- /path/to/your/file 
+>>>>>>> easydocbranch
 
 To push your local commits to the remote repo, run the following command:
 
@@ -347,6 +407,27 @@ To push your local commits to the remote repo, run the following command:
 
    $ git push <remote> <branch>
 
+If a branch on your local fork is not synced with the latest commits from its remote counterpart, Git will not allow you to push your changes. This is to prevent you from rewriting the remote history that other contributors may be relying on. The ``--force`` option allows you to force the push in such cases and overwrite the history:
+
+.. code-block::
+
+   $ git push -f <remote> <branch>
+
+You can also achieve the same result by typing the following:
+
+.. code-block::
+
+   git push <remote> <branch> --force
+
+.. attention::
+
+   Proceed with caution when using the ``--force`` option. Rewriting the commit history means that others cannot access the older commit history anymore. Here are some "safer" alternatives:
+
+   * Avoid force pushing commits on repos with a shared history.
+   
+   * Use ``git revert`` to undo changes from existing commits.
+
+   * Use the command ``git push <remote> <branch> --force-with-lease``. This command will not rewrite any changes made by other team members on the remote repo.  
 
 If you want to set a different repo, type the command:
 
@@ -361,7 +442,11 @@ In order to delete references to any remote branches that no longer exist, use t
    $ git remote prune origin
 
 Syncing your fork with upstream
+<<<<<<< HEAD
 -------------------------------
+=======
+===============================
+>>>>>>> easydocbranch
 
 If you have forked an upstream repo and started working on your local fork, you may notice after a while that your fork is out of sync with upstream. To remedy this situation and sync your fork with the upstream repo, run the following commands:
 
@@ -370,15 +455,202 @@ If you have forked an upstream repo and started working on your local fork, you 
    $ git fetch upstream
    $ git checkout main
 <<<<<<< HEAD
+<<<<<<< HEAD
    $ git merge upstream/master
 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands acording to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub. 
 =======
+=======
+>>>>>>> easydocbranch
    $ git merge upstream/main
 
 .. note::
 
    Use the term ``main`` or ``master`` in your commands according to the default terminology of your Git hosting platform, e.g. Codeberg or GitHub.
+<<<<<<< HEAD
 >>>>>>> origin/main
+=======
+
+Viewing the commit history
+==========================
+
+During your project, you may want to go back to a "safe" commit if you encounter some issues at a certain point. There are other reasons why you might need access to the commit history, such as finding out *who* made *what* changes and *why*.
+
+The ``git log`` command allows you to track your project history in a reverse chronological order, i.e. the newest commit appears at the top.
+
+Below is a sample output of the ``git log`` command without any additional flags:
+
+.. code-block::
+
+   $ git log
+   commit ad06d9ba80ba723b68b6600600e23bc85af7ff82 (HEAD -> easydocbranch, origin/easydocbranch)
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 21:43:38 2022 +0100
+
+   Updating content about metadata
+
+   commit 09ca7947a1935841ea4d76d3fe815ea988ad2c77
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 21:31:59 2022 +0100
+
+   Proofreading the Git article
+
+   commit b5ef042c0f907bfebb2c6917b5de1e072a3fd18a
+   Author: Faycal Alami-Hassani <anon@yme.com>
+   Date:   Thu Feb 17 20:29:28 2022 +0100
+
+   Finished proofreading the article
+
+
+To get a compact overview of your commit history, you can combine the ``git log`` command with the option ``--oneline``. Each single line will then display the **commit ID** and the **first line** of the commit message, e.g.:
+
+.. code-block::
+
+   $ git log --oneline
+   
+   fd9e2e4 Updating the table about HTTP verbs
+   91137e4 Adding information about HTTP methods and URIs
+   3b5f0e8 Adding content about FTP commands
+   41f2a36 Updating the article about Git 
+
+.. note:: To get the greatest benefit from your commit history, always follow these two rules:
+
+   1. Keep your commits as small as possible, i.e. each commit should include the smallest possible amount of changes. This ensures a logical organization of your commits and makes it easier to revert single changes.
+
+   2. Provide a good description in your commit message. The commit message should explain precisely what the commit does.
+
+Rebasing commits
+================
+
+Git provides two mechanisms to integrate changes from one branch into another: ``merge`` and ``rebase``. 
+
+The merge option is a *non-destructive* operation. It allows you to join two or more sequences of commits together "without" altering the project history. 
+
+Unlike the merge option, a rebase "rewrites" the project history by **reapplying** all the commits of a given branch on top of the base branch. With ``git rebase``, you can move an entire feature branch to place it on the tip of the base branch in the tree.
+
+.. figure:: git-rebase.svg
+   :alt: Rebasing in Git
+   :width: 800px
+   :height: 544px
+   :align: center
+
+   Rebasing commits – Picture under a `CC0 1.0 Universal`_ license
+
+.. _CC0: https://creativecommons.org/publicdomain/zero/1.0/
+
+To rebase a feature branch onto the main branch, run the following commands:
+
+.. code-block::
+
+   git checkout <feature-branch> 
+
+   git rebase main
+
+.. attention::
+
+   Rebasing alters the project history. This means you can rebase any local commits that you have not pushed yet, but you should **never** rebase shared commits on remote repositories. Otherwise, you risk altering the development history that other contributors may rely on.
+
+Squashing commits
+=================
+
+Squashing is the act of merging multiple commits into a single one. You can squash commits at any time with the *interactive rebase* feature.
+For instance, to display the three latest commits, we will type the following command:
+
+.. code-block::
+
+   git rebase -i HEAD~3
+
+.. note::
+
+   In the command above, the ``n`` within ``HEAD~n`` denotes the number of commits you want to go back. In this particular case, the HEAD branch will move three positions back to a previous commit.
+
+You should then get an output similar to this:
+
+.. code-block:: bash
+
+   pick 09ca794 Proofreading the git article
+   pick ad06d9b Updating content about metadata
+   pick b60f293 Introducing changes to produce PDF with LaTeX and updating article
+
+   # Rebase b5ef042..b60f293 onto b5ef042 (3 commands)
+   #
+   # Commands:
+   # p, pick <commit> = use commit
+   # r, reword <commit> = use commit, but edit the commit message
+   # e, edit <commit> = use commit, but stop for amending
+   # s, squash <commit> = use commit, but meld into previous commit
+   # f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+   #                    commit's log message, unless -C is used, in which case
+   #                    keep only this commit's message; -c is same as -C but
+   #                    opens the editor
+   # x, exec <command> = run command (the rest of the line) using shell
+   # b, break = stop here (continue rebase later with 'git rebase --continue')
+   # d, drop <commit> = remove commit
+   # l, label <label> = label current HEAD with a name
+   # t, reset <label> = reset HEAD to a label
+
+.. raw:: latex
+
+    \newpage
+
+If you replace **pick** by **squash** in one of the lines above, the line in question will be combined with the one above, e.g.:
+
+.. code-block::
+
+   pick 09ca794 Proofreading the git article
+   squash ad06d9b Updating content about metadata
+   squash b60f293 Introducing changes to produce PDF with LaTeX and updating article
+
+Once you edit the commit message for the new compact commit, the interactive rebase will complete successfully. You should now have a single commit instead of three.  
+
+Submitting separate pull requests
+=================================
+
+You may want to submit a separate pull request for each commit. To do so, you first have to reset your ``main`` repo to sync it with ``upstream``:
+
+.. code-block::
+
+   git checkout main
+   git reset --hard upstream/main
+
+The next step consists in creating a new branch for each new commit, then "cherry-picking" the relevant commit. The ``git cherry-pick`` command allows you to re-apply the changes from a previous commit to the current active branch:
+
+.. code-block::
+
+   git checkout -b new-branch
+   git cherry-pick 91137e4
+   git push --set-upstream origin new-branch
+
+Reverting a merged commit from a pull request
+==============================================
+
+To undo the changes that were introduced after a ``git pull`` and bring your repo to an older state, run the following commands:
+
+.. code-block::
+
+   git reflog
+
+This will give you an output like the following:
+
+.. code-block:: console
+
+   bb38466 HEAD@{7}: commit: Adding graphics to the rebase section
+   6304089 HEAD@{8}: commit: Adding a topic about rebasing in Git
+   bd9e921 HEAD@{9}: commit: Adding content about local and remote deletion on Git
+   81f6a9a HEAD@{10}: commit: Resolving the issue with footnotes on LaTeX
+
+.. note:: 
+
+   ``reflog`` is short for reference log. A reference log shows when the tips of branches were updated in a local repository.
+
+To bring the repo to a given previous state, we will use the following command in combination with the shortened commit SHA (e.g., ``81f6a9a``):
+
+.. code-block::
+
+   git reset --hard <shortened commit SHA> 
+
+
+   
+>>>>>>> easydocbranch

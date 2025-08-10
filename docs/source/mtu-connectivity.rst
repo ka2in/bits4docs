@@ -7,13 +7,13 @@ MTU Size and Connectivity Issues
 
 .. figure:: mtu-connectivity.png
    :alt: MTU and Connectivity
-   :scale: 50%
+   :scale: 75%
    :align: center
 
    Picture by kreatikar `(pixabay.com) <https://pixabay.com>`_
 
 Factors impacting network connectivity
---------------------------------------
+======================================
 
 Making changes to your network configuration can sometimes result in connection inconsistencies, such as a partial or complete loss of connectivity. The reasons for such incidents are multiple and range from DNS misconfiguration to inappropriate firewall rules or hardware failures, among other things. 
 
@@ -26,11 +26,8 @@ If you have a `managed switch <https://www.cisco.com/c/en/us/products/switches/w
 
 Port mirroring is a technique that allows you to forward a copy of all inbound and outbound packets from a single port or an entire VLAN to a target port for diagnostic purposes. You can hence configure a ``mirrored port`` for the traffic to be mirrored, and a ``monitor port`` for your local traffic destination. 
 
-.. figure:: port-mirroring.svg
+.. figure:: port-mirroring.png
    :alt: Port Mirroring
-   :width: 276.8468mm
-   :height: 182.22717mm
-   :scale: 180%
    :align: center
 
    A simple network configuration for port mirroring 
