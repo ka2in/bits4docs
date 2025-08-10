@@ -33,6 +33,10 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 .. note::
 
    This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID: 0x52D6AF10``
+<<<<<<< HEAD
+
+=======
+>>>>>>> easydocbranch
 
 .. toctree::
    :maxdepth: 2
