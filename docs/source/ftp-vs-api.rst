@@ -176,27 +176,31 @@ In the context of HTTP based architectures, clients use ``URIs`` and ``HTTP verb
 
 The commonly used version of HTTP, i.e. HTTP/1.1, defines eight verbs as the table below shows:
 
-.. list-table::
-   :widths: 25 75
+.. table::
    :class: tight-table
 
-   * - **HTTP Verb/Method**
-     - **Purpose**
-   * - GET
-     - Request a resource
-   * - HEAD
-     - Similar to GET, but only provides the HTTP header, and not the entire resource 
-   * - POST
-     - Generate a resource with a unique ID that is assigned by the server
-   * - PUT
-     - Create or replace a resource. The client specifies the resource ID through the URI
-   * - PATCH
-     - Partially update a resource that is accessed through its URI
-   * - DELETE
-     - Remove a resource that is identified by its URI
-   * - CONNECT
-     - Establish an end-to-end tunnel connection through a proxy server
-   * - OPTIONS
-     - Retrieve information about the available communication options for a given resource
+   +------------+--------------------------------------------------------------+
+   | **HTTP Verb/Method** | **Purpose**                                        |
+   +============+==============================================================+
+   | ``GET``    | Request a resource                                           |
+   +------------+--------------------------------------------------------------+
+   | ``HEAD``   | Similar to ``GET``, but only provides the HTTP header        |
+   |            | and not the entire resource                                  |
+   +------------+--------------------------------------------------------------+
+   | ``POST``   | Generate a resource with a unique ID assigned by the server  |
+   +------------+--------------------------------------------------------------+
+   | ``PUT``    | Create or replace a resource. The client specifies the       |
+   |            | resource ID through the URI                                  |
+   +------------+--------------------------------------------------------------+
+   | ``PATCH``  | Partially update a resource that is accessed through its URI |
+   +------------+--------------------------------------------------------------+
+   | ``DELETE`` | Remove a resource that is identified by its URI              |
+   +------------+--------------------------------------------------------------+
+   | ``CONNECT``| Establish an end-to-end tunnel connection through a proxy    |
+   +------------+--------------------------------------------------------------+
+   | ``OPTIONS``| Retrieve information about the available communication       |
+   |            | options for a given resource                                 |
+   +------------+--------------------------------------------------------------+
+
 
 APIs offer more advantages over FTP, but they require a higher investment of time and technical expertise.
