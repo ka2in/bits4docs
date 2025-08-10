@@ -6,11 +6,8 @@ FTP vs. API – differences in terms of data transmission
 
 Users can choose either to send their data to an FTP server or via an API. These two connectivity options have different implications in terms of security, access possibilities, and customer experience.
 
-<<<<<<< HEAD
-.. figure:: network-ftp.svg
-=======
+
 .. figure:: network-ftp.png
->>>>>>> easydocbranch
    :alt: FTP vs. API
    :width: 1054.24231px
    :height: 693.25610px
@@ -30,11 +27,8 @@ One particular aspect of FTP is that it relies on "two" logical TCP connections 
 
 FTP uses a simple authentication mechanism that consists in using a "user name" and a "password". The client sends the authentication data to the remote server using the FTP commands: ``USER`` and ``PASS``.
 
-<<<<<<< HEAD
-the FTP standard defines three main categories of FTP commands:
-=======
+
 The FTP standard defines three main categories of FTP commands:
->>>>>>> easydocbranch
 
 - ``Access Control Commands``
 - ``Transfer Parameter Commands``
@@ -49,32 +43,6 @@ The following tables provide an overview of the different commands within each c
 .. table::
    :class: tight-table
 
-<<<<<<< HEAD
-   +--------------------------------------------------------------------------------------+
-   | **Access Control Commands**                                                          |
-   +===========+============+====+========================================================+
-   | ``USER``  | *User Name*     | User identification to access the server's file system |
-   +-----------+-----------------+--------------------------------------------------------+
-   | ``PASS``  | *Password*      | Command that follows the ``USER`` command immediately  |
-   +-----------+-----------------+-----------------------------+--------------------------+
-   | ``ACCT``  | *Account*       | For login purposes or tasks requiring specific access  |
-   +-----------+-----------------+--------------------------------------------------------+
-   | ``CWD``   | *Change Working*| Store or retrieve files on a different directory       |
-   |           | *Directory*     | without modifying login or account information         |
-   +-----------+-----------------+--------------------------------------------------------+
-   | ``CDUP``  | *Change*        | Transfer directory trees between operating systems     |
-   |           | *Directory Up*  | that use different syntaxes to name the parent         |
-   |           |                 | directory                                              |   
-   +-----------+-----------------++-------------------------------------------------------+
-   | ``SMNT``  | *Structure Mount*| Mount a different file system data structure without  | 
-   |           |                  | modifying the login or accounting information         |
-   +-----------+------------------+-------------------------------------------------------+
-   | ``REIN``  | *Reinitialize*   | Reset parameters to the default settings and flush    |
-   |           |                  | account information and all Input/Output              |
-   +-----------+------------------+-------------------------------------------------------+
-   | ``QUIT``  | *Logout*         | Terminate USER session and close control connection   |
-   +-----------+------------------+-------------------------------------------------------+
-=======
    +---------------------------------------------------------------------------------------+
    | **Access Control Commands**                                                           |
    +===========+==================+========================================================+
@@ -99,7 +67,6 @@ The following tables provide an overview of the different commands within each c
    +-----------+------------------+--------------------------------------------------------+
    | ``QUIT``  | *Logout*         | Terminate USER session and close control connection    |
    +-----------+------------------+--------------------------------------------------------+
->>>>>>> easydocbranch
 
 .. table::
    :class: tight-table
