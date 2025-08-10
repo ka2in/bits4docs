@@ -6,11 +6,8 @@ FTP vs. API – differences in terms of data transmission
 
 Users can choose either to send their data to an FTP server or via an API. These two connectivity options have different implications in terms of security, access possibilities, and customer experience.
 
-<<<<<<< HEAD
-.. figure:: network-ftp.svg
-=======
+
 .. figure:: network-ftp.png
->>>>>>> easydocbranch
    :alt: FTP vs. API
    :width: 1054.24231px
    :height: 693.25610px
