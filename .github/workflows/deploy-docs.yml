@@ -3,7 +3,7 @@ name: Build and Deploy Sphinx Docs
 on:
   push:
     branches:
-      - main  # or any other default branch
+      - main  # Adjust if your default branch is different
 
 jobs:
   build-deploy:
@@ -18,10 +18,18 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: Cache Python packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install sphinx
+        pip install -r docs/requirements.txt
 
     - name: Build Sphinx documentation
       run: |
@@ -35,3 +43,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs/build/html
+        force_orphan: true  # Optional: creates a clean gh-pages history
