@@ -27,7 +27,7 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 
       |:closed_book:| The Product is Docs - Christopher Gales and the Splunk Documentation Team
       
-      |:closed_book:| Emotional Design Why We Love (or Hate) Everyday Things - Donald A. Norman - Basic Books, A Member of the Perseus Books Group - ISBN: 0-465-05135-9  
+      |:closed_book:| Emotional Design - Why We Love (or Hate) Everyday Things - Donald A. Norman - Basic Books, A Member of the Perseus Books Group - ISBN: 0-465-05135-9  
 
 
 .. note::
