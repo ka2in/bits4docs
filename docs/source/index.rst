@@ -25,18 +25,16 @@ Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translatio
 - Now learning: Docs-as-Code based on `Antora <https://antora.org/>`_ with `AsciiDoc <https://asciidoc-py.github.io/>`_
 - Currently reading:
 
-      |:closed_book:| Web Security for Developers - Real Threats, Practical Defense - Malcolm McDonald - No Starch Press - ISBN: 978-1-59327-994-3
+      |:closed_book:| The Product is Docs - Christopher Gales and the Splunk Documentation Team
       
-      |:closed_book:| Eloquent JavaScript - A Modern Introduction to Programming - Marijn Haverbeke - No Starch Press - ISBN: 978-1-59327950-9  
+      |:closed_book:| Emotional Design Why We Love (or Hate) Everyday Things - Donald A. Norman - Basic Books,
+A Member of the Perseus Books Group - ISBN: 0-465-05135-9  
 
 
 .. note::
 
    This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID: 0x52D6AF10``
-<<<<<<< HEAD
 
-=======
->>>>>>> easydocbranch
 
 .. toctree::
    :maxdepth: 2
