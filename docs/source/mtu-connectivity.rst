@@ -26,11 +26,8 @@ If you have a `managed switch <https://www.cisco.com/c/en/us/products/switches/w
 
 Port mirroring is a technique that allows you to forward a copy of all inbound and outbound packets from a single port or an entire VLAN to a target port for diagnostic purposes. You can hence configure a ``mirrored port`` for the traffic to be mirrored, and a ``monitor port`` for your local traffic destination. 
 
-.. figure:: port-mirroring.svg
+.. figure:: port-mirroring.png
    :alt: Port Mirroring
-   :width: 276.8468mm
-   :height: 182.22717mm
-   :scale: 180%
    :align: center
 
    A simple network configuration for port mirroring 

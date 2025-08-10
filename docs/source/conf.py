@@ -10,9 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../..'))
 
 
 # -- Project information -----------------------------------------------------
@@ -32,13 +32,20 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-import sys, os, sphinx_rtd_theme
+# Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# http://www.sphinx-doc.org/en/master/config
+from docutils.parsers.rst import Directive
 
-sys.path.insert(0, os.path.abspath('../..'))
+import sphinxemoji
+
+import pydata_sphinx_theme
+
 
 extensions = [
     'myst_parser',
-	'sphinx_rtd_theme',
     'sphinx_markdown_tables',
     'sphinxcontrib.inkscapeconverter',
     'sphinxcontrib.httpdomain',
@@ -102,8 +109,13 @@ html_theme_options = {
     "pygment_dark_style": "native",
     "footer_start": "copyright",
     "footer_end": "",
-    'collapse_navigation': True, # ToC options
-    "show_nav_level": 0,
+    'collapse_navigation': True, # ToC options - Collapse empty navigation sections
+    "show_nav_level": 2, # Adjust this value as needed
+    "navigation_depth": 4,  # Adjust this value as needed
+}
+
+html_sidebars = {
+    "**": ["search-field.html"]
 }
 
 

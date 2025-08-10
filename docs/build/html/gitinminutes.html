@@ -32,8 +32,8 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a775c0e" />
   
   <!-- So that users can add custom icons -->
@@ -42,13 +42,11 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/jquery.js?v=5d32c60e"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=f2a433a1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
-    <script src="_static/twemoji.js"></script>
+    <script src="_static/twemoji.js?v=a4381b3f"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gitinminutes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -343,11 +341,21 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
     </div>
   
   
@@ -405,7 +413,8 @@
   <section id="git-primer-for-the-impatient">
 <h1>Git Primer for the Impatient<a class="headerlink" href="#git-primer-for-the-impatient" title="Link to this heading">#</a></h1>
 <figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="_images/gitflow.svg"><img alt="Rebasing in Git" src="_images/gitflow.svg" style="width: 800px; height: 323px;" /></a>
+<a class="reference internal image-reference" href="_images/gitflow.svg"><img alt="Rebasing in Git" src="_images/gitflow.svg" style="width: 800px; height: 323px;" />
+</a>
 <figcaption>
 <p><span class="caption-text">Picture under a <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> license</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
@@ -785,7 +794,8 @@ fd9e2e4 Updating the table about HTTP verbs
 <p>The merge option is a <em>non-destructive</em> operation. It allows you to join two or more sequences of commits together “without” altering the project history.</p>
 <p>Unlike the merge option, a rebase “rewrites” the project history by <strong>reapplying</strong> all the commits of a given branch on top of the base branch. With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code>, you can move an entire feature branch to place it on the tip of the base branch in the tree.</p>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/git-rebase.svg"><img alt="Rebasing in Git" src="_images/git-rebase.svg" style="width: 800px; height: 544px;" /></a>
+<a class="reference internal image-reference" href="_images/git-rebase.svg"><img alt="Rebasing in Git" src="_images/git-rebase.svg" style="width: 800px; height: 544px;" />
+</a>
 <figcaption>
 <p><span class="caption-text">Rebasing commits – Picture under a <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> license</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
