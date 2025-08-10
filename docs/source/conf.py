@@ -60,15 +60,10 @@ source_suffix = {
     '.md': 'markdown',
 }
 
-<<<<<<< HEAD
-=======
 # Setting a consistent emoji style
-
 sphinxemoji_style = 'twemoji'
 
->>>>>>> easydocbranch
 # Settings for sphinx-markdown-tables
-
 source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
