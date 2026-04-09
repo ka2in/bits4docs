@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'bits4docs'
-copyright = '2025, GlobalTech Translations'
-author = 'GlobalTech Translations'
+copyright = '2026, Farowave'
+author = 'Farowave'
 
 
 # The full version, including alpha/beta/rc tags

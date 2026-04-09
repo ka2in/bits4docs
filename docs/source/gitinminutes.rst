@@ -6,6 +6,8 @@
 Git Primer for the Impatient
 ----------------------------
 
+Version control is a core skill for technical communicators working in docs-as-code environments. This primer covers Git essentials — from initial configuration to branching and syncing — written for documentation professionals adopting Git-based workflows.
+
 .. figure:: gitflow.svg
    :alt: Rebasing in Git
    :width: 800px
