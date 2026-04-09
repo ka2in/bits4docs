@@ -1,4 +1,4 @@
-.. globaltech-docs documentation master file, created by
+.. Farowave documentation master file, created by
    sphinx-quickstart on Mon Oct 18 19:31:10 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -10,29 +10,17 @@ You will find here articles, tutorials and other resources about the following t
 
 - Technical communication 
 - Software documentation 
-- Front/backend web development
+- Web development
 
 **About the author:**
 
-Fayçal Alami-Hassani - `@GlobalTech Translations <https://globaltech-translations.com>`_ - `@gnufcl@fosstodon.org <https://fosstodon.org/@gnufcl>`_ 
+Fayçal Alami-Hassani is a senior technical communication consultant and founder of Farowave — a boutique enterprise documentation consultancy based in the European Union, working with SaaS companies and regulated industries worldwide.
 
-- Technical communicator, translator and interpreter
-- Markup: reStructuredText, Markdown, DocBook, XML
-- Web development: HTML, CSS, JavaScript, jQuery, MySQL
-- Text editors: Nano, Atom, Sublime Text
-- Version control: Git, CVS
-- OS: Debian, Fedora 
-- Now learning: Docs-as-Code based on `Antora <https://antora.org/>`_ with `AsciiDoc <https://asciidoc-py.github.io/>`_
-- Currently reading:
+With over 10 years spanning technical translation, localization, and documentation, he specializes in docs-as-code implementation, REST API documentation, and multilingual content strategy.
 
-      |:closed_book:| The Product is Docs - Christopher Gales and the Splunk Documentation Team
-      
-      |:closed_book:| Emotional Design - Why We Love (or Hate) Everyday Things - Donald A. Norman - Basic Books, A Member of the Perseus Books Group - ISBN: 0-465-05135-9  
+Proficient in Markdown, reStructuredText, AsciiDoc, and DocBook, with hands-on experience in Git-based workflows, static site generators, and documentation toolchains across Linux environments.
 
-
-.. note::
-
-   This project is under active development. If you have any questions, please send an email to: info[@]globaltech-translations[.]com - ``PGP KeyID: 0x52D6AF10``
+Contact: ping@farowave.com
 
 
 .. toctree::

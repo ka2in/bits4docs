@@ -5,6 +5,8 @@
 MTU Size and Connectivity Issues
 --------------------------------
 
+Network configuration issues can surface unexpectedly in documentation environments — particularly when working with remote pipelines, CI/CD integrations, or distributed teams. This article covers MTU size, its impact on connectivity, and how to diagnose and resolve common related issues.
+
 .. figure:: mtu-connectivity.png
    :alt: MTU and Connectivity
    :scale: 75%

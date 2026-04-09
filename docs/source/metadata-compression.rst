@@ -5,6 +5,8 @@
 Compression & metadata removal
 ------------------------------
 
+Files carry more information than their visible content. This article examines metadata embedded in common file formats, its privacy implications, and practical approaches to stripping metadata before publishing or sharing documentation assets.
+
 .. figure:: Data-Mike-Haynes.jpeg
    :alt: Compression and metadata removal
    :scale: 90%
