@@ -24,16 +24,30 @@ table.tight-table tr:nth-child(even) {
  * In light mode: We hide the original dark logo and display the white version via a pseudo-element
  * In dark mode: We invert the colors of the dark logo to make it visible on dark backgrounds
  */
- 
-@media (prefers-color-scheme: light) {
-  .logo__image.only-light {
-    content: url("drawing-icon-dark.png") !important;
+
+ @media (prefers-color-scheme: light) {
+  img.only-light {
+    background: url("/bits4docs/_static/drawing-icon-dark.png") no-repeat center / contain !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  .logo::before {
+    content: "";
+    display: block;
+    background: url("/bits4docs/_static/drawing-icon-dark.png") no-repeat center / contain;
+    width: 100%;
+    height: 297px;
   }
 }
 
-/* Keep dark mode as-is (inverted) */
 @media (prefers-color-scheme: dark) {
   .logo__image.only-dark {
     filter: brightness(0) invert(1) !important;
   }
+}
+
+.logo {
+  position: relative;
 }
