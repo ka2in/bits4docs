@@ -112,6 +112,11 @@ html_theme_options = {
     'collapse_navigation': True, # ToC options - Collapse empty navigation sections
     "show_nav_level": 2, # Adjust this value as needed
     "navigation_depth": 4,  # Adjust this value as needed
+    "logo": {
+        "image_light": "drawing-icon.png",
+        "image_dark": "drawing-icon-dark.png",
+    }
+
 }
 
 html_sidebars = {
@@ -135,10 +140,11 @@ source_suffix = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 # Adding settings for custom css file in the _Static folder
-def setup(app):
-  app.add_css_file('css/custom.css')
+# def setup(app):
+#  app.add_css_file('css/custom.css')
 
 #Disable the option 'View page source' on the homepage
 
@@ -146,8 +152,7 @@ html_show_sourcelink = False
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-
-html_logo = "drawing-icon.png"
+# html_logo = "drawing-icon.png"
 
 
 # LaTeX customization for PDF 
