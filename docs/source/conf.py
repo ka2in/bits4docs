@@ -68,7 +68,7 @@ source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
-source_suffix = ['.rst', '.md']
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -128,12 +128,6 @@ html_sidebars = {
 
 html_context = {
    "default_mode": "dark",
-}
-
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.txt': 'markdown',
-    '.md': 'markdown',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
