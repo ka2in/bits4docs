@@ -172,7 +172,7 @@ latex_show_urls = 'footnote'
 
 # Grouping the document tree into LaTeX files. List of tuples# (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
- ('index', 'yourdoc.tex', u'bits4docs Documentation', u'GlobalTech Translations', 'manual'),
+ ('index', 'yourdoc.tex', u'bits4docs Documentation', u'Farowave', 'manual'),
  ]
 
 # Options for LaTeX output

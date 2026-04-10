@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/twemoji.css?v=2199c511" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=92b56f59" />
+    <link rel="stylesheet" type="text/css" href="_static/twemoji.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=91add37b" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -46,22 +46,27 @@
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"></script>
-    <script src="_static/twemoji.js?v=a4381b3f"></script>
+    <script src="_static/twemoji.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="FTP vs. API – differences in terms of data transmission" href="ftp-vs-api.html" />
+    <link rel="next" title="Git Primer for the Impatient" href="gitinminutes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
-
+  <body data-default-mode="dark">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
@@ -93,7 +98,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -134,15 +139,15 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="ftp-vs-api.html">
-    FTP vs. API
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="gitinminutes.html">
-    Git Primer
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
   </a>
 </li>
 
@@ -260,15 +265,15 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="ftp-vs-api.html">
-    FTP vs. API
+  <a class="nav-link nav-internal" href="gitinminutes.html">
+    Git Primer
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="gitinminutes.html">
-    Git Primer
+  <a class="nav-link nav-internal" href="ftp-vs-api.html">
+    FTP vs. API
   </a>
 </li>
 
@@ -387,9 +392,9 @@
 <h1>Welcome to bits4docs!<a class="headerlink" href="#welcome-to-bits4docs" title="Link to this heading">#</a></h1>
 <p>You will find here articles, tutorials and other resources about the following topics:</p>
 <ul class="simple">
-<li><p>Technical communication</p></li>
-<li><p>Software documentation</p></li>
-<li><p>Web development</p></li>
+<li><p>Technical Communication</p></li>
+<li><p>Software Documentation</p></li>
+<li><p>Localization &amp; Terminology Governance</p></li>
 </ul>
 <p><strong>About the author:</strong></p>
 <p>Fayçal Alami-Hassani is a senior technical communication consultant and founder of Farowave — a boutique enterprise documentation consultancy based in the European Union, working with SaaS companies and regulated industries worldwide.</p>
@@ -398,10 +403,6 @@
 <p>Contact: <a class="reference external" href="mailto:ping&#37;&#52;&#48;farowave&#46;com">ping<span>&#64;</span>farowave<span>&#46;</span>com</a></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html">FTP vs. API – differences in terms of data transmission</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-an-old-well-established-protocol">FTP – an old, well-established protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-and-security">FTP and security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#api-more-access-options-for-a-better-customer-experience">API – more access options for a better customer experience</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html">Git Primer for the Impatient</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html#short-introduction">Short introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html#git-states">Git states</a></li>
@@ -409,6 +410,10 @@
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html#initial-configuration">Initial configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html#git-essential-commands">Git essential commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitinminutes.html#syncing-your-fork-with-upstream">Syncing your fork with upstream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html">FTP vs. API – differences in terms of data transmission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-an-old-well-established-protocol">FTP – an old, well-established protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#ftp-and-security">FTP and security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ftp-vs-api.html#api-more-access-options-for-a-better-customer-experience">API – more access options for a better customer experience</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html">Compression &amp; metadata removal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#metadata-and-privacy-implications">Metadata and privacy implications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata-compression.html#pdf-forensics-and-safety-measures">PDF forensics and safety measures</a></li>
@@ -431,11 +436,11 @@
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="ftp-vs-api.html"
+       href="gitinminutes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">FTP vs. API – differences in terms of data transmission</p>
+        <p class="prev-next-title">Git Primer for the Impatient</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -457,8 +462,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
