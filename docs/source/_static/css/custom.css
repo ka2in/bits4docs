@@ -14,3 +14,26 @@ table.tight-table tr:nth-child(even) {
 
 
 
+
+/**
+ * Logo theme switching for light and dark modes
+ * 
+ * pydata_sphinx_theme renders two logo images with classes "only-light" and "only-dark"
+ * that are toggled via JavaScript based on the user's color scheme preference.
+ * 
+ * In light mode: We hide the original dark logo and display the white version via a pseudo-element
+ * In dark mode: We invert the colors of the dark logo to make it visible on dark backgrounds
+ */
+ 
+@media (prefers-color-scheme: light) {
+  .logo__image.only-light {
+    content: url("drawing-icon-dark.png") !important;
+  }
+}
+
+/* Keep dark mode as-is (inverted) */
+@media (prefers-color-scheme: dark) {
+  .logo__image.only-dark {
+    filter: brightness(0) invert(1) !important;
+  }
+}

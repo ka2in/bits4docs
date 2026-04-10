@@ -8,9 +8,9 @@ Welcome to bits4docs!
 
 You will find here articles, tutorials and other resources about the following topics:
 
-- Technical communication 
-- Software documentation 
-- Web development
+- Technical Communication 
+- Software Documentation 
+- Localization & Terminology Governance
 
 **About the author:**
 
@@ -27,8 +27,8 @@ Contact: ping@farowave.com
    :maxdepth: 2
    :titlesonly:
 
-   FTP vs. API <ftp-vs-api>
    Git Primer <gitinminutes>
+   FTP vs. API <ftp-vs-api>
    Compression and Metadata <metadata-compression>
    MTU and Connectivity <mtu-connectivity>
    
