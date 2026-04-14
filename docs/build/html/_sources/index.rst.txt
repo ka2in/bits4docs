@@ -3,29 +3,35 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to bits4docs!
-=====================
+Welcome to Farowave Docs
+==========================
 
-You will find here articles, tutorials and other resources about the following topics:
+A technical resource hub maintained by Farowave — publishing practical guides, tutorials, and references on software documentation, developer tools, and technical communication.
 
-- Technical Communication 
-- Software Documentation 
-- Localization & Terminology Governance
+Topics covered include version control, API fundamentals, network concepts, and documentation toolchains — written for technical communicators, developers, and anyone working at the intersection of technology and content.
 
-**About the author:**
+Use the search bar above to find specific topics, or browse the articles listed below.
 
-Fayçal Alami-Hassani is a senior technical communication consultant and founder of Farowave — a boutique enterprise documentation consultancy based in the European Union, working with SaaS companies and regulated industries worldwide.
+.. admonition:: **About the author**
 
-With over 10 years spanning technical translation, localization, and documentation, he specializes in docs-as-code implementation, REST API documentation, and multilingual content strategy.
+   Fayçal Alami-Hassani is a senior technical communication consultant and founder of Farowave — a boutique enterprise documentation consultancy based in the European Union, working with SaaS companies and regulated industries worldwide.
 
-Proficient in Markdown, reStructuredText, AsciiDoc, and DocBook, with hands-on experience in Git-based workflows, static site generators, and documentation toolchains across Linux environments.
+   With over 10 years spanning technical translation, localization, and documentation, he specializes in docs-as-code implementation, REST API documentation, and multilingual content strategy.
 
-Contact: ping@farowave.com
+   Proficient in Markdown, reStructuredText, AsciiDoc, and DocBook, with hands-on experience in Git-based workflows, static site generators, and documentation toolchains across Linux environments.
 
+   **Contact**: `ping@farowave.com <mailto:ping@farowave.com>`_
+
+**Explore the topics**
+
+- `Git Primer <gitinminutes>`_
+- `FTP vs. API <ftp-vs-api>`_
+- `Compression and Metadata <metadata-compression>`_
+- `MTU and Connectivity <mtu-connectivity>`_
 
 .. toctree::
-   :maxdepth: 2
-   :titlesonly:
+   :maxdepth: 1
+   :hidden:
 
    Git Primer <gitinminutes>
    FTP vs. API <ftp-vs-api>
