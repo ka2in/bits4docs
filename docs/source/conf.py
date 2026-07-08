@@ -137,6 +137,10 @@ html_static_path = ['_static']
 html_css_files = ['custom.css']
 html_favicon = '_static/favicon.ico'
 
+# For LLM Consumption
+
+html_extra_path = ['_static/llms.txt']
+
 # Adding settings for custom css file in the _Static folder
 # def setup(app):
 #  app.add_css_file('css/custom.css')
@@ -150,7 +154,7 @@ html_show_sourcelink = False
 # html_logo = "drawing-icon.png"
 
 
-# LaTeX customization for PDF 
+# LaTeX customization for PDF
 
 latex_engine = 'xelatex'
 
