@@ -1,0 +1,11 @@
+# Farowave Reference Documentation
+
+> Technical reference documentation published by Farowave at docs.farowave.com. Built on Sphinx with the pydata theme. Covers API fundamentals, version control, networking, file management, and documentation tooling — maintained as a working example of structured technical reference documentation in a Sphinx environment. This site demonstrates Farowave's documentation practice and serves as a reference for clients and practitioners.
+
+## Pages
+
+- [Index](https://docs.farowave.com/): Root index of the Farowave technical reference — entry point to all reference topics.
+- [FTP vs API](https://docs.farowave.com/ftp-vs-api.html): Comparison of FTP and API as data transfer protocols — covers protocol differences, use cases, security considerations, and when to use each approach in modern software integrations.
+- [Git in Minutes](https://docs.farowave.com/gitinminutes.html): Concise reference for essential Git commands — covers repository setup, branching, committing, and the most common operations for technical writers and documentation contributors working in a docs-as-code environment.
+- [Compression and Metadata Removal](https://docs.farowave.com/metadata-compression.html): Reference guide for compressing PDF and image files and removing embedded metadata — covers tools, workflows, and privacy considerations relevant to documentation and content publishing.
+- [MTU and Connectivity](https://docs.farowave.com/mtu-connectivity.html): Technical reference for diagnosing and resolving network connectivity issues by adjusting Maximum Transmission Unit (MTU) size — covers TCP/IP fragmentation, IP datagram behaviour, and practical troubleshooting steps.
